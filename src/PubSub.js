@@ -1,33 +1,38 @@
-/**********
- *
- * pubsub.subscribe() on() add() listen()
- * pubsub.unsubscribe() off() remove() unlisten()
- * pubsub.publish() emit() announce()
- *
- * */
+export default class Pubsub {
+  constructor() {
+    this.events = {};
+  }
 
- export const pubsub = {
-    events: {},
-    subscribe: function(evName, fn) {
-      console.log(`PUBSUB: someone just subscribed to know about ${evName}`);
-      //add an event with a name as new or to existing list
-      this.events[evName] = this.events[evName] || [];
-      this.events[evName].push(fn);
-    },
-    unsubscribe: function(evName, fn) {
-      console.log(`PUBSUB: someone just UNsubscribed from ${evName}`);
-      //remove an event function by name
-      if (this.events[evName]) {
-        this.events[evName] = this.events[evName].filter(f => f !== fn);
+  subscription (eventName, func) {
+    return {
+      subscribe: () => {
+        if (this.events[eventName]) {
+          this.events[eventName].push(func);
+          console.log(`${func.name} has subscribed to ${eventName} Topic!`)
+        } else {
+          this.events[eventName] = [func];
+          console.log(`${func.name} has subscribed to ${eventName} Topic!`)
+        }
+      },
+
+      unsubscribe: () => {
+        if(this.events[eventName]){
+          this.events[eventName] = this.events[eventName].filter((subscriber) => subscriber !== func);
+          console.log(`${func.name} has unsubscribed from ${eventName} Topic!`)
+        }
       }
-    },
-    publish: function(evName, data) {
-      console.log(`PUBSUB: Making an broadcast about ${evName} with ${data}`);
-      //emit|publish|announce the event to anyone who is subscribed
-      if (this.events[evName]) {
-        this.events[evName].forEach(f => {
-          f(data);
-        });
-      }
+
+
     }
-  };
+  } 
+
+
+  publish(eventName, ...args) {
+    const funcs = this.events[eventName];
+    if (Array.isArray(funcs)) {
+      funcs.forEach((func) => {
+        func.apply(null, args);
+      });
+    }
+  }
+}
