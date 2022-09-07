@@ -1,1 +1,3 @@
-console.log('something here')
+import PubSub from './PubSub'
+
+console.log(PubSub)
