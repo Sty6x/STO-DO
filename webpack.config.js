@@ -11,20 +11,12 @@ module.exports = {
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        // clean: true,
+        clean: true,
     },
     devtool: 'inline-source-map',
     devServer: {
         static: './dist',
     },
-    // module: {
-    //     rules: [
-    //       {
-    //         test: /\.hbs$/,
-    //         loader: 'handlebars-loader'
-    //       },
-    //     ]
-    //   },
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Sto-Do',
