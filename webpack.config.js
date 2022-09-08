@@ -1,21 +1,37 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// var template = require("./file.handlebars");
 
 module.exports = {
     mode: 'development',
-    entry: './src/index.js',
+    entry: {
+        index:'./src/index.js',
+        Data:'./src/Data.js'
+    },
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        clean: true,
+        // clean: true,
     },
     devtool: 'inline-source-map',
     devServer: {
         static: './dist',
     },
+    // module: {
+    //     rules: [
+    //       {
+    //         test: /\.hbs$/,
+    //         loader: 'handlebars-loader'
+    //       },
+    //     ]
+    //   },
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Sto-Do',
+            template: '!!handlebars-loader!src/index.hbs'
         }),
     ],
+    optimization: {
+        runtimeChunk: 'single'
+    },
 }
