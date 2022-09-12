@@ -80,7 +80,8 @@ table {
 	--icon-width:30px;
 	--icon-heigth:30px;
 
-	--montserrat: font-family: 'Montserrat', sans-serif;
+	--sb-ic-width :20px;
+	--sb-ic-height : 20px
 }	
 /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500;600;700&display=swap');
@@ -194,11 +195,8 @@ a{
 	display: flex;
 	gap:10px;
 	justify-content: center;
-	/* align-items: center; */
 	flex-direction: column;
 	font-family: "Montserrat-Med";
-	font-size: 1rem;
-	color: var(--text3);
 	padding-left: 3em;
 	padding-right: .5em;
 	/* padding: 3em 3em 0em .5em; */
@@ -212,19 +210,39 @@ a{
 .sidebar>li{
 	/* outline: red solid 1px; */
 	padding: var(--sidebar-list-padding);
+	display: flex;
+	align-items: center;
+	gap: .5em;
+	font-size: 1rem;
+	color: var(--text3);
 }
 .sidebar>li,#hamburger-menu,#settings,#user-profile,#logo{
 	cursor: pointer;
 }
 .sidebar>li:hover{
 	box-sizing: border-box;
-	background-color: var(--frost-4);
+	background-color: var(--dar2Main-Sb);
 	border-radius: 4px;
 	padding: var(--sidebar-list-padding);
 }
 
+li > .tab-icon{
+	width: var(--sb-ic-width);
+	height: var(--sb-ic-heighth);
+	image-rendering: auto;
+}
+
+.projects-icon{
+	filter: invert(77%) sepia(25%) saturate(362%) hue-rotate(49deg) brightness(90%) contrast(90%);
+}
+.td-task-icon{
+	filter: invert(63%) sepia(18%) saturate(946%) hue-rotate(328deg) brightness(92%) contrast(89%);
+}
+.up-task-icon{
+	filter: invert(67%) sepia(14%) saturate(590%) hue-rotate(259deg) brightness(88%) contrast(90%);
 
 
+}
 
 
 

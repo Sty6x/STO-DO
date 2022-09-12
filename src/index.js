@@ -6,3 +6,10 @@ function getData(msg,{name,age,favoriteFood}){
 }
 PubSub.subscribe('getData',getData)
 
+
+function changeSidebar(){
+
+}
+
+const menuButton = document.getElementById('hamburger-menu')
+menuButton.addEventListener('click', changeSidebar)
