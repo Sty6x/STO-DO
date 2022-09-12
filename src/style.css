@@ -276,6 +276,9 @@ a {
 	height: 100%;
 }
 
+#sidebar-container{
+	box-shadow: 3px 0px 15px rgb(0, 0, 0,.3);
+}
 /* contents aligned with burger menu */
 .sidebar-active {
 	padding: 4em .5em 0em 0em;
@@ -297,14 +300,14 @@ a {
 	flex-direction: column;
 	font-family: "Montserrat-Med";
 	padding-left: 3em;
-	padding-right: .5em;
+	padding-right: .3em;
 	/* padding: 3em 3em 0em .5em; */
 	/* outline: green solid 1px; */
 }
 
 :root {
-	/* bug purposes */
-	--sidebar-list-padding: .5em .5em .2em .5em;
+	/* convinience purposes */
+	--sidebar-list-padding: .5em;
 }
 
 .sidebar>li {
