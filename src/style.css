@@ -51,24 +51,77 @@ table {
 
 
 
+
+:root{
+	/* colors */
+	/* background-or-something */
+	--dark : #2e3440;
+	--darkMain-Sb: #3b4252;
+	--dark2 : #434c5e;
+	--dar2Main-Sb: #4c566a;
+
+	/* text */
+	--text :#d8dee9;
+	--text2 :#e5e9f0;
+	--text3: #eceff4;
+
+	/* frost */
+	--frost: #8fbcbb;
+	--frost-2:#88c0d0;
+	--frost-3:#5e81ac;
+	--frost-4:#81a1c1;
+
+	/* highlights */
+	--highlight-red: #bf616a;
+	--highlight-orange: #d08770;
+	--highlight-yellow: #ebcb8b;
+	--highlight-green: #a3be8c;
+	--highlight-red: #b48ead;
+
+	/* icons */
+	--icon-width:20px;
+	--icon-heigth:20px;
+}	
+
 .nav-container{
     display: flex;
     justify-content: space-between;
+	align-items: center;
+	padding: .5em 3em;
 }
 ul.right-nav{
     display: flex;
-	/* background-image: url("./resources/day-and-night.png");
-	background-size: 50px 50px;
-	width: 50px;
-	height: 50px; */
+	gap: 10px;
 }
 
 #user-profile,#hamburger-menu,#settings{
-	width: 50px;
-	height: 50px;
+	width: var(--icon-width);
+	height: var(--icon-height);
 }
 
+#settings{
+	border: var(--highlight-green) 2px solid;
+	border-radius: 12px;
 
+}
+#user-profile{
+	border: var(--highlight-red) 2px solid;
+	border-radius: 12px;
+}
+
+header{
+	background-color: var(--dark); 
+}
+
+#logo{
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+a{
+	text-decoration: none;
+	color:var(--text);
+}
 
 
 
