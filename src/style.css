@@ -3,19 +3,87 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -23,25 +91,44 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
-ol, ul {
+
+ol,
+ul {
 	list-style: none;
 }
-blockquote, q {
+
+blockquote,
+q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -50,24 +137,24 @@ table {
 
 
 
-:root{
+:root {
 	/* colors */
 	/* background-or-something */
-	--dark : #2e3440;
+	--dark: #2e3440;
 	--darkMain-Sb: #3b4252;
-	--dark2 : #434c5e;
+	--dark2: #434c5e;
 	--dar2Main-Sb: #4c566a;
 
 	/* text */
-	--text :#d8dee9;
-	--text2 :#e5e9f0;
+	--text: #d8dee9;
+	--text2: #e5e9f0;
 	--text3: #eceff4;
 
 	/* frost */
 	--frost: #8fbcbb;
-	--frost-2:#88c0d0;
-	--frost-3:#5e81ac;
-	--frost-4:#81a1c1;
+	--frost-2: #88c0d0;
+	--frost-3: #5e81ac;
+	--frost-4: #81a1c1;
 
 	/* highlights */
 	--highlight-red: #bf616a;
@@ -77,12 +164,13 @@ table {
 	--highlight-red: #b48ead;
 
 	/* icons */
-	--icon-width:30px;
-	--icon-heigth:30px;
+	--icon-width: 30px;
+	--icon-heigth: 30px;
 
-	--sb-ic-width :20px;
-	--sb-ic-height : 20px
-}	
+	--sb-ic-width: 20px;
+	--sb-ic-height: 20px
+}
+
 /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500;600;700&display=swap');
 
@@ -91,10 +179,12 @@ table {
 	font-family: "Montserrat-Bold";
 	src: url("./resources/fonts/Montserrat-Bold.woff2") format("woff2");
 }
+
 @font-face {
 	font-family: "Montserrat-Reg";
 	src: url("./resources/fonts/Montserrat-Regular.woff2") format("woff2");
 }
+
 @font-face {
 	font-family: "Montserrat-Med";
 	src: url("./resources/fonts/Montserrat-Medium.woff2") format("woff2");
@@ -122,78 +212,90 @@ table {
 	src: url("./resources/fonts/MontserratAlternates-Medium.woff2") format("woff2");
 }
 
-body,html{
+body,
+html {
 	overflow: hidden;
 	height: 100vh;
-	
+
 }
 
-.nav-container{
-    display: flex;
-    justify-content: space-between;
+.nav-container {
+	display: flex;
+	justify-content: space-between;
 	align-items: center;
 	padding: .5em 3em;
 }
-ul.right-nav{
-    display: flex;
+
+ul.right-nav {
+	display: flex;
 	gap: 10px;
 }
 
-#user-profile,#hamburger-menu,#settings{
+#user-profile,
+#hamburger-menu,
+#settings {
 	width: var(--icon-width);
 	height: var(--icon-height);
 	filter: invert(93%) sepia(11%) saturate(221%) hue-rotate(185deg) brightness(94%) contrast(93%);
 	padding: 1px;
 }
+
 /* 
 #hamburger-menu{
 } */
 
-#settings{
+#settings {
 	border: var(--highlight-green) 2px solid;
 	border-radius: 20px;
 
 }
-#user-profile{
+
+#user-profile {
 	border: var(--highlight-red) 2px solid;
 	border-radius: 20px;
 }
 
-header{
-	background-color: var(--dark); 
+header {
+	background-color: var(--dark);
 }
 
-#logo{
-	font-weight:400;
+#logo {
+	font-weight: 400;
 	font-size: 1.5rem;
 	font-family: 'Montserrat-Bold';
 }
 
-a{
+a {
 	text-decoration: none;
-	color:var(--text);
+	color: var(--text);
 }
 
-#sb-main-container{
+#sb-main-container {
 	display: flex;
 	background-color: var(--dark2);
 	height: 100%;
 }
-/* contents aligned with burger menu */
-.sidebar-active{
 
-	padding:4em .5em 0em 0em;
-	text-align:start;
+/* contents aligned with burger menu */
+.sidebar-active {
+	padding: 4em .5em 0em 0em;
+	text-align: start;
 	width: 13%;
 	background-color: var(--darkMain-Sb);
-	transition: left .25s cubic-bezier(.4,0,.2,1);
+	transition: width 150ms ease-out;
+
 }
-.sidebar-inactive{
-	display: none;
+
+.sidebar-inactive {
+	transition: width 150ms ease-out;
+	width: 0;
+	display: block;
+	/* display: none; */
 }
-.sidebar{
+
+.sidebar {
 	display: flex;
-	gap:10px;
+	gap: 10px;
 	justify-content: center;
 	flex-direction: column;
 	font-family: "Montserrat-Med";
@@ -203,11 +305,12 @@ a{
 	/* outline: green solid 1px; */
 }
 
-:root{
+:root {
 	/* bug purposes */
-	--sidebar-list-padding: .5em .5em .2em .5em ;
+	--sidebar-list-padding: .5em .5em .2em .5em;
 }
-.sidebar>li{
+
+.sidebar>li {
 	/* outline: red solid 1px; */
 	padding: var(--sidebar-list-padding);
 	display: flex;
@@ -215,38 +318,42 @@ a{
 	gap: .5em;
 	font-size: 1rem;
 	color: var(--text3);
+	white-space: nowrap;
 }
-.sidebar>li,#hamburger-menu,#settings,#user-profile,#logo{
+
+.sidebar>li,
+#hamburger-menu,
+#settings,
+#user-profile,
+#logo {
 	cursor: pointer;
 }
-.sidebar>li:hover{
+
+
+.sidebar>li:hover {
 	box-sizing: border-box;
 	background-color: var(--dar2Main-Sb);
 	border-radius: 4px;
 	padding: var(--sidebar-list-padding);
 }
 
-li > .tab-icon{
+
+li>.tab-icon {
 	width: var(--sb-ic-width);
 	height: var(--sb-ic-heighth);
 	image-rendering: auto;
 }
 
-.projects-icon{
+.projects-icon {
 	filter: invert(77%) sepia(25%) saturate(362%) hue-rotate(49deg) brightness(90%) contrast(90%);
 }
-.td-task-icon{
+
+.td-task-icon {
 	filter: invert(63%) sepia(18%) saturate(946%) hue-rotate(328deg) brightness(92%) contrast(89%);
 }
-.up-task-icon{
+
+.up-task-icon {
 	filter: invert(67%) sepia(14%) saturate(590%) hue-rotate(259deg) brightness(88%) contrast(90%);
 
 
 }
-
-
-
-
-
-
-
