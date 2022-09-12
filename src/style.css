@@ -77,17 +77,54 @@ table {
 	--highlight-red: #b48ead;
 
 	/* icons */
-	--icon-width:20px;
-	--icon-heigth:20px;
+	--icon-width:30px;
+	--icon-heigth:30px;
 
 	--montserrat: font-family: 'Montserrat', sans-serif;
 }	
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500;600;700&display=swap');
+
+/* Montserrat */
+@font-face {
+	font-family: "Montserrat-Bold";
+	src: url("./resources/fonts/Montserrat-Bold.woff2") format("woff2");
+}
+@font-face {
+	font-family: "Montserrat-Reg";
+	src: url("./resources/fonts/Montserrat-Regular.woff2") format("woff2");
+}
+@font-face {
+	font-family: "Montserrat-Med";
+	src: url("./resources/fonts/Montserrat-Medium.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Montserrat-Light";
+	src: url("./resources/fonts/Montserrat-ExtraLight.woff2") format("woff2");
+}
+
+/* Montserrat Alternative */
+
+@font-face {
+	font-family: "Montserrat-alt-Reg";
+	src: url("./resources/fonts/MontserratAlternates-Regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Montserrat-alt-Bold";
+	src: url("./resources/fonts/MontserratAlternates-Bold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Montserrat-alt-Med";
+	src: url("./resources/fonts/MontserratAlternates-Medium.woff2") format("woff2");
+}
 
 body,html{
 	overflow: hidden;
 	height: 100vh;
+	
 }
 
 .nav-container{
@@ -104,16 +141,21 @@ ul.right-nav{
 #user-profile,#hamburger-menu,#settings{
 	width: var(--icon-width);
 	height: var(--icon-height);
+	filter: invert(93%) sepia(11%) saturate(221%) hue-rotate(185deg) brightness(94%) contrast(93%);
+	padding: 1px;
 }
+/* 
+#hamburger-menu{
+} */
 
 #settings{
 	border: var(--highlight-green) 2px solid;
-	border-radius: 12px;
+	border-radius: 20px;
 
 }
 #user-profile{
 	border: var(--highlight-red) 2px solid;
-	border-radius: 12px;
+	border-radius: 20px;
 }
 
 header{
@@ -123,8 +165,7 @@ header{
 #logo{
 	font-weight:400;
 	font-size: 1.5rem;
-	/* font-family: 'Montserrat', sans-serif; */
-	font-family: 'Montserrat Alternates', sans-serif;
+	font-family: 'Montserrat-Bold';
 }
 
 a{
@@ -138,11 +179,48 @@ a{
 	height: 100%;
 }
 /* contents aligned with burger menu */
-#sidebar{
-	padding:2em 2em 0em 3em;
+.sidebar-active{
+
+	padding:4em .5em 0em 0em;
 	text-align:start;
 	width: 13%;
 	background-color: var(--darkMain-Sb);
+	transition: left .25s cubic-bezier(.4,0,.2,1);
+}
+.sidebar-inactive{
+	display: none;
+}
+.sidebar{
+	display: flex;
+	gap:10px;
+	justify-content: center;
+	/* align-items: center; */
+	flex-direction: column;
+	font-family: "Montserrat-Med";
+	font-size: 1rem;
+	color: var(--text3);
+	padding-left: 3em;
+	padding-right: .5em;
+	/* padding: 3em 3em 0em .5em; */
+	/* outline: green solid 1px; */
+}
+
+:root{
+	/* bug purposes */
+	--sidebar-list-padding: .5em .5em .2em .5em ;
+}
+.sidebar>li{
+	/* outline: red solid 1px; */
+	padding: var(--sidebar-list-padding);
+}
+.sidebar>li,#hamburger-menu,#settings,#user-profile,#logo{
+	cursor: pointer;
+}
+.sidebar>li:hover{
+	box-sizing: border-box;
+	background-color: var(--frost-4);
+	border-radius: 4px;
+	padding: var(--sidebar-list-padding);
 }
 
 
