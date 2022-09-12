@@ -282,15 +282,12 @@ a {
 	text-align: start;
 	width: 13%;
 	background-color: var(--darkMain-Sb);
-	transition: width 150ms ease-out;
-
+	transition: width 150ms ease;
 }
 
 .sidebar-inactive {
-	transition: width 150ms ease-out;
-	width: 0;
-	display: block;
-	/* display: none; */
+	transition: 150ms ease;
+	width: 0%;
 }
 
 .sidebar {
