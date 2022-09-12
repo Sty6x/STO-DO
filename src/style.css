@@ -236,36 +236,25 @@ ul.right-nav {
 
 
 #user-profile,
-#hamburger-menu,
-#settings {
+#settings,
+#hamburger-menu
+ {
 	width: var(--icon-width);
 	height: var(--icon-height);
 	filter: invert(93%) sepia(11%) saturate(221%) hue-rotate(185deg) brightness(94%) contrast(93%);
-	padding: 1px;
 }
 
 #hamburger-menu{
+	transition: all 150ms ease;
 	padding: .1em .3em;
-	transition: all 100ms ease;
 }
-#hamburger-menu:hover{
-	background-color: var(--text2);
+#hamburger-menu:hover {
 	border-radius: 2px;
+	background-color: var(--text2);
 	padding: .1em .3em;
 	filter: none;
 }
 
-
-#settings {
-	border-bottom: var(--highlight-green) 3px solid;
-	border-radius: 20px;
-
-}
-
-#user-profile {
-	border-bottom: var(--highlight-red) 3px solid;
-	border-radius: 20px;
-}
 
 header {
 	background-color: var(--dark);
@@ -289,7 +278,7 @@ a {
 }
 
 #sidebar-container{
-	box-shadow: 2px 0px 13px rgb(0, 0, 0,.3);
+	box-shadow: 2px 3px 5px rgb(0, 0, 0,.3);
 	
 }
 /* contents aligned with burger menu */
