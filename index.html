@@ -6,19 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sto-Do</title>
-<script defer src="/runtime.bundle.js"></script><script defer src="/index.bundle.js"></script><script defer src="/Data.bundle.js"></script></head>
+<script defer src="/runtime.bundle.js"></script><script defer src="/index.bundle.js"></script><script defer src="/Data.bundle.js"></script><script defer src="/createMain.bundle.js"></script></head>
 
 <body>
     <header>
         <div class="nav-container">
             <div class="left-nav">
-                <img src="./resources/menu-3.png" alt="menu" id="hamburger-menu">
+                <img src="./resources/menu.png" alt="menu" id="hamburger-menu">
             </div>
             <div class="logo-container">
                 <h1 id="logo"> <a href="#"> STO-DO </a></h1>
             </div>
             <ul class="right-nav">
-                <li> <img src="./resources/day-and-night.png" alt="settings" id="settings"> </li>
+                <li> <img src="./resources/sunny-day.png" alt="settings" id="settings"> </li>
                 <li>
                     <img src="./resources/profile-user.png" alt="profile" id="user-profile">
                 </li>
@@ -26,15 +26,14 @@
         </div>
     </header>
     <div id="sb-main-container" class="">
-        <div id="sidebar-container" class="sidebar-active sidebar-inactive">
+        <div id="sidebar-container" class="sidebar-active ">
             <ul class="sidebar">
-                <li class="today">Today's Tasks</li>
-                <li class="today">Upcoming Tasks</li>
-                <li class="today"> Projects</li>
+                <li class="td-t"><img class="td-task-icon tab-icon" src="./resources/checklist.png" alt=""><p>Today's Tasks</p></li>
+                <li class="up-t"><img class="up-task-icon tab-icon" src="./resources/calendar (1).png" alt=""><p>Upcoming Tasks</p></li>
+                <li class="prj"><img class="projects-icon tab-icon" src="./resources/projects.png" alt=""><p>Projects</p></li>
             </ul>
         </div>
         <main id="main-content-container" class="">
-            main
         </main>
 
     </div>
