@@ -285,7 +285,7 @@ a {
 /* contents aligned with burger menu */
 /* fade text */
 .sidebar-active {
-	padding: 4em .5em 0em 0em;
+	padding: 5em .5em 0em 0em;
 	text-align: start;
 	width: 18%;
 	background-color: var(--darkMain-Sb);
