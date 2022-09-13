@@ -375,12 +375,19 @@ li>.tab-icon {
 }
 
 
-
 #main-content-container{
-	display: flex;
-	justify-content: center;
 	outline: red solid 1px;
 	width: max(100%, 300px);
 	margin: 5em 6em 7em 6em;
-	/* margin-bottom: 7em; */
 }
+#header-option-container,
+#header-container,
+#main-content-container{
+	display: flex;
+}
+#header-container
+{
+	justify-content: space-between;
+	width: 100%;
+}
+#td-task-container{}
