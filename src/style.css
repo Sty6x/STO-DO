@@ -386,12 +386,17 @@ li>.tab-icon {
 #main-content-container{
 	display: flex;
 }
+#header-option-container,
 #header-container
 {
 	justify-content: space-between;
+	width: 10em;
+}
+#header-container{
 	width: 100%;
 }
 #td-task-container{
 	height: 100%;
+	margin: 2em 5em;
 	outline: white solid 1px;
 }
