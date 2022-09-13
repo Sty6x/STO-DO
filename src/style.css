@@ -244,7 +244,7 @@ ul.right-nav {
 	filter: invert(93%) sepia(11%) saturate(221%) hue-rotate(185deg) brightness(94%) contrast(93%);
 }
 
-#hamburger-menu{
+#hamburger-menu, .sidebar >li{
 	transition: all 150ms ease;
 	padding: .1em .3em;
 }
@@ -279,28 +279,25 @@ a {
 
 #sidebar-container{
 	box-shadow: 2px 3px 5px rgb(0, 0, 0,.3);
-	
 }
-/* contents aligned with burger menu */
 
+/* contents aligned with burger menu */
 /* fade text */
 .sidebar-active {
 	padding: 4em .5em 0em 0em;
 	text-align: start;
-	width: 15%;
+	width: 18%;
 	background-color: var(--darkMain-Sb);
 	transition: width 200ms ease;
 }
 
 .sidebar-inactive {
+
 	transition: 200ms ease;
 	width: 0%;
 }
 @keyframes fade-sidebar-content {
-	/* 0%   {
-		opacity: 0;
-		transform: translateX(-80%);
-	} */
+
 	0%   {
 		opacity: 0;
 		transform: translateX(-80%);
@@ -316,7 +313,7 @@ a {
 }
 
 .sidebar {
-	animation: 2s fade-sidebar-content ease-out;
+	animation: 2s fade-sidebar-content ease;
 	animation-duration: 200ms;
 	display: flex;
 	gap: 15px;
@@ -337,8 +334,8 @@ a {
 	padding: var(--sidebar-list-padding);
 	display: flex;
 	align-items: center;
-	gap: .3em;
-	font-size: .9rem;
+	gap: 1em;
+	font-size: 1.2rem;
 	color: var(--text3);
 	white-space: nowrap;
 }
@@ -364,17 +361,15 @@ li>.tab-icon {
 	image-rendering: auto;
 }
 
-.projects-icon {
-	filter: invert(77%) sepia(25%) saturate(362%) hue-rotate(49deg) brightness(90%) contrast(90%);
-}
 
 .td-task-icon {
 	filter: invert(63%) sepia(18%) saturate(946%) hue-rotate(328deg) brightness(92%) contrast(89%);
 }
 
 .up-task-icon {
-	filter: invert(67%) sepia(14%) saturate(590%) hue-rotate(259deg) brightness(88%) contrast(90%);
-
-
+	filter: invert(50%) sepia(34%) saturate(724%) hue-rotate(305deg) brightness(84%) contrast(90%);
+}
+.projects-icon {
+	filter: invert(77%) sepia(25%) saturate(362%) hue-rotate(49deg) brightness(90%) contrast(90%);
 }
 
