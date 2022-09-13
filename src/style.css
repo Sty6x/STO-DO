@@ -390,14 +390,30 @@ li>.tab-icon {
 #header-container
 {
 	justify-content: space-between;
-	width: 10em;
+	/* width: 12em; */
 }
 #header-container{
-	align-items: center;
+	align-items: flex-start;
 	width: 100%;
 }
 #td-task-container{
 	height: 80%;
 	margin: 5em 5em 2em 5em;
 	outline: white solid 1px;
+}
+
+#header-option-container{
+	gap: 2em;
+}
+.option-icons{
+	background-color: #5e81ac;
+	padding: 10px;
+	height: 30px;
+	width: 30px;
+}
+
+#today-header{
+	font-size: 2rem;
+	color: var(--text);
+	font-family: 'Montserrat-Bold';
 }
