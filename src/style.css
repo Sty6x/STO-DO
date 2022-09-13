@@ -379,6 +379,7 @@ li>.tab-icon {
 	outline: red solid 1px;
 	width: max(100%, 300px);
 	margin: 5em 6em 7em 6em;
+	flex-direction: column;
 }
 #header-option-container,
 #header-container,
@@ -390,4 +391,7 @@ li>.tab-icon {
 	justify-content: space-between;
 	width: 100%;
 }
-#td-task-container{}
+#td-task-container{
+	height: 100%;
+	outline: white solid 1px;
+}
