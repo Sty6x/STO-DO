@@ -376,10 +376,16 @@ li>.tab-icon {
 
 
 #main-content-container{
-	outline: red solid 1px;
+	/* outline: red solid 1px; */
+	background-color: var(--darkMain-Sb);
+	opacity: .9;
 	width: max(100%, 300px);
 	margin: 5em 6em 7em 6em;
 	flex-direction: column;
+	padding: 2em 3em;
+	border-radius: 4px;
+	box-shadow: 5px 5px 12px rgb(0, 0,0,.3);
+	
 }
 #header-option-container,
 #header-container,
