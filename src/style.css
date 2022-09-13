@@ -275,6 +275,7 @@ a {
 	display: flex;
 	background-color: var(--dark2);
 	height: 100%;
+	/* width: 100%; */
 }
 
 #sidebar-container{
@@ -373,3 +374,13 @@ li>.tab-icon {
 	filter: invert(77%) sepia(25%) saturate(362%) hue-rotate(49deg) brightness(90%) contrast(90%);
 }
 
+
+
+#main-content-container{
+	display: flex;
+	justify-content: center;
+	outline: red solid 1px;
+	width: max(100%, 300px);
+	margin: 5em 6em 7em 6em;
+	/* margin-bottom: 7em; */
+}
