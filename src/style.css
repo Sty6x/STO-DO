@@ -393,10 +393,11 @@ li>.tab-icon {
 	width: 10em;
 }
 #header-container{
+	align-items: center;
 	width: 100%;
 }
 #td-task-container{
-	height: 100%;
-	margin: 2em 5em;
+	height: 80%;
+	margin: 5em 5em 2em 5em;
 	outline: white solid 1px;
 }
