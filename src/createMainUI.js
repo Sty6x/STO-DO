@@ -16,16 +16,19 @@ for (let i = 0; i < 3; i++) {
     optionArr.push(option)
     optionArr[i].textContent = `${i}`
     headerOptionContainer.append(optionArr[i])
+    optionArr[i].setAttribute('class',`option-${i}`)
+    optionArr[i].classList.add('option-icon')
 }
 
 
 function createTdTask() {
     mainContentContainer.appendChild(headerContainer)
+    headerContainer.setAttribute('id','header-container')
     mainContentContainer.appendChild(tdTaskContainer)
     tdTaskContainer.setAttribute('id','td-task-container')
     headerContainer.append(todayHeader)
+    todayHeader.setAttribute('id','today-header')
     headerContainer.appendChild(headerOptionContainer)
-    headerContainer.setAttribute('id','header-container')
     headerOptionContainer.setAttribute('id','header-option-container')
     todayHeader.textContent = "TODAY'S TASK"
 }
