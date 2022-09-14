@@ -23,8 +23,7 @@ const addTaskbutton = document.createElement('button')
 
 function createTdTask() {
     mainContentContainer.appendChild(tdMainContainer)
-    tdMainContainer.setAttribute('id', 'td-main-task-container')
-    tdMainContainer.appendChild(tdTasksContainer)
+    tdMainContainer.setAttribute('id', 'td-up-main-task-container')
     todayHeader.textContent = "TODAY"
 }
 createTdTask()
