@@ -8,7 +8,9 @@ const todayHeader = document.createElement('h1') //style
 const headerOptionContainer = document.createElement('ul')
 
 
-const tdTaskContainer = document.createElement('div')
+const tdMainContainer = document.createElement('div')
+const tdTasksContainer = document.createElement('div')
+const addTaskbutton = document.createElement('button')
 
 const optionArr = [] //style
 for (let i = 0; i < 2; i++) {
@@ -24,8 +26,10 @@ for (let i = 0; i < 2; i++) {
 function createTdTask() {
     mainContentContainer.appendChild(headerContainer)
     headerContainer.setAttribute('id','header-container')
-    mainContentContainer.appendChild(tdTaskContainer)
-    tdTaskContainer.setAttribute('id','td-task-container')
+    mainContentContainer.appendChild(tdMainContainer)
+    tdMainContainer.setAttribute('id','td-main-task-container')
+    tdMainContainer.appendChild(tdTasksContainer)
+    tdTasksContainer.setAttribute('id','td-task-container')
     headerContainer.append(todayHeader)
     todayHeader.setAttribute('id','today-header') //style
     headerContainer.appendChild(headerOptionContainer)
