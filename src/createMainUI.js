@@ -20,6 +20,7 @@ for(let i = 0;i < options.length;i++){
 const tdMainContainer = document.createElement('div')
 const tdTasksContainer = document.createElement('div')
 const addTaskbutton = document.createElement('button')
+const addTaskContainer = document.createElement('div')
 
 function createTdTask() {
     mainContentContainer.appendChild(tdMainContainer)

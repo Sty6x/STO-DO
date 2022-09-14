@@ -432,6 +432,7 @@ li>.tab-icon {
 	/* padding: 2px; */
 	background-color: var(--frost-3);
 	border-radius: 15px;
+	transition: all 100ms ease;
 }
 
 #option-1:hover,
@@ -485,11 +486,14 @@ li>.tab-icon {
 	height: 100%;
 	/* width: 80%; */
 	margin: 2em 10em 2em 10em;
-	/* outline: white solid 1px; */
 	/* padding: 2em; */
+	display: flex;
+	flex-direction: column;
+	gap:2em;
 }
 
 #add-task-button{
+	/* width: em; */
 	background-color:var(--frost-3);
 	border: none ;
 	border-radius: 15px;
@@ -501,7 +505,6 @@ li>.tab-icon {
 	transition: all 150ms ease;
 }
 #add-task-button:hover{
-
 	background-color:var(--highlight-yellow);
 	box-shadow:3px 3px 10px rgb(0, 0, 0,.3);
 	color: var(--darkMain-Sb);
