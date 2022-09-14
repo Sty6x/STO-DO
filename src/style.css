@@ -219,9 +219,10 @@ html {
 
 }
 
-header{
+header {
 	z-index: 999;
 }
+
 .nav-container {
 	display: flex;
 	justify-content: space-between;
@@ -237,17 +238,26 @@ ul.right-nav {
 
 #user-profile,
 #settings,
-#hamburger-menu
- {
+#hamburger-menu {
 	width: var(--icon-width);
 	height: var(--icon-height);
+}
+
+#option-0,
+#option-1,
+#user-profile,
+#settings,
+#hamburger-menu {
+	/* white color for icons */
 	filter: invert(93%) sepia(11%) saturate(221%) hue-rotate(185deg) brightness(94%) contrast(93%);
 }
 
-#hamburger-menu, .sidebar >li{
+#hamburger-menu,
+.sidebar>li {
 	transition: all 150ms ease;
 	padding: .1em .3em;
 }
+
 #hamburger-menu:hover {
 	border-radius: 2px;
 	background-color: var(--text2);
@@ -278,8 +288,8 @@ a {
 	/* width: 100%; */
 }
 
-#sidebar-container{
-	box-shadow: 2px 3px 5px rgb(0, 0, 0,.3);
+#sidebar-container {
+	box-shadow: 2px 3px 5px rgb(0, 0, 0, .3);
 }
 
 /* contents aligned with burger menu */
@@ -287,7 +297,7 @@ a {
 .sidebar-active {
 	padding: 5em .5em 0em 0em;
 	text-align: start;
-	width: 18%;
+	width: 25%;
 	background-color: var(--darkMain-Sb);
 	transition: width 200ms ease;
 }
@@ -297,16 +307,19 @@ a {
 	transition: 200ms ease;
 	width: 0%;
 }
+
 @keyframes fade-sidebar-content {
 
-	0%   {
+	0% {
 		opacity: 0;
 		transform: translateX(-80%);
 	}
-	50%{
+
+	50% {
 		opacity: 0.6;
 		transform: translateX(0%);
 	}
+
 	100% {
 		opacity: 1;
 		transform: translateX(0%);
@@ -329,6 +342,7 @@ a {
 	/* convinience purposes */
 	--sidebar-list-padding: .5em;
 }
+
 /* sb-list styles */
 
 .sidebar>li {
@@ -336,7 +350,7 @@ a {
 	display: flex;
 	align-items: center;
 	gap: 1em;
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 	color: var(--text3);
 	white-space: nowrap;
 }
@@ -347,6 +361,7 @@ a {
 	border-radius: 4px;
 	padding: var(--sidebar-list-padding);
 }
+
 .sidebar>li,
 #hamburger-menu,
 #settings,
@@ -370,56 +385,131 @@ li>.tab-icon {
 .up-task-icon {
 	filter: invert(50%) sepia(34%) saturate(724%) hue-rotate(305deg) brightness(84%) contrast(90%);
 }
+
 .projects-icon {
 	filter: invert(77%) sepia(25%) saturate(362%) hue-rotate(49deg) brightness(90%) contrast(90%);
 }
 
 
-#main-content-container{
-	/* outline: red solid 1px; */
-	background-color: var(--darkMain-Sb);
+#main-content-container {
 	opacity: .9;
 	width: max(100%, 300px);
-	margin: 5em 6em 7em 6em;
+	margin: 2em 6em 2em 6em;
 	flex-direction: column;
 	padding: 2em 3em;
 	border-radius: 4px;
-	box-shadow: 5px 5px 12px rgb(0, 0,0,.3);
-	
+	/* box-shadow: 5px 5px 12px rgb(0, 0,0,.3); */
+
 }
+
 #header-option-container,
 #header-container,
-#main-content-container{
+#main-content-container {
 	display: flex;
 }
-#header-option-container,
-#header-container
-{
+
+#header-container {
 	justify-content: space-between;
-	/* width: 12em; */
-}
-#header-container{
-	align-items: flex-start;
-	width: 100%;
-}
-#td-task-container{
-	height: 80%;
-	margin: 5em 5em 2em 5em;
-	outline: white solid 1px;
+	align-items: center;
 }
 
-#header-option-container{
+#header-container {
+	width: 100%;
+	padding: 0em 10em 0em 10em;
+	box-sizing: border-box;
+}
+#header-option-container {
 	gap: 2em;
 }
+
 .option-icons{
-	background-color: #5e81ac;
-	padding: 10px;
-	height: 30px;
-	width: 30px;
+	cursor: pointer;
+	background-size: 1em 1em;
+	height: 2em;
+	width: 2em;
+	background-position: center;
+	background-repeat: no-repeat;
+	/* padding: 2px; */
+	background-color: var(--frost-3);
+	border-radius: 15px;
+	transition: all 100ms ease;
 }
 
-#today-header{
+#option-1:hover,
+#option-0:hover{
+	filter: none;
+}
+#option-0:hover{
+	background-color: var(--highlight-orange);
+}
+
+#option-1:hover{
+	background-color: var(--highlight-orange);
+}
+
+
+#option-0 {
+	background-image: url("./resources/sort.png");
+}
+
+#option-1 {
+
+	background-image: url("./resources/ellipsis.png");
+}
+
+
+
+#header-text {
 	font-size: 2rem;
 	color: var(--text);
-	font-family: 'Montserrat-Bold';
+	font-family: 'Montserrat-Med';
+}
+
+
+
+
+/* change main task container to this one on PROJECTS tab */
+/* different layout only on PROJECT */
+/* 
+#projects-main-task-container {
+	height: 80%;
+	margin: 3em 4em 2em 4em;
+	outline: white solid 1px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+} */
+
+/* TODAY and UPCOMING TASK have the same layout except for */
+/* PROJECTS tab */
+#td-up-main-task-container {
+	height: 100%;
+	/* width: 80%; */
+	margin: 2em 10em 2em 10em;
+	/* padding: 2em; */
+	display: flex;
+	flex-direction: column;
+	gap:2em;
+}
+
+#add-task-button{
+	/* width: em; */
+	background-color:var(--frost-3);
+	border: none ;
+	border-radius: 15px;
+	color: var(--text);
+	font-family: 'Montserrat-Med';
+	text-transform: uppercase;
+	padding:.5em 1.2em;
+	cursor: pointer;
+	transition: all 150ms ease;
+}
+#add-task-button:hover{
+	background-color:var(--highlight-yellow);
+	box-shadow:3px 3px 10px rgb(0, 0, 0,.3);
+	color: var(--darkMain-Sb);
+	/* padding:.5em 1.2em; */
+}
+#add-task-button::after{
+
 }
