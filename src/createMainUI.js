@@ -54,7 +54,7 @@ function createTasks(tdContainer,title,description){
     titleAndDescContainer.append(taskTitle,taskDesc)
     taskTitle.setAttribute('id','task-title')
     taskDesc.setAttribute('id','task-desc')
-    taskSettings.setAttribute('id','task-settings')
+    taskSettings.setAttribute('id','task-setting')
     taskTitle.textContent=title
     taskDesc.textContent=description
     taskSettings.textContent = '...'

@@ -514,12 +514,15 @@ li>.tab-icon {
 
 }
 
-.tasks{
+.tasks,#task-setting-container{
 	display: flex;
+	
+}
+.tasks{
 	background-color: var(--dar2Main-Sb);
 	justify-content: space-between;
-	/* box-sizing: border-box; */
 	padding: 1em 2em;
+	border-radius: 10px;
 }
 
 .title-desc-container{
@@ -534,13 +537,30 @@ li>.tab-icon {
 }
 #task-desc{
 	font-size: 1rem;
-
 }
 
 #task-setting-container{
-display: flex;
 justify-content: center;
 align-items: center;
 }
+
+#task-setting{
+	background-color: var(--text3);
+	opacity: .8;
+	border: none;
+	border-radius: 15px;
+	padding: .2em 1em;
+}
+
+#task-setting,#task-desc,#task-title{
+	cursor: pointer;
+
+}
+
+/* disable border on focus for buttons */
+/* button:focus{
+	appearance: none;
+	border: none;
+} */
 
 
