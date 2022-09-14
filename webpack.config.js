@@ -7,7 +7,7 @@ module.exports = {
     entry: {
         index: './src/index.js',
         Data: './src/Data.js',
-        createMain: './src/createMainUI.js'
+        createMainUI: './src/createMainUI.js'
     },
     output: {
         filename: '[name].bundle.js',
