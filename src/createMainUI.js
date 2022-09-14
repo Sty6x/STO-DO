@@ -27,7 +27,9 @@ function createTdTask() {
     tdMainContainer.setAttribute('id', 'td-up-main-task-container')
     todayHeader.textContent = "TODAY"
     addTaskbutton.setAttribute('id','add-task-button')
-    tdMainContainer.appendChild(addTaskbutton)
+    tdMainContainer.appendChild(addTaskContainer)
+    addTaskContainer.setAttribute('id','add-task-container')
+    addTaskContainer.appendChild(addTaskbutton)
     addTaskbutton.textContent = 'Add Task'
 }
 

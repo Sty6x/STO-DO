@@ -440,11 +440,11 @@ li>.tab-icon {
 	filter: none;
 }
 #option-0:hover{
-	background-color: var(--highlight-green);
+	background-color: var(--highlight-orange);
 }
 
 #option-1:hover{
-	background-color: var(--highlight-red);
+	background-color: var(--highlight-orange);
 }
 
 
