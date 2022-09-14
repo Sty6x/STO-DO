@@ -419,22 +419,26 @@ li>.tab-icon {
 	box-sizing: border-box;
 }
 
-#td-main-task-container {
+/* change main task container to this one on PROJECTS tab */
+/* different layout only on PROJECT */
+/* 
+#projects-main-task-container {
 	height: 80%;
 	margin: 3em 4em 2em 4em;
 	outline: white solid 1px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
+} */
 
-#td-task-container {
+/* TODAY and UPCOMING TASK have the same layout except for */
+/* PROJECTS tab */
+#td-up-main-task-container {
 	height: 100%;
-	width: 80%;
-	margin: 2em 4em 2em 4em;
+	/* width: 80%; */
+	margin: 2em 10em 2em 10em;
 	outline: white solid 1px;
 }
-
 
 #header-option-container {
 	gap: 1em;
