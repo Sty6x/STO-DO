@@ -30,31 +30,39 @@ function createTdTaskUI() {
     addTaskbutton.textContent = 'Add Task'
 }
 
-addTaskbutton.addEventListener('click',()=> {
-    console.log('here')
-})
+
 createTdTaskUI()
 
 
 // creates task from user input
-function createTasks(tdContainer){
+function createTasks(tdContainer,title,description){
     let task = document.createElement('div');
     // container => |     |title:      |                |    |
     //              |     |Description:|                |o o o| <= container
-    task.setAttribute('id','task');
+    task.setAttribute('class','tasks');
     // let checkBox = document.createElement('')
     let taskTitle = document.createElement('h3');
     let taskDesc = document.createElement('p')
     let titleAndDescContainer = document.createElement('div')
-    let taskSettings = document.createElement('div')
-    task.appendChild(titleAndDescContainer)
+    let taskSettings = document.createElement('button')
+    let taskSettingContainer = document.createElement('div')
+    task.append(titleAndDescContainer,taskSettingContainer)
+    taskSettingContainer.setAttribute('id',('task-setting-container'))
+    taskSettingContainer.appendChild(taskSettings)
+    titleAndDescContainer.setAttribute('class','title-desc-container')
     tdContainer.appendChild(task)
-    titleAndDescContainer.append(taskTitle,taskDesc,taskSettings)
-    taskTitle.textContent='Add Title Here'
-    taskDesc.textContent='Make it do something, i dont care'
+    titleAndDescContainer.append(taskTitle,taskDesc)
+    taskTitle.setAttribute('id','task-title')
+    taskDesc.setAttribute('id','task-desc')
+    taskSettings.setAttribute('id','task-settings')
+    taskTitle.textContent=title
+    taskDesc.textContent=description
+    taskSettings.textContent = '...'
 }
 
+createTasks(tdMainContainer,'Do Something','Description of something you want to do')
 
-createTasks(tdMainContainer)
-
-createTasks(tdMainContainer)
+addTaskbutton.addEventListener('click',()=> {
+    createTasks(tdMainContainer,'Title Here','Make it do something, i dont care')
+    console.log('here')
+})
