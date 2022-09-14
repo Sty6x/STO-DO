@@ -161,7 +161,7 @@ table {
 	--highlight-orange: #d08770;
 	--highlight-yellow: #ebcb8b;
 	--highlight-green: #a3be8c;
-	--highlight-red: #b48ead;
+	--highlight-pink: #b48ead;
 
 	/* icons */
 	--icon-width: 30px;
@@ -527,7 +527,8 @@ li>.tab-icon {
 }
 
 .tasks {
-	background-color: var(--dar2Main-Sb);
+	/* dar2Main-Sb */
+	background-color: var(--highlight-red);
 	justify-content: space-between;
 	padding: 1em 2em;
 	border-radius: 10px;
@@ -588,5 +589,5 @@ li>.tab-icon {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	/* background: var(--dar2Main-Sb); */
+	background: var(--frost-3);
 }
