@@ -11,7 +11,7 @@ const headerOptionContainer = document.createElement('ul')
 const tdTaskContainer = document.createElement('div')
 
 const optionArr = [] //style
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 2; i++) {
     let option = document.createElement('li')
     optionArr.push(option)
     // optionArr[i].textContent = `${i}`
