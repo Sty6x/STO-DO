@@ -350,7 +350,7 @@ a {
 	display: flex;
 	align-items: center;
 	gap: 1em;
-	font-size: .8rem;
+	font-size: 1.1rem;
 	color: var(--text3);
 	white-space: nowrap;
 }
@@ -415,9 +415,44 @@ li>.tab-icon {
 
 #header-container {
 	width: 100%;
-	padding: 0em 4.5em 0em 4.5em;
+	padding: 0em 10em 0em 10em;
 	box-sizing: border-box;
 }
+#header-option-container {
+	gap: 2em;
+}
+
+.option-icons{
+	cursor: pointer;
+
+}
+
+#option-0 {
+	background-image: url("./resources/sort.png");
+
+}
+
+#option-1 {
+
+	background-image: url("./resources/ellipsis.png");
+}
+
+#option-1,
+#option-0 {
+	background-size: 1em 1em;
+	height: 1em;
+	width: 1em;
+	background-repeat: no-repeat;
+}
+
+#header-text {
+	font-size: 2rem;
+	color: var(--text);
+	font-family: 'Montserrat-Med';
+}
+
+
+
 
 /* change main task container to this one on PROJECTS tab */
 /* different layout only on PROJECT */
@@ -437,38 +472,28 @@ li>.tab-icon {
 	height: 100%;
 	/* width: 80%; */
 	margin: 2em 10em 2em 10em;
-	outline: white solid 1px;
+	/* outline: white solid 1px; */
+	/* padding: 2em; */
 }
 
-#header-option-container {
-	gap: 1em;
-}
-
-.option-icons {
-	/* outline: red solid 1px; */
-}
-
-#option-0 {
-	background-image: url("./resources/sort.png");
-
-}
-
-#option-1 {
-
-	background-image: url("./resources/ellipsis.png");
-}
-
-#option-1,
-#option-0 {
-	background-size: 1em 1em;
-	height: 1em;
-	width: 1em;
-	background-repeat: no-repeat;
-
-}
-
-#header-text {
-	font-size: 2rem;
+#add-task-button{
+	background-color:var(--frost-3);
+	border: none ;
+	border-radius: 15px;
 	color: var(--text);
 	font-family: 'Montserrat-Med';
+	text-transform: uppercase;
+	padding:.5em 1.2em;
+	cursor: pointer;
+	transition: all 150ms ease;
+}
+#add-task-button:hover{
+
+	background-color:var(--highlight-yellow);
+	box-shadow:3px 3px 10px rgb(0, 0, 0,.3);
+	color: var(--dark);
+	/* padding:.5em 1.2em; */
+}
+#add-task-button::after{
+
 }
