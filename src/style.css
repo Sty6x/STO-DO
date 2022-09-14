@@ -336,7 +336,7 @@ a {
 	display: flex;
 	align-items: center;
 	gap: 1em;
-	font-size: 1.2rem;
+	font-size: .8rem;
 	color: var(--text3);
 	white-space: nowrap;
 }
@@ -377,14 +377,14 @@ li>.tab-icon {
 
 #main-content-container{
 	/* outline: red solid 1px; */
-	background-color: var(--darkMain-Sb);
+	/* background-color: var(--darkMain-Sb); */
 	opacity: .9;
 	width: max(100%, 300px);
-	margin: 5em 6em 7em 6em;
+	margin: 4em 6em 7em 6em;
 	flex-direction: column;
 	padding: 2em 3em;
 	border-radius: 4px;
-	box-shadow: 5px 5px 12px rgb(0, 0,0,.3);
+	/* box-shadow: 5px 5px 12px rgb(0, 0,0,.3); */
 	
 }
 #header-option-container,
@@ -396,15 +396,16 @@ li>.tab-icon {
 #header-container
 {
 	justify-content: space-between;
-	/* width: 12em; */
 }
 #header-container{
 	align-items: flex-start;
 	width: 100%;
+	padding: 0em 3em 0em 3em;
+	box-sizing: border-box;
 }
 #td-task-container{
 	height: 80%;
-	margin: 5em 5em 2em 5em;
+	margin: 3em 5em 2em 5em;
 	outline: white solid 1px;
 }
 
@@ -421,5 +422,5 @@ li>.tab-icon {
 #today-header{
 	font-size: 2rem;
 	color: var(--text);
-	font-family: 'Montserrat-Bold';
+	font-family: 'Montserrat-Med';
 }
