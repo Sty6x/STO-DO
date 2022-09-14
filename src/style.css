@@ -241,14 +241,13 @@ ul.right-nav {
 #hamburger-menu {
 	width: var(--icon-width);
 	height: var(--icon-height);
-	/* filter: invert(93%) sepia(11%) saturate(221%) hue-rotate(185deg) brightness(94%) contrast(93%); */
 }
 .option-0,.option-1,
 #user-profile,
 #settings,
 #hamburger-menu {
+	/* white color for icons */
 	filter: invert(93%) sepia(11%) saturate(221%) hue-rotate(185deg) brightness(94%) contrast(93%);
-
 }
 
 #hamburger-menu,
@@ -409,15 +408,16 @@ li>.tab-icon {
 	display: flex;
 }
 
-#header-option-container,
+/* #header-option-container, */
 #header-container {
 	justify-content: space-between;
+	align-items: center;
 }
 
 #header-container {
-	align-items: flex-start;
+	/* align-items: flex-start; */
 	width: 100%;
-	padding: 0em 3em 0em 3em;
+	padding: 0em 4.5em 0em 4.5em;
 	box-sizing: border-box;
 }
 
@@ -428,15 +428,12 @@ li>.tab-icon {
 }
 
 #header-option-container {
-	gap: 2em;
+	gap: 1em;
+}
+.option-icons{
+	outline: red solid 1px;
 }
 
-/* .option-icons{
-	background-color: #5e81ac;
-	padding: 10px;
-	height: 30px;
-	width: 30px;
-} */
 .option-0 {
 	background-image: url("./resources/sort.png");
 
@@ -449,9 +446,10 @@ li>.tab-icon {
 
 .option-1,
 .option-0 {
-	background-size: 30px 30px;
-	height: 30px;
-	width: 30px;
+	background-size: 1em 1em;
+	height: 1em;
+	width: 1em;
+	background-repeat: no-repeat;
 
 }
 
