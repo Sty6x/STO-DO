@@ -513,3 +513,34 @@ li>.tab-icon {
 #add-task-button::after{
 
 }
+
+.tasks{
+	display: flex;
+	background-color: var(--dar2Main-Sb);
+	justify-content: space-between;
+	/* box-sizing: border-box; */
+	padding: 1em 2em;
+}
+
+.title-desc-container{
+	color: var(--text);
+	font-family: 'Montserrat-Reg';
+	line-height: 25px;
+}
+
+#task-title{
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+#task-desc{
+	font-size: 1rem;
+
+}
+
+#task-setting-container{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
