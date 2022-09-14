@@ -30,6 +30,6 @@ function createTdTask() {
     todayHeader.setAttribute('id','today-header') //style
     headerContainer.appendChild(headerOptionContainer)
     headerOptionContainer.setAttribute('id','header-option-container')
-    todayHeader.textContent = "TODAY'S TASK"
+    todayHeader.textContent = "TODAY"
 }
 createTdTask()
