@@ -242,7 +242,9 @@ ul.right-nav {
 	width: var(--icon-width);
 	height: var(--icon-height);
 }
-.option-0,.option-1,
+
+#option-0,
+#option-1,
 #user-profile,
 #settings,
 #hamburger-menu {
@@ -412,7 +414,6 @@ li>.tab-icon {
 }
 
 #header-container {
-	/* align-items: flex-start; */
 	width: 100%;
 	padding: 0em 4.5em 0em 4.5em;
 	box-sizing: border-box;
@@ -422,10 +423,15 @@ li>.tab-icon {
 	height: 80%;
 	margin: 3em 4em 2em 4em;
 	outline: white solid 1px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
+
 #td-task-container {
-	height: 80%;
-	margin: 3em 4em 2em 4em;
+	height: 100%;
+	width: 80%;
+	margin: 2em 4em 2em 4em;
 	outline: white solid 1px;
 }
 
@@ -433,22 +439,23 @@ li>.tab-icon {
 #header-option-container {
 	gap: 1em;
 }
-.option-icons{
+
+.option-icons {
 	/* outline: red solid 1px; */
 }
 
-.option-0 {
+#option-0 {
 	background-image: url("./resources/sort.png");
 
 }
 
-.option-1 {
+#option-1 {
 
 	background-image: url("./resources/ellipsis.png");
 }
 
-.option-1,
-.option-0 {
+#option-1,
+#option-0 {
 	background-size: 1em 1em;
 	height: 1em;
 	width: 1em;
@@ -456,7 +463,7 @@ li>.tab-icon {
 
 }
 
-#today-header {
+#header-text {
 	font-size: 2rem;
 	color: var(--text);
 	font-family: 'Montserrat-Med';
