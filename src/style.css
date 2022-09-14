@@ -424,12 +424,31 @@ li>.tab-icon {
 
 .option-icons{
 	cursor: pointer;
-
+	background-size: 1em 1em;
+	height: 2em;
+	width: 2em;
+	background-position: center;
+	background-repeat: no-repeat;
+	/* padding: 2px; */
+	background-color: var(--frost-3);
+	border-radius: 15px;
 }
+
+#option-1:hover,
+#option-0:hover{
+	filter: none;
+}
+#option-0:hover{
+	background-color: var(--highlight-green);
+}
+
+#option-1:hover{
+	background-color: var(--highlight-red);
+}
+
 
 #option-0 {
 	background-image: url("./resources/sort.png");
-
 }
 
 #option-1 {
@@ -437,13 +456,7 @@ li>.tab-icon {
 	background-image: url("./resources/ellipsis.png");
 }
 
-#option-1,
-#option-0 {
-	background-size: 1em 1em;
-	height: 1em;
-	width: 1em;
-	background-repeat: no-repeat;
-}
+
 
 #header-text {
 	font-size: 2rem;
@@ -491,7 +504,7 @@ li>.tab-icon {
 
 	background-color:var(--highlight-yellow);
 	box-shadow:3px 3px 10px rgb(0, 0, 0,.3);
-	color: var(--dark);
+	color: var(--darkMain-Sb);
 	/* padding:.5em 1.2em; */
 }
 #add-task-button::after{
