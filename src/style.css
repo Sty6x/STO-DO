@@ -422,11 +422,12 @@ li>.tab-icon {
 	padding: 0em 10em 0em 10em;
 	box-sizing: border-box;
 }
+
 #header-option-container {
 	gap: 2em;
 }
 
-.option-icons{
+.option-icons {
 	cursor: pointer;
 	background-size: 1em 1em;
 	height: 2em;
@@ -440,14 +441,15 @@ li>.tab-icon {
 }
 
 #option-1:hover,
-#option-0:hover{
+#option-0:hover {
 	filter: none;
 }
-#option-0:hover{
+
+#option-0:hover {
 	background-color: var(--highlight-orange);
 }
 
-#option-1:hover{
+#option-1:hover {
 	background-color: var(--highlight-orange);
 }
 
@@ -493,62 +495,65 @@ li>.tab-icon {
 	/* padding: 2em; */
 	display: flex;
 	flex-direction: column;
-	gap:2em;
+	gap: 2em;
 }
 
-#add-task-button{
+#add-task-button {
 	/* width: em; */
-	background-color:var(--frost-3);
-	border: none ;
+	background-color: var(--frost-3);
+	border: none;
 	border-radius: 15px;
 	color: var(--text);
 	font-family: 'Montserrat-Med';
 	text-transform: uppercase;
-	padding:.5em 1.2em;
+	padding: .5em 1.2em;
 	cursor: pointer;
 	transition: all 150ms ease;
 }
-#add-task-button:hover{
-	background-color:var(--highlight-yellow);
-	box-shadow:3px 3px 10px rgb(0, 0, 0,.3);
+
+#add-task-button:hover {
+	background-color: var(--highlight-yellow);
+	box-shadow: 3px 3px 10px rgb(0, 0, 0, .3);
 	color: var(--darkMain-Sb);
 	/* padding:.5em 1.2em; */
 }
-#add-task-button::after{
 
-}
+#add-task-button::after {}
 
-.tasks,#task-setting-container{
+.tasks,
+#task-setting-container {
 	display: flex;
-	
+
 }
-.tasks{
+
+.tasks {
 	background-color: var(--dar2Main-Sb);
 	justify-content: space-between;
 	padding: 1em 2em;
 	border-radius: 10px;
 }
 
-.title-desc-container{
+.title-desc-container {
 	color: var(--text);
 	font-family: 'Montserrat-Reg';
 	line-height: 25px;
 }
 
-#task-title{
+#task-title {
 	font-weight: bold;
 	font-size: 1.5rem;
 }
-#task-desc{
+
+#task-desc {
 	font-size: 1rem;
 }
 
-#task-setting-container{
-justify-content: center;
-align-items: center;
+#task-setting-container {
+	justify-content: center;
+	align-items: center;
 }
 
-#task-setting{
+#task-setting {
 	background-color: var(--text3);
 	opacity: .8;
 	border: none;
@@ -556,7 +561,9 @@ align-items: center;
 	padding: .2em 1em;
 }
 
-#task-setting,#task-desc,#task-title{
+#task-setting,
+#task-desc,
+#task-title {
 	cursor: pointer;
 
 }
@@ -567,4 +574,19 @@ align-items: center;
 	border: none;
 } */
 
+::-webkit-scrollbar {
+	width:5px;
+	background-color: var(--darkMain-Sb);
+}
 
+::-webkit-scrollbar-button {
+	background: var(--frost);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--frost-2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+	/* background: var(--dar2Main-Sb); */
+}
