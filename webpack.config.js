@@ -6,8 +6,8 @@ module.exports = {
     mode: 'development',
     entry: {
         index: './src/index.js',
-        Data: './src/Data.js',
-        createMainUI: './src/createMainUI.js'
+        data: './src/data.js',
+        taskUi: './src/taskUI.js'
     },
     output: {
         filename: '[name].bundle.js',
