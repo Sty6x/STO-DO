@@ -390,11 +390,9 @@ li>.tab-icon {
 
 
 #main-content-container {
-	/* outline: red solid 1px; */
-	/* background-color: var(--darkMain-Sb); */
 	opacity: .9;
 	width: max(100%, 300px);
-	margin: 4em 6em 7em 6em;
+	margin: 2em 6em 2em 6em;
 	flex-direction: column;
 	padding: 2em 3em;
 	border-radius: 4px;
@@ -408,7 +406,6 @@ li>.tab-icon {
 	display: flex;
 }
 
-/* #header-option-container, */
 #header-container {
 	justify-content: space-between;
 	align-items: center;
@@ -421,17 +418,23 @@ li>.tab-icon {
 	box-sizing: border-box;
 }
 
-#td-task-container {
+#td-main-task-container {
 	height: 80%;
-	margin: 3em 5em 2em 5em;
+	margin: 3em 4em 2em 4em;
 	outline: white solid 1px;
 }
+#td-task-container {
+	height: 80%;
+	margin: 3em 4em 2em 4em;
+	outline: white solid 1px;
+}
+
 
 #header-option-container {
 	gap: 1em;
 }
 .option-icons{
-	outline: red solid 1px;
+	/* outline: red solid 1px; */
 }
 
 .option-0 {
