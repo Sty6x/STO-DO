@@ -609,5 +609,21 @@ li>.tab-icon {
     transform: translate(-50%, -50%);
 }
 #form-body{
-	outline: red solid 1px;
+	outline: red solid 1px ;
+}
+#pp-input-container{
+	color:var(--text);
+	margin-bottom:1.2em ;
+
+}
+
+#button-form-container{
+	display: flex;
+}
+
+#form-add-cancel-buttons{
+	margin-left: auto;
+}
+.form-inactive{
+	display: none;
 }
