@@ -608,3 +608,6 @@ li>.tab-icon {
 
     transform: translate(-50%, -50%);
 }
+#form-body{
+	outline: red solid 1px;
+}
