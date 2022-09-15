@@ -605,7 +605,6 @@ li>.tab-icon {
     left: 50%; 
 	padding: 1.2em 3em;
 	border-radius: 5px;
-
     transform: translate(-50%, -50%);
 }
 #form-body{
@@ -623,7 +622,12 @@ li>.tab-icon {
 
 #form-add-cancel-buttons{
 	margin-left: auto;
+	outline: blanchedalmond solid 2px;
+	
 }
 .form-inactive{
 	display: none;
+}
+#form-cancel-button{
+	margin-left: 2em;
 }

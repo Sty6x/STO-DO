@@ -99,22 +99,24 @@ function createFormUI(mainContainer) {
   // formFunction(dimBg,mainContainer)
 
   const popUpForm = document.getElementById('form-container')
-  const popUpButtons = document.getElementById('form-add-cancel-buttons')
+  const cancelButton = document.getElementById('form-cancel-button')
   if (!popUpForm.classList.contains('form-active')) {
     popUpForm.setAttribute('class', 'form-active')
     mainContainer.append(dimBg);
   }
+
+  // bug even add button cancels form
+  // error on removing child saying it doesnt exist
+  // probably need to create again if gone but then again its
+  // still appending everytime we click on add task
   if(popUpForm.classList.contains('form-active')){
-    popUpButtons.addEventListener('click', e => {
-      let target = e.target;
-      if (target.matches('#form-cancel-button'))
-        console.log(target)
+    cancelButton.addEventListener('click', e => {
       popUpForm.classList.remove('form-active')
       popUpForm.setAttribute('class', 'form-inactive')
       if(mainContainer.children[0]){
         mainContainer.removeChild(dimBg)
       }
-    })
+    },true)
   }
 
 }
