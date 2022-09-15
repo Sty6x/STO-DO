@@ -97,15 +97,13 @@ function createFormUI(mainContainer) {
   mainContainer.append(dimBg);
   console.log("form created");
 
-
-const formPopUP = document.getElementById('form-container')
-mainContainer.append(formPopUP)
-// formPopUP.setAttribute('class','form-active')
 }
 
+
+// createTasks(tdMainContainer, new Task('kafka', 'something along the lines of i dont care', false, 'd'))
 addTaskbutton.addEventListener("click", () => {
   // pubsub make a function that returns an object and pass it into these 2 functions
-  // createTasks(tdMainContainer, new Task('kafka', 'something along the lines of i dont care', false, 'blue'))
-  // storeTask(new Task('kafka', 'something along the lines of i dont care', false, 'red'),taskArr)
+//   createTasks(tdMainContainer, new Task('kafka', 'something along the lines of i dont care', false, 'd'))
+//   storeTask(new Task('kafka', 'something along the lines of i dont care', false, 'res'),taskArr)
   createFormUI(mainContentContainer);
 });

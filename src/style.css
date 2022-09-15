@@ -520,38 +520,42 @@ li>.tab-icon {
 
 #add-task-button::after {}
 
-.tasks,
+.task,
 #task-setting-container {
 	display: flex;
 
 }
 
-.tasks {
+.task {
 	/* dar2Main-Sb */
 	background-color: var(--highlight-red);
 	justify-content: space-between;
-	padding: 1em 2em;
+	padding: .7em 2em;
 	border-radius: 10px;
+	box-shadow: 6px 5px 10px rgb(0, 0, 0,.2);
 }
 
 .title-desc-container {
 	color: var(--text);
-	font-family: 'Montserrat-Reg';
-	line-height: 25px;
+	
+	line-height: 20px;
 }
 
 #task-title {
 	font-weight: bold;
-	font-size: 1.5rem;
+	font-size: 1.2rem;
+	font-family: 'Montserrat-Bold';
 }
 
 #task-desc {
-	font-size: 1rem;
+	font-size: .8rem;
+	font-family: 'Montserrat-Reg';
 }
 
 #task-setting-container {
 	justify-content: center;
 	align-items: center;
+	
 }
 
 #task-setting {
