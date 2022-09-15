@@ -104,8 +104,7 @@ function createFormUI(mainContainer) {
     popUpForm.setAttribute('class', 'form-active')
     mainContainer.append(dimBg);
   }
-
-  // bug even add button cancels form
+  // bug 
   // error on removing child saying it doesnt exist
   // probably need to create again if gone but then again its
   // still appending everytime we click on add task
@@ -116,7 +115,7 @@ function createFormUI(mainContainer) {
       if(mainContainer.children[0]){
         mainContainer.removeChild(dimBg)
       }
-    },true)
+    })
   }
 
 }

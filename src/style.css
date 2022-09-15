@@ -606,15 +606,27 @@ li>.tab-icon {
 	padding: 1.2em 3em;
 	border-radius: 5px;
     transform: translate(-50%, -50%);
+
+	transition: all 300ms ease;
 }
 #form-body{
 	outline: red solid 1px ;
 }
 #pp-input-container{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 	color:var(--text);
 	margin-bottom:1.2em ;
-
 }
+
+li > textarea,[type='text']{
+	border: none;
+	background-color: var(--darkMain-Sb);
+	/* position: absolute; */
+	
+}
+
 
 #button-form-container{
 	display: flex;
@@ -622,8 +634,6 @@ li>.tab-icon {
 
 #form-add-cancel-buttons{
 	margin-left: auto;
-	outline: blanchedalmond solid 2px;
-	
 }
 .form-inactive{
 	display: none;
