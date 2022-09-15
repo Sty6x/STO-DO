@@ -595,3 +595,16 @@ li>.tab-icon {
 ::-webkit-scrollbar-thumb:hover {
 	background: var(--frost-3);
 }
+
+.form-active{
+	z-index: 999;
+	background-color: var(--dark);
+	box-sizing: border-box;
+	position: absolute;
+    top: 50%;  
+    left: 50%; 
+	padding: 1.2em 3em;
+	border-radius: 5px;
+
+    transform: translate(-50%, -50%);
+}
