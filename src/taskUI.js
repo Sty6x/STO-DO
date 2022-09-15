@@ -87,6 +87,15 @@ function applyAttributes( node, objAttr) {
   }
 }
 
+function formFunction(popUpForm){
+  if(!popUpForm.classList.contains('form-active')){
+    popUpForm.setAttribute('class','form-active')
+  }
+  else{
+    popUpForm.classList.remove('form-active')
+    popUpForm.setAttribute('class','form-inactive')
+  }
+}
 function createFormUI(mainContainer) {
   const dimBg = document.createElement("div");
   dimBg.setAttribute(
@@ -96,9 +105,10 @@ function createFormUI(mainContainer) {
   body.setAttribute("style", "overflow:hidden;");
   mainContainer.append(dimBg);
   console.log("form created");
+  const popUpForm = document.getElementById('form-container')
+  formFunction(popUpForm)
 
 }
-
 
 createTasks(tdMainContainer, new Task('kafka', 'something along the lines of i dont care', false, 'd'))
 addTaskbutton.addEventListener("click", () => {
