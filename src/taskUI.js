@@ -75,37 +75,19 @@ function createTasks(tdContainer, userTask) {
 
 //application logic
 let taskArr = [];
+
 function storeTask(Obj, taskArr) {
   taskArr.push(Obj);
   console.log(taskArr);
 }
 
-function applyAttributes( node, objAttr) {
+function applyAttributes(node, objAttr) {
   for (key in objAttr) {
     console.log(key);
     node.setAttribute(key, `${objAttr[key]}`);
   }
 }
 
-function formFunction(dimBg,mainContainer){
-
-  const popUpForm = document.getElementById('form-container')
-  const cancelButton = document.getElementById('form-cancelbutton');
-  if(!popUpForm.classList.contains('form-active')){
-    popUpForm.setAttribute('class','form-active')
-    mainContainer.append(dimBg);
-  }
-  else{
-    popUpForm.classList.remove('form-active')
-    popUpForm.setAttribute('class','form-inactive')
-    mainContainer.removeChild(dimBg)
-  }
-  popUpForm.addEventListener('click',e =>{
-    let target = e.target;
-    console.log(target);
-  })
-
-}
 function createFormUI(mainContainer) {
   const dimBg = document.createElement("div");
   dimBg.setAttribute(
@@ -114,14 +96,33 @@ function createFormUI(mainContainer) {
   );
   body.setAttribute("style", "overflow:hidden;");
   console.log("form created");
-  formFunction(dimBg,mainContainer)
+  // formFunction(dimBg,mainContainer)
+
+  const popUpForm = document.getElementById('form-container')
+  const popUpButtons = document.getElementById('form-add-cancel-buttons')
+  if (!popUpForm.classList.contains('form-active')) {
+    popUpForm.setAttribute('class', 'form-active')
+    mainContainer.append(dimBg);
+  }
+  if(popUpForm.classList.contains('form-active')){
+    popUpButtons.addEventListener('click', e => {
+      let target = e.target;
+      if (target.matches('#form-cancel-button'))
+        console.log(target)
+      popUpForm.classList.remove('form-active')
+      popUpForm.setAttribute('class', 'form-inactive')
+      if(mainContainer.children[0]){
+        mainContainer.removeChild(dimBg)
+      }
+    })
+  }
 
 }
 
 createTasks(tdMainContainer, new Task('kafka', 'something along the lines of i dont care', false, 'd'))
 addTaskbutton.addEventListener("click", () => {
   // pubsub make a function that returns an object and pass it into these 2 functions
-//   createTasks(tdMainContainer, new Task('kafka', 'something along the lines of i dont care', false, 'd'))
-//   storeTask(new Task('kafka', 'something along the lines of i dont care', false, 'res'),taskArr)
-  createFormUI(mainContentContainer);
+  //   createTasks(tdMainContainer, new Task('kafka', 'something along the lines of i dont care', false, 'd'))
+  //   storeTask(new Task('kafka', 'something along the lines of i dont care', false, 'res'),taskArr)
+  createFormUI(sbMainContainer);
 });
