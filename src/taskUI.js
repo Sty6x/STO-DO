@@ -87,14 +87,24 @@ function applyAttributes( node, objAttr) {
   }
 }
 
-function formFunction(popUpForm){
+function formFunction(dimBg,mainContainer){
+
+  const popUpForm = document.getElementById('form-container')
+  const cancelButton = document.getElementById('form-cancelbutton');
   if(!popUpForm.classList.contains('form-active')){
     popUpForm.setAttribute('class','form-active')
+    mainContainer.append(dimBg);
   }
   else{
     popUpForm.classList.remove('form-active')
     popUpForm.setAttribute('class','form-inactive')
+    mainContainer.removeChild(dimBg)
   }
+  popUpForm.addEventListener('click',e =>{
+    let target = e.target;
+    console.log(target);
+  })
+
 }
 function createFormUI(mainContainer) {
   const dimBg = document.createElement("div");
@@ -103,10 +113,8 @@ function createFormUI(mainContainer) {
     "position:absolute;bottom:0%;left:0%;z-index:99;min-height:100vh;width:100vw;background-color:black;opacity:.5"
   );
   body.setAttribute("style", "overflow:hidden;");
-  mainContainer.append(dimBg);
   console.log("form created");
-  const popUpForm = document.getElementById('form-container')
-  formFunction(popUpForm)
+  formFunction(dimBg,mainContainer)
 
 }
 
