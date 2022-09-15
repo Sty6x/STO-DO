@@ -100,7 +100,7 @@ function createFormUI(mainContainer) {
 }
 
 
-// createTasks(tdMainContainer, new Task('kafka', 'something along the lines of i dont care', false, 'd'))
+createTasks(tdMainContainer, new Task('kafka', 'something along the lines of i dont care', false, 'd'))
 addTaskbutton.addEventListener("click", () => {
   // pubsub make a function that returns an object and pass it into these 2 functions
 //   createTasks(tdMainContainer, new Task('kafka', 'something along the lines of i dont care', false, 'd'))
