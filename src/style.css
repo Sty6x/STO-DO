@@ -532,12 +532,12 @@ li>.tab-icon {
 	justify-content: space-between;
 	padding: .7em 2em;
 	border-radius: 10px;
-	box-shadow: 6px 5px 10px rgb(0, 0, 0,.2);
+	box-shadow: 6px 5px 10px rgb(0, 0, 0, .2);
 }
 
 .title-desc-container {
 	color: var(--text);
-	
+
 	line-height: 20px;
 }
 
@@ -555,7 +555,7 @@ li>.tab-icon {
 #task-setting-container {
 	justify-content: center;
 	align-items: center;
-	
+
 }
 
 #task-setting {
@@ -580,7 +580,7 @@ li>.tab-icon {
 } */
 
 ::-webkit-scrollbar {
-	width:5px;
+	width: 5px;
 	background-color: var(--darkMain-Sb);
 }
 
@@ -596,70 +596,80 @@ li>.tab-icon {
 	background: var(--frost-3);
 }
 
-.form-active{
+.form-active {
 	z-index: 999;
 	background-color: var(--dark);
 	box-sizing: border-box;
 	position: absolute;
-    top: 50%;  
-    left: 50%; 
+	top: 50%;
+	left: 50%;
 	padding: 1.2em 3em;
 	border-radius: 5px;
-    transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 
 	transition: all 300ms ease;
 }
-#form-body{
-	outline: red solid 1px ;
+
+#form-body {
+	outline: red solid 1px;
 }
-#pp-input-container{
+
+#pp-input-container {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-	color:var(--text);
-	margin-bottom:1.2em ;
+	color: var(--text);
+	margin-bottom: 1.2em;
 }
 
-li > textarea,[type='text']{
+li>textarea,
+[type='text'] {
 	border: none;
 	background-color: var(--darkMain-Sb);
 	/* position: absolute; */
-	
+
 }
 
 
-#button-form-container{
+#button-form-container {
 	display: flex;
 }
 
-#form-add-cancel-buttons{
+#form-add-cancel-buttons {
 	margin-left: auto;
 }
-.form-inactive{
+
+.form-inactive {
 	display: none;
 }
-#form-cancel-button{
+
+#form-cancel-button {
 	margin-left: 2em;
 }
 
-.input-container > #desc,#title{
+.input-container>#desc,
+#title {
 	padding: .5em .9em;
 	/* border: none; */
-	resize: none;
-}
-.input-container > #desc:focus,#title:focus{
-	outline: none;
-
 }
 
 
-.input-container >#title{
+.input-container>#title {
 	width: 10em;
 }
 
 
-input[type='text'],textarea{
+input[type='text'],
+textarea {
 	font-family: 'Montserrat-Med';
 	color: var(--text);
 
+}
+
+input[type='text']:focus,
+textarea:focus,
+input[type='text'],
+textarea {
+	outline: none;
+	resize: none;
 }
