@@ -3,24 +3,8 @@ const userDesc = document.getElementById('desc')
 const userTitle = document.getElementById('title')
 const inputContainer = document.querySelectorAll('.input-container')
 const addTaskButton = document.getElementById('form-add-button');
-
 let color;
-function GetUserInput(priority) {
-    let descInput;
-    let titleInput;
-    descInput = userDesc.value;
-    console.log(descInput)
-    titleInput = userTitle.value;
-    console.log(titleInput)
-    return {
-        titleInput,
-        descInput,
-        priority
-    }
 
-}
-// this is not running, it will only run after we press add task
-// find a way for this to be independent
 priorityButtonContainer.addEventListener('click', e => {
     console.log(e.target)
     color = getPriority(e)
@@ -41,9 +25,30 @@ function getPriority(event){
     }
     return priority
 }
+function GetUserInput(priority) {
+    let descInput;
+    let titleInput;
+    descInput = userDesc.value;
+    console.log(descInput)
+    titleInput = userTitle.value;
+    console.log(titleInput)
+    return {
+        titleInput,
+        descInput,
+        priority
+    }
 
+}
+
+function clearInput(color){
+    userDesc.value = '';
+    userTitle.value= '';
+    color = ''
+}
 addTaskButton.addEventListener('click', e => {
     e.preventDefault();
     console.log(color)
+    console.log(GetUserInput(color))
+    clearInput(color)  
     console.log(GetUserInput(color))
 })
