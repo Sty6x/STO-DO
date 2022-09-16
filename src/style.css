@@ -219,12 +219,6 @@ button,input[type='radio']  {
 	src: url("./resources/fonts/MontserratAlternates-Medium.woff2") format("woff2");
 }
 
-body,
-html {
-	/* overflow: hidden; */
-	/* min-height: 100%; */
-
-}
 
 header {
 	z-index: 999;
@@ -524,8 +518,6 @@ li>.tab-icon {
 	/* padding:.5em 1.2em; */
 }
 
-#add-task-button::after {}
-
 .task,
 #task-setting-container {
 	display: flex;
@@ -617,9 +609,6 @@ li>.tab-icon {
 	width: 40%;
 }
 
-#form-body {
-	/* outline: red solid 1px; */
-}
 
 #pp-input-container {
 	display: flex;
