@@ -4,7 +4,8 @@ const userTitle = document.getElementById('title')
 const inputContainer = document.querySelectorAll('.input-container')
 const addTaskButton = document.getElementById('form-add-button');
 
-function GetUserInput(getPriority) {
+let color;
+function GetUserInput(priority) {
     let descInput;
     let titleInput;
     descInput = userDesc.value;
@@ -14,8 +15,7 @@ function GetUserInput(getPriority) {
     return {
         titleInput,
         descInput,
-        getPriority
-        
+        priority
     }
 
 }
@@ -23,21 +23,27 @@ function GetUserInput(getPriority) {
 // find a way for this to be independent
 priorityButtonContainer.addEventListener('click', e => {
     console.log(e.target)
-    if (e.target.matches('#very-important')) {
-        console.log('very important')
-        getPriority = '#bf616a';
-    } else if (e.target.matches('#important')) {
-        console.log('important')
-        getPriority = '#ebcb8b';
-    } else if (e.target.matches('#less-important')) {
-        console.log('less important')
-        getPriority = '#a3be8c';
-    }
-
+    color = getPriority(e)
+    console.log(color)
 })
+
+function getPriority(event){
+    let priority;
+    if (event.target.matches('#very-important')) {
+        console.log('very important')
+        priority = '#bf616a';
+    } else if (event.target.matches('#important')) {
+        console.log('important')
+        priority = '#ebcb8b';
+    } else if (event.target.matches('#less-important')) {
+        console.log('less important')
+        priority = '#a3be8c';
+    }
+    return priority
+}
 
 addTaskButton.addEventListener('click', e => {
     e.preventDefault();
-    console.log(e.target)
-    console.log(GetUserInput())
+    console.log(color)
+    console.log(GetUserInput(color))
 })
