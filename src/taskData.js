@@ -2,7 +2,7 @@ const priorityButtonContainer = document.getElementById('form-priority-buttons')
 const userDesc = document.getElementById('desc')
 const userTitle = document.getElementById('title')
 const inputContainer = document.querySelectorAll('.input-container')
-const addTaskButton = document.getElementById('form-add-button');
+const formAddTaskButton = document.getElementById('form-add-button');
 
 
 
@@ -22,21 +22,6 @@ priorityButtonContainer.addEventListener('click', event => {
     }
 })
 
-// function getPriority(event) {
-//     let priority;
-//     console.log(event.target)
-//     if (event.target.matches('#very-important')) {
-//         console.log('very important')
-//         priority = '#bf616a';
-//     } else if (event.target.matches('#important')) {
-//         console.log('important')
-//         priority = '#ebcb8b';
-//     } else if (event.target.matches('#less-important')) {
-//         console.log('less important')
-//         priority = '#a3be8c';
-//     }
-//     return priority
-// }
 
 function getUserData() {
     let descInput;
@@ -63,9 +48,10 @@ function storeUserTask(obj) {
 };
 
 
-addTaskButton.addEventListener('click', e => {
+formAddTaskButton.addEventListener('click', e => {
     e.preventDefault();
     console.log(getUserData());
+    // use this logic to throw an error if input is empty
     if(userTitle.value == ''){
         console.log('need title');
         return;
@@ -73,5 +59,4 @@ addTaskButton.addEventListener('click', e => {
         storeUserTask(getUserData());
         clearInput();
     }
-    console.log({fromOuterArray:userTasks});
 });

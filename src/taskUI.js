@@ -80,13 +80,14 @@ function applyAttributes(node, objAttr) {
   }
 }
 
+const dimBg = document.createElement("div");
+dimBg.setAttribute(
+  "style",
+  "position:absolute;bottom:0%;left:0%;z-index:99;min-height:100vh;width:100vw;background-color:black;opacity:.5"
+);
+dimBg.setAttribute('id','dim-background-form')
 function createFormUI(mainContainer) {
-  const dimBg = document.createElement("div");
-  dimBg.setAttribute(
-    "style",
-    "position:absolute;bottom:0%;left:0%;z-index:99;min-height:100vh;width:100vw;background-color:black;opacity:.5"
-  );
-  dimBg.setAttribute('id','dim-background-form')
+
   body.setAttribute("style", "overflow:hidden;");
   
   console.log("form created");
