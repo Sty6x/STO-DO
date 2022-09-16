@@ -4,9 +4,7 @@ const mainContentContainer = document.getElementById("main-content-container");
 
 const headerContainer = document.getElementById("header-container");
 const todayHeader = document.getElementById("header-text"); //style
-const headerOptionContainer = document.getElementById(
-  "header-option-container"
-);
+const headerOptionContainer = document.getElementById("header-option-container");
 const options = headerOptionContainer.children;
 
 for (let i = 0; i < options.length; i++) {
@@ -86,10 +84,9 @@ dimBg.setAttribute(
   "position:absolute;bottom:0%;left:0%;z-index:99;min-height:100vh;width:100vw;background-color:black;opacity:.5"
 );
 dimBg.setAttribute('id','dim-background-form')
-function createFormUI(mainContainer) {
 
+function createFormUI(mainContainer) {
   body.setAttribute("style", "overflow:hidden;");
-  
   console.log("form created");
   const popUpForm = document.getElementById('form-container')
   const cancelButton = document.getElementById('form-cancel-button')
@@ -98,6 +95,7 @@ function createFormUI(mainContainer) {
     mainContainer.append(dimBg);
   }
 
+  // handles cancel button
   if(popUpForm.classList.contains('form-active')){
     cancelButton.addEventListener('click', e => {
       popUpForm.classList.remove('form-active')
@@ -109,10 +107,23 @@ function createFormUI(mainContainer) {
   }
 
 }
-
+// placeholder task
 createTasks(tdMainContainer, new Task('kafka', 'something along the lines of i dont care', false, 'd'))
-const popUpForm = document.getElementById('form-container')
 
+const popUpForm = document.getElementById('form-container')
 addTaskbutton.addEventListener("click", () => {
   createFormUI(sbMainContainer);
+});
+
+
+
+const formAddTaskButton = document.getElementById('form-add-button');
+function removeForm(mainContainer){
+  mainContainer.removeChild(dimBg)
+  popUpForm.classList.remove('form-active')
+  popUpForm.setAttribute('class', 'form-inactive')
+};
+formAddTaskButton.addEventListener('click',()=> {
+
+  removeForm(sbMainContainer)
 });
