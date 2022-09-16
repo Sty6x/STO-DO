@@ -134,7 +134,7 @@ table {
 	border-spacing: 0;
 }
 
-button{
+button,input[type='radio']  {
 	cursor: pointer;
 }
 
@@ -170,7 +170,12 @@ button{
 	--icon-heigth: 30px;
 
 	--sb-ic-width: 25px;
-	--sb-ic-height: 25px
+	;
+	--sb-ic-height: 25px;
+
+	--priority-button1: #bf616a;
+	--priority-button2: #ebcb8b;
+	--priority-button3: #a3be8c;
 }
 
 /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap'); */
@@ -645,10 +650,11 @@ li>textarea,
 	display: none;
 }
 
-.input-container{
+.input-container {
 	box-sizing: border-box;
 	display: inline-block;
 }
+
 .input-container>#desc {
 	width: 100%;
 }
@@ -657,8 +663,9 @@ li>textarea,
 .input-container>#title {
 	width: 50%;
 }
+
 .input-container>#desc,
-#title{
+#title {
 	padding: .5em .9em;
 
 }
@@ -679,22 +686,67 @@ textarea {
 	resize: none;
 }
 
-#form-add-cancel-buttons{
+#form-add-cancel-buttons {
 	display: flex;
 	gap: 1.2em;
 }
 
-#form-add-cancel-buttons > .form-buttons{
+#form-add-cancel-buttons>.form-buttons {
 	border: none;
 	color: var(--text);
 	background-color: var(--frost-3);
 	font-family: "Montserrat-Med";
 	padding: .4em .8em;
-	border-radius:5px;
+	border-radius: 5px;
 	transition: all 150ms ease;
 }
-#form-add-cancel-buttons > .form-buttons:hover{
+
+#form-add-cancel-buttons>.form-buttons:hover {
 	background-color: var(--highlight-yellow);
 	box-shadow: 3px 2px 6px rgb(0, 0, 0, .3);
 	color: var(--darkMain-Sb);
+}
+
+
+#form-priority-buttons>input[type='radio'] {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 50%;
+	background-color: var(--darkMain-Sb);
+
+	transition: all 150ms ease-in-out;
+}
+
+input[type='radio']#very-important {
+	border: 2px solid var(--priority-button1);
+
+}
+
+input[type='radio']#very-important:checked {
+	color: #5e81ac;
+	background-color: var(--priority-button1);
+}
+
+
+input[type='radio']#important {
+
+	border: 2px solid var(--priority-button2);
+}
+
+input[type='radio']#important:checked {
+	color: #5e81ac;
+	background-color: var(--priority-button2);
+}
+
+
+input[type='radio']#less-important {
+
+	border: 2px solid var(--priority-button3);
+}
+
+input[type='radio']#less-important:checked {
+	color: #5e81ac;
+	background-color: var(--priority-button3);
 }
