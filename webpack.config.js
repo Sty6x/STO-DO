@@ -7,7 +7,8 @@ module.exports = {
     entry: {
         index: './src/index.js',
         data: './src/data.js',
-        taskUi: './src/taskUI.js'
+        taskUi: './src/taskUI.js',
+        taskData: './src/taskData.js'
     },
     output: {
         filename: '[name].bundle.js',

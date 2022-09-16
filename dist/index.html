@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sto-Do</title>
-<script defer src="/runtime.bundle.js"></script><script defer src="/index.bundle.js"></script><script defer src="/data.bundle.js"></script><script defer src="/taskUi.bundle.js"></script></head>
+<script defer src="/runtime.bundle.js"></script><script defer src="/index.bundle.js"></script><script defer src="/data.bundle.js"></script><script defer src="/taskUi.bundle.js"></script><script defer src="/taskData.bundle.js"></script></head>
 
 <body>
   <header>
@@ -49,26 +49,24 @@
         </ul>
       </div>
     </main>
-    <div id="form-container" class="form-active">
+    <div id="form-container" class="form-inactive">
       <form action="" id="form-body">
         <ul id="pp-input-container">
           <li class="input-container">
-            <label for="title">Task Name</label>
-            <input type="text" id="title" name="title">
+            <input placeholder="Task Name" type="text" id="title" name="title" required>
           </li>
           <li class="input-container" id="">
-            <label for="desc">Description</label>
-            <textarea name="desc" id="desc"></textarea>
+            <textarea placeholder="Description" name="desc" id="desc"></textarea>
           </li>
         </ul>
         <div id="button-form-container">
           <div id="form-priority-buttons">
-            <input type="radio" id="very-important">
-            <input type="radio" id="important">
-            <input type="radio" id="less important">
+            <input type="radio" name="priority" id="very-important">
+            <input type="radio" name="priority" id="important">
+            <input type="radio" name="priority" id="less-important">
           </div>
           <div id="form-add-cancel-buttons">
-            <button type="button" class="form-buttons" id="form-add-button">Add Task</button>
+            <button type="submit" class="form-buttons" id="form-add-button">Add Task</button>
             <button type="button" class="form-buttons" id="form-cancel-button">Cancel</button>
           </div>
         </div>
