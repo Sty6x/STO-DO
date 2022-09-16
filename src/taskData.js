@@ -7,10 +7,8 @@ const addTaskButton = document.getElementById('form-add-button');
 
 
 
-priorityButtonContainer.addEventListener('click', getPriority)
-
-function getPriority(event) {
-    let priority;
+let priority;
+priorityButtonContainer.addEventListener('click', event => {
     console.log(event.target)
     if (event.target.matches('#very-important')) {
         console.log('very important')
@@ -22,9 +20,25 @@ function getPriority(event) {
         console.log('less important')
         priority = '#a3be8c';
     }
-    return priority
-}
-function GetUserInput() {
+})
+
+// function getPriority(event) {
+//     let priority;
+//     console.log(event.target)
+//     if (event.target.matches('#very-important')) {
+//         console.log('very important')
+//         priority = '#bf616a';
+//     } else if (event.target.matches('#important')) {
+//         console.log('important')
+//         priority = '#ebcb8b';
+//     } else if (event.target.matches('#less-important')) {
+//         console.log('less important')
+//         priority = '#a3be8c';
+//     }
+//     return priority
+// }
+
+function getUserData() {
     let descInput;
     let titleInput;
     descInput = userDesc.value;
@@ -32,7 +46,7 @@ function GetUserInput() {
     return {
         titleInput,
         descInput,
-        
+        priority
     }
 }
 
@@ -43,6 +57,7 @@ function clearInput() {
 }
 
 const userTasks = []
+
 function storeUserTask(obj) {
     userTasks.push(obj)
     console.log(userTasks)
@@ -50,6 +65,6 @@ function storeUserTask(obj) {
 
 addTaskButton.addEventListener('click', e => {
     e.preventDefault();
-    console.log(GetUserInput())
-    storeUserTask(GetUserInput())
+    console.log(getUserData())
+    storeUserTask(getUserData())
 })
