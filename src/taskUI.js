@@ -73,14 +73,6 @@ function createTasks(tdContainer, userTask) {
   userTask.priorityChange(task);
 }
 
-//application logic
-let taskArr = [];
-
-function storeTask(Obj, taskArr) {
-  taskArr.push(Obj);
-  console.log(taskArr);
-}
-
 function applyAttributes(node, objAttr) {
   for (key in objAttr) {
     console.log(key);
@@ -94,20 +86,17 @@ function createFormUI(mainContainer) {
     "style",
     "position:absolute;bottom:0%;left:0%;z-index:99;min-height:100vh;width:100vw;background-color:black;opacity:.5"
   );
+  dimBg.setAttribute('id','dim-background-form')
   body.setAttribute("style", "overflow:hidden;");
+  
   console.log("form created");
-  // formFunction(dimBg,mainContainer)
-
   const popUpForm = document.getElementById('form-container')
   const cancelButton = document.getElementById('form-cancel-button')
   if (!popUpForm.classList.contains('form-active')) {
     popUpForm.setAttribute('class', 'form-active')
     mainContainer.append(dimBg);
   }
-  // bug 
-  // error on removing child saying it doesnt exist
-  // probably need to create again if gone but then again its
-  // still appending everytime we click on add task
+
   if(popUpForm.classList.contains('form-active')){
     cancelButton.addEventListener('click', e => {
       popUpForm.classList.remove('form-active')
@@ -121,9 +110,8 @@ function createFormUI(mainContainer) {
 }
 
 createTasks(tdMainContainer, new Task('kafka', 'something along the lines of i dont care', false, 'd'))
+const popUpForm = document.getElementById('form-container')
+
 addTaskbutton.addEventListener("click", () => {
-  // pubsub make a function that returns an object and pass it into these 2 functions
-  //   createTasks(tdMainContainer, new Task('kafka', 'something along the lines of i dont care', false, 'd'))
-  //   storeTask(new Task('kafka', 'something along the lines of i dont care', false, 'res'),taskArr)
   createFormUI(sbMainContainer);
 });

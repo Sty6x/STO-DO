@@ -47,24 +47,31 @@ function getUserData() {
         titleInput,
         descInput,
         priority
-    }
-}
+    };
+};
 
 function clearInput() {
     userDesc.value = '';
     userTitle.value = '';
-
-}
+    priority = '';
+};
 
 const userTasks = []
-
 function storeUserTask(obj) {
     userTasks.push(obj)
     console.log(userTasks)
-}
+};
+
 
 addTaskButton.addEventListener('click', e => {
     e.preventDefault();
-    console.log(getUserData())
-    storeUserTask(getUserData())
-})
+    console.log(getUserData());
+    if(userTitle.value == ''){
+        console.log('need title');
+        return;
+    }else{
+        storeUserTask(getUserData());
+        clearInput();
+    }
+    console.log({fromOuterArray:userTasks});
+});
