@@ -134,7 +134,9 @@ table {
 	border-spacing: 0;
 }
 
-
+button{
+	cursor: pointer;
+}
 
 
 :root {
@@ -507,7 +509,6 @@ li>.tab-icon {
 	font-family: 'Montserrat-Med';
 	text-transform: uppercase;
 	padding: .5em 1.2em;
-	cursor: pointer;
 	transition: all 150ms ease;
 }
 
@@ -608,10 +609,11 @@ li>.tab-icon {
 	transform: translate(-50%, -50%);
 
 	transition: all 300ms ease;
+	width: 40%;
 }
 
 #form-body {
-	outline: red solid 1px;
+	/* outline: red solid 1px; */
 }
 
 #pp-input-container {
@@ -643,19 +645,22 @@ li>textarea,
 	display: none;
 }
 
-#form-cancel-button {
-	margin-left: 2em;
+.input-container{
+	box-sizing: border-box;
+	display: inline-block;
 }
-
-.input-container>#desc,
-#title {
-	padding: .5em .9em;
-	/* border: none; */
+.input-container>#desc {
+	width: 100%;
 }
 
 
 .input-container>#title {
-	width: 10em;
+	width: 50%;
+}
+.input-container>#desc,
+#title{
+	padding: .5em .9em;
+
 }
 
 
@@ -672,4 +677,24 @@ input[type='text'],
 textarea {
 	outline: none;
 	resize: none;
+}
+
+#form-add-cancel-buttons{
+	display: flex;
+	gap: 1.2em;
+}
+
+#form-add-cancel-buttons > .form-buttons{
+	border: none;
+	color: var(--text);
+	background-color: var(--frost-3);
+	font-family: "Montserrat-Med";
+	padding: .4em .8em;
+	border-radius:5px;
+	transition: all 150ms ease;
+}
+#form-add-cancel-buttons > .form-buttons:hover{
+	background-color: var(--highlight-yellow);
+	box-shadow: 3px 2px 6px rgb(0, 0, 0, .3);
+	color: var(--darkMain-Sb);
 }
