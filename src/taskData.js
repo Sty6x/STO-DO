@@ -5,13 +5,13 @@ const inputContainer = document.querySelectorAll('.input-container')
 const addTaskButton = document.getElementById('form-add-button');
 
 
-priorityButtonContainer.addEventListener('click', e => {
-    console.log(e.target)
-     console.log(getPriority(e))
-})
 
-function getPriority(event){
+
+priorityButtonContainer.addEventListener('click', getPriority)
+
+function getPriority(event) {
     let priority;
+    console.log(event.target)
     if (event.target.matches('#very-important')) {
         console.log('very important')
         priority = '#bf616a';
@@ -32,27 +32,24 @@ function GetUserInput() {
     return {
         titleInput,
         descInput,
+        
     }
-
 }
 
-function clearInput(color){
+function clearInput() {
     userDesc.value = '';
-    userTitle.value= '';
- 
+    userTitle.value = '';
+
 }
 
 const userTasks = []
-function storeUserTask(obj){
-    // for(let i = 0; i < userTask.length;i++){
-    // }
+function storeUserTask(obj) {
     userTasks.push(obj)
     console.log(userTasks)
 }
 
 addTaskButton.addEventListener('click', e => {
     e.preventDefault();
-    GetUserInput()
+    console.log(GetUserInput())
     storeUserTask(GetUserInput())
-
 })
