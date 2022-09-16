@@ -641,3 +641,25 @@ li > textarea,[type='text']{
 #form-cancel-button{
 	margin-left: 2em;
 }
+
+.input-container > #desc,#title{
+	padding: .5em .9em;
+	/* border: none; */
+	resize: none;
+}
+.input-container > #desc:focus,#title:focus{
+	outline: none;
+
+}
+
+
+.input-container >#title{
+	width: 10em;
+}
+
+
+input[type='text'],textarea{
+	font-family: 'Montserrat-Med';
+	color: var(--text);
+
+}
