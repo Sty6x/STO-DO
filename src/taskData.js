@@ -50,12 +50,13 @@ function storeUserTask(obj) {
 
 formAddTaskButton.addEventListener('click', e => {
     e.preventDefault();
-    console.log(getUserData());
+    // console.log(getUserData());
     // use this logic to throw an error if input is empty
     if(userTitle.value == ''){
         console.log('need title');
         return;
     }else{
+        PubSub.publish('getTaskData',getUserData())
         storeUserTask(getUserData());
         clearInput();
     }

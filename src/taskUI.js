@@ -42,7 +42,9 @@ createTdTaskUI();
   // }
   
 // creates task from user input
-function createTaskUI(mgs, userTask) {
+function createTaskUI(msg, userTask) {
+  console.log(msg)
+  console.log(userTask)
   let task = document.createElement("div");
   task.setAttribute("class", "task");
   
@@ -51,11 +53,11 @@ function createTaskUI(mgs, userTask) {
 
   let taskTitle = document.createElement("h3");
   taskTitle.setAttribute("id", "task-title");
-  taskTitle.textContent = userTask.title; // From task data
+  taskTitle.textContent = userTask.titleInput; // From task data
 
   let taskDesc = document.createElement("p");
   taskDesc.setAttribute("id", "task-desc");
-  taskDesc.textContent = userTask.description; // From task data
+  taskDesc.textContent = userTask.descInput; // From task data
 
   let taskSettingContainer = document.createElement("div");
   taskSettingContainer.setAttribute("id", "task-setting-container");
@@ -70,7 +72,6 @@ function createTaskUI(mgs, userTask) {
   titleAndDescContainer.append(taskTitle, taskDesc);
 }
 
-PubSub.subscribe('getTaskData',createTaskUI)
 
 
 
@@ -110,22 +111,23 @@ function createFormUI(mainContainer) {
   }
 
 }
-// placeholder task
-
+// form handler
 const popUpForm = document.getElementById('form-container')
-addTaskbutton.addEventListener("click", () => {
-  createFormUI(sbMainContainer);
-});
-
-
-
 const formAddTaskButton = document.getElementById('form-add-button');
 function removeForm(mainContainer){
   mainContainer.removeChild(dimBg)
   popUpForm.classList.remove('form-active')
   popUpForm.setAttribute('class', 'form-inactive')
 };
-formAddTaskButton.addEventListener('click',()=> {
 
+
+addTaskbutton.addEventListener("click", () => {
+  createFormUI(sbMainContainer);
+});
+
+
+formAddTaskButton.addEventListener('click',()=> {
+  
+  PubSub.subscribe('getTaskData',createTaskUI)
   removeForm(sbMainContainer)
 });
