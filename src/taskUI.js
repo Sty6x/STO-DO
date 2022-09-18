@@ -29,18 +29,6 @@ function createTdTaskUI() {
 }
 createTdTaskUI();
 
-// class Task {
-  //   constructor(title, description, isDone, color) {
-    //     this.title = title;
-    //     this.description = description;
-    //     this.isDone = false;
-    //     this.color = color;
-    //   }
-//   priorityChange(task) {
-  //     task.setAttribute("style", `background-color:${this.color};`);
-  //   }
-  // }
-  
 // creates task from user input
 function createTaskUI(msg, userTask) {
   console.log(msg)
@@ -126,8 +114,7 @@ addTaskbutton.addEventListener("click", () => {
 });
 
 
+PubSub.subscribe('getTaskData',createTaskUI)
 formAddTaskButton.addEventListener('click',()=> {
-  
-  PubSub.subscribe('getTaskData',createTaskUI)
   removeForm(sbMainContainer)
 });
