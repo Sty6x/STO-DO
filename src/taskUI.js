@@ -29,20 +29,20 @@ function createTdTaskUI() {
 }
 createTdTaskUI();
 
-class Task {
-  constructor(title, description, isDone, color) {
-    this.title = title;
-    this.description = description;
-    this.isDone = false;
-    this.color = color;
-  }
-  priorityChange(task) {
-    task.setAttribute("style", `background-color:${this.color};`);
-  }
-}
+// class Task {
+//   constructor(title, description, isDone, color) {
+//     this.title = title;
+//     this.description = description;
+//     this.isDone = false;
+//     this.color = color;
+//   }
+//   priorityChange(task) {
+//     task.setAttribute("style", `background-color:${this.color};`);
+//   }
+// }
 
 // creates task from user input
-function createTasks(tdContainer, userTask) {
+function createTaskUI(tdContainer, userTask) {
   let task = document.createElement("div");
   task.setAttribute("class", "task");
 
@@ -51,11 +51,11 @@ function createTasks(tdContainer, userTask) {
 
   let taskTitle = document.createElement("h3");
   taskTitle.setAttribute("id", "task-title");
-  taskTitle.textContent = userTask.title;
+  taskTitle.textContent = userTask.title; // From task data
 
   let taskDesc = document.createElement("p");
   taskDesc.setAttribute("id", "task-desc");
-  taskDesc.textContent = userTask.description;
+  taskDesc.textContent = userTask.description; // From task data
 
   let taskSettingContainer = document.createElement("div");
   taskSettingContainer.setAttribute("id", "task-setting-container");
@@ -68,7 +68,6 @@ function createTasks(tdContainer, userTask) {
   tdContainer.appendChild(task);
   task.append(titleAndDescContainer, taskSettingContainer);
   titleAndDescContainer.append(taskTitle, taskDesc);
-  userTask.priorityChange(task);
 }
 
 function applyAttributes(node, objAttr) {
@@ -108,7 +107,7 @@ function createFormUI(mainContainer) {
 
 }
 // placeholder task
-createTasks(tdMainContainer, new Task('kafka', 'something along the lines of i dont care', false, 'd'))
+createTaskUI(tdMainContainer, new Task('kafka', 'something along the lines of i dont care', false, 'd'))
 
 const popUpForm = document.getElementById('form-container')
 addTaskbutton.addEventListener("click", () => {
