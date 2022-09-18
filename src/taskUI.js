@@ -30,22 +30,22 @@ function createTdTaskUI() {
 createTdTaskUI();
 
 // class Task {
-//   constructor(title, description, isDone, color) {
-//     this.title = title;
-//     this.description = description;
-//     this.isDone = false;
-//     this.color = color;
-//   }
+  //   constructor(title, description, isDone, color) {
+    //     this.title = title;
+    //     this.description = description;
+    //     this.isDone = false;
+    //     this.color = color;
+    //   }
 //   priorityChange(task) {
-//     task.setAttribute("style", `background-color:${this.color};`);
-//   }
-// }
-
+  //     task.setAttribute("style", `background-color:${this.color};`);
+  //   }
+  // }
+  
 // creates task from user input
-function createTaskUI(tdContainer, userTask) {
+function createTaskUI(mgs, userTask) {
   let task = document.createElement("div");
   task.setAttribute("class", "task");
-
+  
   let titleAndDescContainer = document.createElement("div");
   titleAndDescContainer.setAttribute("class", "title-desc-container");
 
@@ -65,10 +65,14 @@ function createTaskUI(tdContainer, userTask) {
   taskSettings.setAttribute("id", "task-setting");
   taskSettings.textContent = "...";
 
-  tdContainer.appendChild(task);
+  tdMainContainer.appendChild(task);
   task.append(titleAndDescContainer, taskSettingContainer);
   titleAndDescContainer.append(taskTitle, taskDesc);
 }
+
+PubSub.subscribe('getTaskData',createTaskUI)
+
+
 
 function applyAttributes(node, objAttr) {
   for (key in objAttr) {
@@ -107,7 +111,6 @@ function createFormUI(mainContainer) {
 
 }
 // placeholder task
-createTaskUI(tdMainContainer, new Task('kafka', 'something along the lines of i dont care', false, 'd'))
 
 const popUpForm = document.getElementById('form-container')
 addTaskbutton.addEventListener("click", () => {
