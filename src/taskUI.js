@@ -55,6 +55,8 @@ function createTaskUI(msg, userTask) {
   taskSettings.setAttribute("id", "task-setting");
   taskSettings.textContent = "...";
 
+  task.setAttribute('style',`border-left:solid 10px ${userTask.priority};`)
+
   tdMainContainer.appendChild(task);
   task.append(titleAndDescContainer, taskSettingContainer);
   titleAndDescContainer.append(taskTitle, taskDesc);

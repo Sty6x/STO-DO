@@ -526,11 +526,12 @@ li>.tab-icon {
 
 .task {
 	/* dar2Main-Sb */
-	background-color: var(--highlight-red);
+	background-color: var(--dark);
 	justify-content: space-between;
 	padding: .7em 2em;
 	border-radius: 10px;
 	box-shadow: 6px 5px 10px rgb(0, 0, 0, .2);
+	/* border-left: #5e81ac solid 10px; */
 }
 
 .title-desc-container {
