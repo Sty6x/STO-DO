@@ -712,30 +712,20 @@ input[type='radio']#very-important {
 	border: 2px solid var(--priority-button1);
 
 }
-
-input[type='radio']#very-important:checked {
-	color: #5e81ac;
-	background-color: var(--priority-button1);
-}
-
-
 input[type='radio']#important {
-
 	border: 2px solid var(--priority-button2);
 }
 
-input[type='radio']#important:checked {
-	color: #5e81ac;
-	background-color: var(--priority-button2);
-}
-
-
 input[type='radio']#less-important {
-
 	border: 2px solid var(--priority-button3);
 }
 
+input[type='radio']#very-important:checked {
+	background-color: var(--priority-button1);
+}                                                               
+input[type='radio']#important:checked {
+	background-color: var(--priority-button2);
+}
 input[type='radio']#less-important:checked {
-	color: #5e81ac;
 	background-color: var(--priority-button3);
 }
