@@ -23,17 +23,6 @@ priorityButtonContainer.addEventListener('click', event => {
 })
 
 
-function getUserData() {
-    let descInput;
-    let titleInput;
-    descInput = userDesc.value;
-    titleInput = userTitle.value;
-    return {
-        titleInput,
-        descInput,
-        priority
-    };
-};
 
 function clearInput() {
     userDesc.value = '';
@@ -41,16 +30,32 @@ function clearInput() {
     priority = '';
 };
 
-const userTasks = []
+const userTasks = [{}]
 function storeUserTask(obj) {
     userTasks.push(obj)
     console.log(userTasks)
 };
 
 
+function getUserData() {
+    let descInput;
+    let titleInput;
+    let id;
+    descInput = userDesc.value;
+    titleInput = userTitle.value;
+    for(let i = 0; i < userTasks.length; i++){
+        id = i;
+    }
+    return {
+        titleInput,
+        descInput,
+        priority,
+        id
+    };
+};
+
 formAddTaskButton.addEventListener('click', e => {
     e.preventDefault();
-    // console.log(getUserData());
     // use this logic to throw an error if input is empty
     if(userTitle.value == ''){
         console.log('need title');
