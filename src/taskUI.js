@@ -53,6 +53,7 @@ function createTaskUI(msg, userTask) {
   let taskSettings = document.createElement("button");
   taskSettingContainer.appendChild(taskSettings);
   taskSettings.setAttribute("id", "task-setting");
+  taskSettings.setAttribute("class", "task-edit");
   taskSettings.textContent = "...";
 
   task.setAttribute('style',`border-left:solid 10px ${userTask.priority};`);
@@ -63,15 +64,8 @@ function createTaskUI(msg, userTask) {
   titleAndDescContainer.append(taskTitle, taskDesc);
 }
 
-createTaskUI('hm',{titleInput:'Title Here',descInput:'Description Here',priority:'PH',id:'PH'})
+// createTaskUI('hm',{titleInput:'Title Here',descInput:'Description Here',priority:'PH',id:'PH'})
 
-
-function applyAttributes(node, objAttr) {
-  for (key in objAttr) {
-    console.log(key);
-    node.setAttribute(key, `${objAttr[key]}`);
-  }
-}
 
 const dimBg = document.createElement("div");
 dimBg.setAttribute(
@@ -113,6 +107,23 @@ function removeForm(mainContainer){
   popUpForm.classList.remove('form-active')
   popUpForm.setAttribute('class', 'form-inactive')
 };
+
+
+const tdUpMainContainer = document.getElementById("td-up-main-task-container");
+tdUpMainContainer.addEventListener('click',e=>{
+  if(e.target.matches('.task-edit')){
+    createEditTask(e)
+  }
+})
+
+function createEditTask(e){
+  const editTaskButton = document.querySelectorAll('.task-edit')
+  const ediTaskButtonArr = Array.from(editTaskButton)
+  ediTaskButtonArr.forEach(editButton=>{
+    editButton.textContent = 'lol'
+  })
+  console.log(editTaskButton)
+}
 
 
 addTaskbutton.addEventListener("click", () => {
