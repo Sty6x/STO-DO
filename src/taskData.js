@@ -3,7 +3,7 @@ const userDesc = document.getElementById('desc')
 const userTitle = document.getElementById('title')
 const inputContainer = document.querySelectorAll('.input-container')
 const formAddTaskButton = document.getElementById('form-add-button');
-
+// const prioritybuttons = document.getElementById()
 
 
 
@@ -27,7 +27,7 @@ priorityButtonContainer.addEventListener('click', event => {
 function clearInput() {
     userDesc.value = '';
     userTitle.value = '';
-    priority = '';
+    // priority = '';
 };
 
 const userTasks = [{}]
@@ -45,6 +45,9 @@ function getUserData() {
     titleInput = userTitle.value;
     for(let i = 0; i < userTasks.length; i++){
         id = i;
+    }
+    if (priority == ''){
+        priority = 'var(--dark)';
     }
     return {
         titleInput,
