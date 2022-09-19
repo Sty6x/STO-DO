@@ -96,7 +96,7 @@ function createFormUI(mainContainer) {
       popUpForm.classList.remove('form-active')
       popUpForm.setAttribute('class', 'form-inactive')
       if(mainContainer.children[0]){
-        mainContainer.removeChild(dimBg)
+        removeForm(sbMainContainer)
       }
     })
   }
@@ -108,6 +108,7 @@ function createFormUI(mainContainer) {
 const popUpForm = document.getElementById('form-container')
 const formAddTaskButton = document.getElementById('form-add-button');
 function removeForm(mainContainer){
+  body.setAttribute("style", "overflow:auto;");
   mainContainer.removeChild(dimBg)
   popUpForm.classList.remove('form-active')
   popUpForm.setAttribute('class', 'form-inactive')
