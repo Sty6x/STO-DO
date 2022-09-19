@@ -48,12 +48,12 @@ function createTaskUI(msg, userTask) {
   taskDesc.textContent = userTask.descInput; // From task data
 
   let taskSettingContainer = document.createElement("div");
-  taskSettingContainer.setAttribute("id", "task-setting-container");
+  taskSettingContainer.setAttribute("id", "edit-task-container");
 
   let taskSettings = document.createElement("button");
   taskSettingContainer.appendChild(taskSettings);
-  taskSettings.setAttribute("id", "task-setting");
-  taskSettings.setAttribute("class", "task-edit");
+  taskSettings.setAttribute("id", "edit-button");
+  taskSettings.setAttribute("class", "edit-task-buttons");
   taskSettings.textContent = "...";
 
   task.setAttribute('style',`border-left:solid 10px ${userTask.priority};`);
@@ -111,16 +111,21 @@ function removeForm(mainContainer){
 
 const tdUpMainContainer = document.getElementById("td-up-main-task-container");
 tdUpMainContainer.addEventListener('click',e=>{
-  if(e.target.matches('.task-edit')){
+  if(e.target.matches('.edit-task-buttons')){
     createEditTask(e)
   }
 })
 
+
+
+// needs its own eventlistener for each edit-task-button
 function createEditTask(e){
-  const editTaskButton = document.querySelectorAll('.task-edit')
+  const editTaskButton = document.querySelectorAll('.edit-task-buttons')
   const ediTaskButtonArr = Array.from(editTaskButton)
   ediTaskButtonArr.forEach(editButton=>{
-    editButton.textContent = 'lol'
+    editButton.addEventListener('click',e => {
+      editButton.textContent = 'lol'
+    })
   })
   console.log(editTaskButton)
 }

@@ -519,7 +519,7 @@ li>.tab-icon {
 }
 
 .task,
-#task-setting-container {
+#edit-task-container {
 	display: flex;
 
 }
@@ -552,13 +552,13 @@ li>.tab-icon {
 	font-family: 'Montserrat-Reg';
 }
 
-#task-setting-container {
+#edit-task-container {
 	justify-content: center;
 	align-items: center;
 
 }
 
-#task-setting {
+#edit-button {
 	background-color: var(--text3);
 	opacity: .8;
 	border: none;
@@ -566,7 +566,7 @@ li>.tab-icon {
 	padding: .2em 1em;
 }
 
-#task-setting,
+#edit-button,
 #task-desc,
 #task-title {
 	cursor: pointer;
