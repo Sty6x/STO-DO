@@ -3,9 +3,15 @@ const userDesc = document.getElementById('desc')
 const userTitle = document.getElementById('title')
 const inputContainer = document.querySelectorAll('.input-container')
 const formAddTaskButton = document.getElementById('form-add-button');
-// const prioritybuttons = document.getElementById()
+const tasksetting = document.getElementById('task-setting')
+
+const mainContentContainer = document.getElementById("td-up-main-task-container");
 
 
+mainContentContainer.addEventListener('click', e=>{
+    console.log(e.target);
+    mainContentContainer.removeChild(e.target);
+})
 
 let priority;
 priorityButtonContainer.addEventListener('click', event => {
