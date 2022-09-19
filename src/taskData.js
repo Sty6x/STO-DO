@@ -44,7 +44,7 @@ function getUserData() {
     descInput = userDesc.value;
     titleInput = userTitle.value;
     for(let i = 0; i < userTasks.length; i++){
-        id = i;
+        id = `task-${i}`;
     }
     if (priority == ''){
         priority = 'var(--dark)';
