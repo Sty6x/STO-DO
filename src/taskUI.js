@@ -17,6 +17,15 @@ const tdTasksContainer = document.createElement("div");
 const addTaskbutton = document.createElement("button");
 const addTaskContainer = document.createElement("div");
 
+
+const dimBg = document.createElement("div");
+dimBg.setAttribute(
+  "style",
+  "position:absolute;bottom:0%;left:0%;z-index:99;min-height:100vh;width:100vw;background-color:black;opacity:.5"
+);
+dimBg.setAttribute('id', 'dim-background-form')
+
+
 function createTdTaskUI() {
   mainContentContainer.appendChild(tdMainContainer);
   tdMainContainer.setAttribute("id", "td-up-main-task-container");
@@ -35,7 +44,7 @@ function createTaskUI(msg, userTask) {
   console.log(userTask)
   let task = document.createElement("div");
   task.setAttribute("class", "task");
-  
+
   let titleAndDescContainer = document.createElement("div");
   titleAndDescContainer.setAttribute("class", "title-desc-container");
 
@@ -47,33 +56,31 @@ function createTaskUI(msg, userTask) {
   taskDesc.setAttribute("id", "task-desc");
   taskDesc.textContent = userTask.descInput; // From task data
 
-  let taskSettingContainer = document.createElement("div");
-  taskSettingContainer.setAttribute("id", "edit-task-container");
-  taskSettingContainer.setAttribute("class", "edit-container");
+  let editRmContainer = document.createElement("div");
+  editRmContainer.setAttribute("id", "edit-task-container");
+  editRmContainer.setAttribute("class", "edit-container");
 
-  let taskSettings = document.createElement("button");
-  taskSettingContainer.appendChild(taskSettings);
-  taskSettings.setAttribute("id", "edit-button");
-  taskSettings.setAttribute("class", "edit-task-buttons");
-  taskSettings.textContent = "...";
-
-  task.setAttribute('style',`border-left:solid 10px ${userTask.priority};`);
+  let editButton = document.createElement("button");
+  editButton.setAttribute("id", "edit-button");
+  editButton.setAttribute("class", "edit-task-buttons");
+  editButton.textContent = "Edit Task";
+  
+  let removeButton = document.createElement("button");
+  removeButton.setAttribute("id", "remove-button");
+  removeButton.setAttribute("class", "edit-task-buttons");
+  removeButton.textContent = "Remove Task";
+  
+  editRmContainer.append(editButton,removeButton);
+  task.setAttribute('style', `border-left:solid 10px ${userTask.priority};`);
   task.setAttribute('id', `task-${userTask.id}`);
 
   tdMainContainer.appendChild(task);
-  task.append(titleAndDescContainer, taskSettingContainer);
+  task.append(titleAndDescContainer, editRmContainer);
   titleAndDescContainer.append(taskTitle, taskDesc);
 }
 
 // createTaskUI('hm',{titleInput:'Title Here',descInput:'Description Here',priority:'PH',id:'PH'})
 
-
-const dimBg = document.createElement("div");
-dimBg.setAttribute(
-  "style",
-  "position:absolute;bottom:0%;left:0%;z-index:99;min-height:100vh;width:100vw;background-color:black;opacity:.5"
-);
-dimBg.setAttribute('id','dim-background-form')
 
 function createFormUI(mainContainer) {
   body.setAttribute("style", "overflow:hidden;");
@@ -86,11 +93,11 @@ function createFormUI(mainContainer) {
   }
 
   // handles cancel button
-  if(popUpForm.classList.contains('form-active')){
+  if (popUpForm.classList.contains('form-active')) {
     cancelButton.addEventListener('click', e => {
       popUpForm.classList.remove('form-active')
       popUpForm.setAttribute('class', 'form-inactive')
-      if(mainContainer.children[0]){
+      if (mainContainer.children[0]) {
         removeForm(sbMainContainer)
       }
     })
@@ -102,7 +109,8 @@ function createFormUI(mainContainer) {
 // form handler
 const popUpForm = document.getElementById('form-container')
 const formAddTaskButton = document.getElementById('form-add-button');
-function removeForm(mainContainer){
+
+function removeForm(mainContainer) {
   body.setAttribute("style", "overflow:auto;");
   mainContainer.removeChild(dimBg)
   popUpForm.classList.remove('form-active')
@@ -111,31 +119,13 @@ function removeForm(mainContainer){
 
 
 const tdUpMainContainer = document.getElementById("td-up-main-task-container");
-tdUpMainContainer.addEventListener('click',e=>{
+tdUpMainContainer.addEventListener('click', e => {
   const target = e.target
-  if(target.matches('#edit-button')){
-    createEditTask(target)
+  if (target.matches('#edit-button')) {
+    
   }
 })
 
-
-
-// needs its own eventlistener for each edit-task-button
-function createEditTask(editButton){
-  const editButtonContainer = document.querySelectorAll('#edit-task-container');
-  const editButtonContainerArr = Array.from(editButtonContainer);
-  const editContainer = document.createElement('div');
-  const removeTask = document.createElement('button');
-  const editTask = document.createElement('button')
-  editButtonContainerArr.forEach(container=>{
-    editContainer.append(editTask,removeTask);
-    container.appendChild(editContainer);
-    removeTask.textContent = 'Remove';
-    editTask.textContent = 'Edit';
-    editButton.setAttribute('style','display:none;')
-  })
-
-}
 
 
 addTaskbutton.addEventListener("click", () => {
@@ -143,7 +133,7 @@ addTaskbutton.addEventListener("click", () => {
 });
 
 
-PubSub.subscribe('getTaskData',createTaskUI)
-formAddTaskButton.addEventListener('click',()=> {
+PubSub.subscribe('getTaskData', createTaskUI)
+formAddTaskButton.addEventListener('click', () => {
   removeForm(sbMainContainer)
 });
