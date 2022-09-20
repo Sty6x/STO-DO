@@ -128,6 +128,12 @@ tdUpMainContainer.addEventListener('click', e => {
       console.log(task)
       tdUpMainContainer.removeChild(task)
   }
+  if (target.matches('#edit-button')) {
+    // console.log(task)
+    // tdUpMainContainer.removeChild(task)
+    // make the title and description editable
+    // on click or something blah blah
+  }
   
 })
 
