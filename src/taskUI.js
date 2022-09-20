@@ -125,7 +125,6 @@ function removeForm(mainContainer) {
 
 
 
-
 const tdUpMainContainer = document.getElementById("td-up-main-task-container");
 tdUpMainContainer.addEventListener('click', e => {
 
@@ -140,55 +139,27 @@ tdUpMainContainer.addEventListener('click', e => {
 
 
   if (target.matches('#task-title') || target.matches('#task-desc')) {
-    editForm(target)
+    editForm().createEditform(target)
   }
   if (target.matches('#td-up-main-task-container')) {
-    removeEditForm()
-    changeTitleDesc(target)
+    editForm().changeTitleDesc()
+    editForm().removeEditForm()
   }
   console.log(target)
 })
 
-const titleDescContainer = document.querySelector('.title-desc-container');
-const editTitleInput = document.createElement('input')
-const editDescInput = document.createElement('textarea')
 
 
 
-function changeTitleDesc() {
-  let currentTitle = titleDescContainer.childNodes[0]
-  let currentDesc = titleDescContainer.childNodes[1]
-  currentTitle.textContent = editTitleInput.value;
-  currentDesc.textContent = editDescInput.value;
-}
-
-
-//////////////////////////////////////
-// this handles replacing the form's text
-
-function removeEditForm() {
-
-  titleDescContainer.removeChild(editDescInput);
-  titleDescContainer.removeChild(editTitleInput);
-  console.log(titleDescContainer.childNodes)
-  titleDescContainer.childNodes[0].setAttribute('style', 'display:inline;')
-  titleDescContainer.childNodes[1].setAttribute('style', 'display:inline;')
-
-}
-
-///////////////////////////////////////
-
-function applyAttribute(obj, node) {
-  for (key in obj) {
-    node.setAttribute(key, obj[key])
-  }
-}
 
 // invokes when task-title or task-desc is pressed and sets display to none on title and desc
-function editForm(target) {
+function editForm() {
+  const editTitleInput = document.createElement('input')
+  const editDescInput = document.createElement('textarea')
+  const titleDescContainer = document.querySelector('.title-desc-container');
+
   editTitleInput.setAttribute('id', 'edit-title')
   editDescInput.setAttribute('id', 'edit-desc')
-
   editTitleInput.setAttribute('style', 'font-size:1rem; width:40%; font-weight:bold; ')
   editDescInput.setAttribute('style', 'width:70%;font-size:.8rem; padding:0; margin-top:.1em; padding: 6px 5px;')
   titleDescContainer.setAttribute('style', 'display:flex;flex-direction:column; width:70%;')
@@ -200,19 +171,60 @@ function editForm(target) {
     type: 'text',
     id: 'edit-desc'
   }
+
+  function applyAttribute(obj, node) {
+    for (key in obj) {
+      node.setAttribute(key, obj[key])
+    }
+  }
   applyAttribute(applyTitleAttribute, editTitleInput)
   applyAttribute(applyDescAttribute, editDescInput)
-  let currentTitle = titleDescContainer.firstChild
-  let currentDesc = titleDescContainer.lastChild;
-  // checks if any clicking a specific node either title or desciption
-  if (target.matches('#task-title')) {
-    currentTitle.setAttribute('style', 'display: none');
-    titleDescContainer.insertBefore(editTitleInput, titleDescContainer.firstChild);
+
+  const titleInput = document.getElementById('edit-title');
+  const descInput = document.getElementById('edit-desc');
+
+  // displays form inside title and desc
+  function createEditform(target) {
+    let currentTitle = titleDescContainer.firstChild
+    let currentDesc = titleDescContainer.lastChild;
+    // checks if any clicking a specific node either title or desciption
+    if (target.matches('#task-title')) {
+      currentTitle.setAttribute('style', 'display: none');
+      titleDescContainer.insertBefore(editTitleInput, titleDescContainer.firstChild);
+    }
+    if (target.matches('#task-desc')) {
+      console.log(editDescInput)
+      currentDesc.setAttribute('style', 'display:none;')
+      titleDescContainer.appendChild(editDescInput);
+    }
   }
-  if (target.matches('#task-desc')) {
-    console.log(editDescInput)
-    currentDesc.setAttribute('style', 'display:none;')
-    titleDescContainer.appendChild(editDescInput);
+
+  // unable to change textContent becuase there are no values for editTitle and desc
+  function changeTitleDesc() {
+    // current title and desc works 
+    // prolem is the value of my inputs are not recording or being stored
+    let currentTitle = document.getElementById('task-title')
+    let currentDesc = document.getElementById('task-desc')
+    const newTitle = document.getElementById('edit-title')
+    const newDesc = document.getElementById('edit-desc')
+
+    currentTitle.textContent = newTitle.value;
+    currentDesc.textContent = newDesc.value;
+    // console.log(currentDesc)
+
+  }
+
+  function removeEditForm() {
+    titleDescContainer.removeChild(titleInput);
+    titleDescContainer.removeChild(descInput);
+    titleDescContainer.childNodes[0].setAttribute('style', 'display:inline;')
+    titleDescContainer.childNodes[1].setAttribute('style', 'display:inline;')
+  }
+
+  return {
+    createEditform,
+    removeEditForm,
+    changeTitleDesc
   }
 }
 
