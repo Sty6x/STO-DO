@@ -121,9 +121,14 @@ function removeForm(mainContainer) {
 const tdUpMainContainer = document.getElementById("td-up-main-task-container");
 tdUpMainContainer.addEventListener('click', e => {
   const target = e.target
-  if (target.matches('#edit-button')) {
-    
+  console.log(target)
+  let removeButtonParent = target.parentNode;
+  let task = removeButtonParent.parentNode
+  if (target.matches('#remove-button')) {
+      console.log(task)
+      tdUpMainContainer.removeChild(task)
   }
+  
 })
 
 
