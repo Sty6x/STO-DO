@@ -129,15 +129,10 @@ const tdUpMainContainer = document.getElementById("td-up-main-task-container");
 tdUpMainContainer.addEventListener('click', e => {
 
   const target = e.target
-  let removeButtonParent = target.parentNode;
-  let task = removeButtonParent.parentNode
   if (target.matches('#remove-button')) {
     console.log(target)
-    console.log(task)
-    tdUpMainContainer.removeChild(task)
-  }
-
-
+    removeTask(target)
+  } 
   if (target.matches('#task-title') || target.matches('#task-desc')) {
     editForm().createEditform(target)
   }
@@ -148,6 +143,12 @@ tdUpMainContainer.addEventListener('click', e => {
   console.log(target)
 })
 
+function removeTask(target){
+  let removeButtonParent = target.parentNode;
+  let task = removeButtonParent.parentNode;
+  tdUpMainContainer.removeChild(task)
+
+}
 
 
 
