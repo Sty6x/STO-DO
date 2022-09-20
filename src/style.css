@@ -530,14 +530,16 @@ li>.tab-icon {
 	padding: .7em 2em;
 	border-radius: 10px;
 	box-shadow: 6px 5px 10px rgb(0, 0, 0, .2);
-	height: 2.5em;
+	height: 3em;
 	/* border-left: #5e81ac solid 10px; */
 }
 
 .title-desc-container {
 	color: var(--text);
-
 	line-height: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 #task-title {

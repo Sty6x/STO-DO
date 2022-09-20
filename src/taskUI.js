@@ -136,23 +136,39 @@ tdUpMainContainer.addEventListener('click', e => {
 
 
 
+function applyAttribute(obj, node){
+  for(key in obj){
+    node.setAttribute(key,obj[key])
+  }
+}
 
 function editForm(target){
   const titleDescContainer = document.querySelector('.title-desc-container');
-  const editInput = document.createElement('input')
-  const applyAttribute = {
+  const editTitleInput = document.createElement('input')
+  editTitleInput.setAttribute('style','font-size:1rem; width:40%; font-weight:bold;')
+  const editDescInput = document.createElement('textarea')
+  editDescInput.setAttribute('style','width:70%;font-size:.8rem; padding:0; margin-top:.5em;')
+  titleDescContainer.setAttribute('style','display:flex;flex-direction:column; width:70%;')
+  const applyTitleAttribute = {
     type:'text',
-    id:'edit-title'
+    id:'edit-title',
   }
-  for(key in applyAttribute){
-    editInput.setAttribute(key,applyAttribute[key])
+  const applyDescAttribute = {
+    type:'text',
+    id:'edit-desc'
   }
+  applyAttribute(applyTitleAttribute,editTitleInput)
+  applyAttribute(applyDescAttribute,editDescInput)
+
   if(target.matches('#task-title')){
     titleDescContainer.removeChild(titleDescContainer.firstChild)
-    titleDescContainer.insertBefore(editInput,titleDescContainer.firstChild);
-    console.log(editInput)
+    titleDescContainer.insertBefore(editTitleInput,titleDescContainer.firstChild);
+    console.log(editTitleInput)
   }else if (target.matches('#task-desc')){
-    console.log('ha it works')
+    console.log(editDescInput)
+    titleDescContainer.removeChild(titleDescContainer.lastChild)
+    titleDescContainer.appendChild(editDescInput);
+  
   }
 }
 
