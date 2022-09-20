@@ -558,18 +558,28 @@ li>.tab-icon {
 
 }
 
+
+:root{
+	--etask-btn-padding:.3em;
+	--etask-btn-bg-size:25px;
+	--etask-btn-HW:25px;
+	
+	
+	
+}
 .edit-task-buttons{
 	opacity: .8;
-	border: none;
 	/* border-radius: 30px;s */
 	/* padding: 1.5em 1.5em; */
-	height: 30px;
-	width: 30px;
+	height: var(--etask-btn-HW);
+	width: var(--etask-btn-HW);
+	padding: var(--etask-btn-padding);
+	transition: all 150ms ease;
 }
 
 #edit-button{
-	background-image: url('./resources/edit.png');
-	background-size: 30px 30px;
+	background-image: url('./resources/write.png');
+	background-size: var(--etask-btn-bg-size);
 	background-position: center;
 	background-repeat: no-repeat;
 
@@ -577,9 +587,26 @@ li>.tab-icon {
 
 #remove-button{
 	background-image: url('./resources/trash.png');
-	background-size: 30px 30px;
+	background-size: var(--etask-btn-bg-size);
 	background-position: center;
 	background-repeat: no-repeat;
+}
+
+#remove-button:hover{
+	border-radius: 50%;
+	padding: var(--etask-btn-padding);
+	background-color: var(--highlight-red);
+}
+
+
+#edit-button:hover{
+	border-radius: 50%;
+	padding: var(--etask-btn-padding);
+	background-color: var(--highlight-orange);
+}
+
+#remove-button:hover,#edit-button:hover{
+	filter: invert(0);
 }
 
 
