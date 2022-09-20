@@ -558,7 +558,7 @@ li>.tab-icon {
 
 }
 
-#edit-button {
+#edit-button,#remove-button {
 	background-color: var(--text3);
 	opacity: .8;
 	border: none;
@@ -566,7 +566,7 @@ li>.tab-icon {
 	padding: .2em 1em;
 }
 
-#edit-button,
+.edit-task-buttons,
 #task-desc,
 #task-title {
 	cursor: pointer;
