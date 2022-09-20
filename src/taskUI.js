@@ -121,21 +121,46 @@ function removeForm(mainContainer) {
 const tdUpMainContainer = document.getElementById("td-up-main-task-container");
 tdUpMainContainer.addEventListener('click', e => {
   const target = e.target
-  console.log(target)
   let removeButtonParent = target.parentNode;
   let task = removeButtonParent.parentNode
   if (target.matches('#remove-button')) {
+      console.log(target)
       console.log(task)
       tdUpMainContainer.removeChild(task)
   }
-  if (target.matches('#edit-button')) {
-    // console.log(task)
-    // tdUpMainContainer.removeChild(task)
-    // make the title and description editable
-    // on click or something blah blah
+  if(target.matches('#task-title') || target.matches('#task-desc')){
+    console.log(target)
+    editForm(target)
   }
-  
 })
+
+
+
+
+function editForm(target){
+  const titleDescContainer = document.querySelector('.title-desc-container');
+  const editInput = document.createElement('input')
+  const applyAttribute = {
+    type:'text',
+    id:'edit-title'
+  }
+  for(key in applyAttribute){
+    editInput.setAttribute(key,applyAttribute[key])
+  }
+  if(target.matches('#task-title')){
+    titleDescContainer.removeChild(titleDescContainer.firstChild)
+    titleDescContainer.insertBefore(editInput,titleDescContainer.firstChild);
+    console.log(editInput)
+  }else if (target.matches('#task-desc')){
+    console.log('ha it works')
+  }
+}
+
+function editTitleDesc(){
+
+  let editTitle = '';
+  let editDesc = ''
+}
 
 
 
