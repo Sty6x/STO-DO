@@ -60,15 +60,15 @@ function createTaskUI(msg, userTask) {
   editRmContainer.setAttribute("id", "edit-task-container");
   editRmContainer.setAttribute("class", "edit-container");
 
-  let editButton = document.createElement("button");
+  let editButton = document.createElement("div");
   editButton.setAttribute("id", "edit-button");
   editButton.setAttribute("class", "edit-task-buttons");
-  editButton.textContent = "Edit Task";
+  // editButton.textContent = "Edit Task";
   
-  let removeButton = document.createElement("button");
+  let removeButton = document.createElement("div");
   removeButton.setAttribute("id", "remove-button");
   removeButton.setAttribute("class", "edit-task-buttons");
-  removeButton.textContent = "Remove Task";
+  // removeButton.textContent = "Remove Task";
   
   editRmContainer.append(editButton,removeButton);
   task.setAttribute('style', `border-left:solid 10px ${userTask.priority};`);
@@ -79,7 +79,7 @@ function createTaskUI(msg, userTask) {
   titleAndDescContainer.append(taskTitle, taskDesc);
 }
 
-// createTaskUI('hm',{titleInput:'Title Here',descInput:'Description Here',priority:'PH',id:'PH'})
+createTaskUI('hm',{titleInput:'Title Here',descInput:'Description Here',priority:'PH',id:'PH'})
 
 
 function createFormUI(mainContainer) {

@@ -167,10 +167,9 @@ button,input[type='radio']  {
 
 	/* icons */
 	--icon-width: 30px;
-	--icon-heigth: 30px;
+	--icon-height: 30px;
 
 	--sb-ic-width: 25px;
-	;
 	--sb-ic-height: 25px;
 
 	--priority-button1: #bf616a;
@@ -250,7 +249,7 @@ ul.right-nav {
 #option-1,
 #user-profile,
 #settings,
-#hamburger-menu {
+#hamburger-menu,#edit-button,#remove-button {
 	/* white color for icons */
 	filter: invert(93%) sepia(11%) saturate(221%) hue-rotate(185deg) brightness(94%) contrast(93%);
 }
@@ -555,16 +554,34 @@ li>.tab-icon {
 #edit-task-container {
 	justify-content: center;
 	align-items: center;
+	gap: 1.5em;
 
 }
 
-#edit-button,#remove-button {
-	background-color: var(--text3);
+.edit-task-buttons{
 	opacity: .8;
 	border: none;
-	border-radius: 15px;
-	padding: .2em 1em;
+	/* border-radius: 30px;s */
+	/* padding: 1.5em 1.5em; */
+	height: 30px;
+	width: 30px;
 }
+
+#edit-button{
+	background-image: url('./resources/edit.png');
+	background-size: 30px 30px;
+	background-position: center;
+	background-repeat: no-repeat;
+
+}
+
+#remove-button{
+	background-image: url('./resources/trash.png');
+	background-size: 30px 30px;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
 
 .edit-task-buttons,
 #task-desc,
