@@ -64,13 +64,13 @@ function createTaskUI(msg, userTask) {
   editButton.setAttribute("id", "edit-button");
   editButton.setAttribute("class", "edit-task-buttons");
   // editButton.textContent = "Edit Task";
-  
+
   let removeButton = document.createElement("div");
   removeButton.setAttribute("id", "remove-button");
   removeButton.setAttribute("class", "edit-task-buttons");
   // removeButton.textContent = "Remove Task";
-  
-  editRmContainer.append(editButton,removeButton);
+
+  editRmContainer.append(editButton, removeButton);
   task.setAttribute('style', `border-left:solid 10px ${userTask.priority};`);
   task.setAttribute('id', `task-${userTask.id}`);
 
@@ -79,7 +79,12 @@ function createTaskUI(msg, userTask) {
   titleAndDescContainer.append(taskTitle, taskDesc);
 }
 
-createTaskUI('hm',{titleInput:'Title Here',descInput:'Description Here',priority:'PH',id:'PH'})
+createTaskUI('hm', {
+  titleInput: 'Title Here',
+  descInput: 'Description Here',
+  priority: 'PH',
+  id: 'PH'
+})
 
 
 function createFormUI(mainContainer) {
@@ -128,16 +133,16 @@ tdUpMainContainer.addEventListener('click', e => {
   let removeButtonParent = target.parentNode;
   let task = removeButtonParent.parentNode
   if (target.matches('#remove-button')) {
-      console.log(target)
-      console.log(task)
-      tdUpMainContainer.removeChild(task)
+    console.log(target)
+    console.log(task)
+    tdUpMainContainer.removeChild(task)
   }
 
 
-  if(target.matches('#task-title') || target.matches('#task-desc')){
+  if (target.matches('#task-title') || target.matches('#task-desc')) {
     editForm(target)
   }
-  if(target.matches('#td-up-main-task-container')){
+  if (target.matches('#td-up-main-task-container')) {
     removeEditForm()
     changeTitleDesc(target)
   }
@@ -146,14 +151,11 @@ tdUpMainContainer.addEventListener('click', e => {
 
 const titleDescContainer = document.querySelector('.title-desc-container');
 const editTitleInput = document.createElement('input')
-editTitleInput.setAttribute('id','edit-title')
 const editDescInput = document.createElement('textarea')
-editDescInput.setAttribute('id','edit-desc')
 
 
-function changeTitleDesc(target){
-  // let editTitle = editTitleInput.value;
-  // let editDesc = editDescInput.value;
+
+function changeTitleDesc() {
   let currentTitle = titleDescContainer.childNodes[0]
   let currentDesc = titleDescContainer.childNodes[1]
   currentTitle.textContent = editTitleInput.value;
@@ -164,48 +166,52 @@ function changeTitleDesc(target){
 //////////////////////////////////////
 // this handles replacing the form's text
 
-function removeEditForm(){
- 
+function removeEditForm() {
+
   titleDescContainer.removeChild(editDescInput);
   titleDescContainer.removeChild(editTitleInput);
   console.log(titleDescContainer.childNodes)
-  titleDescContainer.childNodes[0].setAttribute('style','display:inline;')
-  titleDescContainer.childNodes[1].setAttribute('style','display:inline;')
+  titleDescContainer.childNodes[0].setAttribute('style', 'display:inline;')
+  titleDescContainer.childNodes[1].setAttribute('style', 'display:inline;')
 
 }
 
 ///////////////////////////////////////
 
-function applyAttribute(obj, node){
-  for(key in obj){
-    node.setAttribute(key,obj[key])
+function applyAttribute(obj, node) {
+  for (key in obj) {
+    node.setAttribute(key, obj[key])
   }
 }
 
 // invokes when task-title or task-desc is pressed and sets display to none on title and desc
-function editForm(target){
-  editTitleInput.setAttribute('style','font-size:1rem; width:40%; font-weight:bold; ')
-  editDescInput.setAttribute('style','width:70%;font-size:.8rem; padding:0; margin-top:.1em; padding: 6px 5px;')
-  titleDescContainer.setAttribute('style','display:flex;flex-direction:column; width:70%;')
+function editForm(target) {
+  editTitleInput.setAttribute('id', 'edit-title')
+  editDescInput.setAttribute('id', 'edit-desc')
+
+  editTitleInput.setAttribute('style', 'font-size:1rem; width:40%; font-weight:bold; ')
+  editDescInput.setAttribute('style', 'width:70%;font-size:.8rem; padding:0; margin-top:.1em; padding: 6px 5px;')
+  titleDescContainer.setAttribute('style', 'display:flex;flex-direction:column; width:70%;')
   const applyTitleAttribute = {
-    type:'text',
-    id:'edit-title',
+    type: 'text',
+    id: 'edit-title',
   }
   const applyDescAttribute = {
-    type:'text',
-    id:'edit-desc'
+    type: 'text',
+    id: 'edit-desc'
   }
-  applyAttribute(applyTitleAttribute,editTitleInput)
-  applyAttribute(applyDescAttribute,editDescInput)
+  applyAttribute(applyTitleAttribute, editTitleInput)
+  applyAttribute(applyDescAttribute, editDescInput)
   let currentTitle = titleDescContainer.firstChild
   let currentDesc = titleDescContainer.lastChild;
   // checks if any clicking a specific node either title or desciption
-  if(target.matches('#task-title')){
-    currentTitle.setAttribute('style','display: none');
-    titleDescContainer.insertBefore(editTitleInput,titleDescContainer.firstChild);
-  }if (target.matches('#task-desc')){
+  if (target.matches('#task-title')) {
+    currentTitle.setAttribute('style', 'display: none');
+    titleDescContainer.insertBefore(editTitleInput, titleDescContainer.firstChild);
+  }
+  if (target.matches('#task-desc')) {
     console.log(editDescInput)
-    currentDesc.setAttribute('style','display:none;')
+    currentDesc.setAttribute('style', 'display:none;')
     titleDescContainer.appendChild(editDescInput);
   }
 }
