@@ -1,7 +1,7 @@
 const body = document.querySelector("body");
 const sbMainContainer = document.getElementById("sb-main-container");
 const mainContentContainer = document.getElementById("main-content-container");
-
+console.log('dwa')
 const headerContainer = document.getElementById("header-container");
 const todayHeader = document.getElementById("header-text"); //style
 const headerOptionContainer = document.getElementById("header-option-container");
