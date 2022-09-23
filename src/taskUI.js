@@ -1,7 +1,6 @@
 const body = document.querySelector("body");
 const sbMainContainer = document.getElementById("sb-main-container");
 const mainContentContainer = document.getElementById("main-content-container");
-console.log('dwa')
 const headerContainer = document.getElementById("header-container");
 const todayHeader = document.getElementById("header-text"); //style
 const headerOptionContainer = document.getElementById("header-option-container");
@@ -16,7 +15,6 @@ const tdMainContainer = document.createElement("div");
 const tdTasksContainer = document.createElement("div");
 const addTaskbutton = document.createElement("button");
 const addTaskContainer = document.createElement("div");
-
 
 const dimBg = document.createElement("div");
 dimBg.setAttribute(
@@ -99,7 +97,7 @@ function createFormUI(mainContainer) {
 
   // handles cancel button
   if (popUpForm.classList.contains('form-active')) {
-    cancelButton.addEventListener('click', e => {
+    cancelButton.addEventListener('click', () => {
       popUpForm.classList.remove('form-active')
       popUpForm.setAttribute('class', 'form-inactive')
       if (mainContainer.children[0]) {
@@ -122,9 +120,6 @@ function removeForm(mainContainer) {
   popUpForm.setAttribute('class', 'form-inactive')
 };
 
-
-
-
 const tdUpMainContainer = document.getElementById("td-up-main-task-container");
 tdUpMainContainer.addEventListener('click', e => {
 
@@ -132,7 +127,7 @@ tdUpMainContainer.addEventListener('click', e => {
   if (target.matches('#remove-button')) {
     console.log(target)
     removeTask(target)
-  } 
+  }
   if (target.matches('#task-title') || target.matches('#task-desc')) {
     editForm().createEditform(target)
   }
@@ -143,15 +138,11 @@ tdUpMainContainer.addEventListener('click', e => {
   console.log(target)
 })
 
-function removeTask(target){
+function removeTask(target) {
   let removeButtonParent = target.parentNode;
   let task = removeButtonParent.parentNode;
   tdUpMainContainer.removeChild(task)
-
 }
-
-
-
 
 // invokes when task-title or task-desc is pressed and sets display to none on title and desc
 function editForm() {
@@ -178,6 +169,7 @@ function editForm() {
       node.setAttribute(key, obj[key])
     }
   }
+
   applyAttribute(applyTitleAttribute, editTitleInput)
   applyAttribute(applyDescAttribute, editDescInput)
 

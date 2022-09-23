@@ -4,9 +4,6 @@ const userTitle = document.getElementById('title')
 const inputContainer = document.querySelectorAll('.input-container')
 const formAddTaskButton = document.getElementById('form-add-button');
 
-
-
-
 let priority;
 priorityButtonContainer.addEventListener('click', event => {
   console.log(event.target)
@@ -22,8 +19,6 @@ priorityButtonContainer.addEventListener('click', event => {
   }
 })
 
-
-
 function clearInput() {
   userDesc.value = '';
   userTitle.value = '';
@@ -32,12 +27,13 @@ function clearInput() {
 
 
 // why do i need this?
+// I need that so i could save the information
+// the user input and parse it into a Json file
 const userTasks = [{}]
 function storeUserTask(obj) {
   userTasks.push(obj)
   console.log(userTasks)
 };
-
 
 function getUserData() {
   let descInput;
