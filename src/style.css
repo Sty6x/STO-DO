@@ -652,7 +652,6 @@ li>.tab-icon {
 	padding: 1.2em 2em;
 	border-radius: 5px;
 	transform: translate(-50%, -50%);
-
 	transition: all 300ms ease;
 	width: 40%;
 }
@@ -670,8 +669,6 @@ li>textarea,
 [type='text'] {
 	border: none;
 	background-color: var(--darkMain-Sb);
-	/* position: absolute; */
-
 }
 
 
