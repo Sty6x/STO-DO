@@ -95,6 +95,8 @@ function createFormUI(mainContainer) {
     mainContainer.append(dimBg);
   }
 
+  // refactor this, separate the cancel funtionality, because
+  // this function should only create a form UI
   // handles cancel button
   if (popUpForm.classList.contains('form-active')) {
     cancelButton.addEventListener('click', () => {
@@ -128,24 +130,19 @@ tdUpMainContainer.addEventListener('click', e => {
     console.log(target)
     removeTask(target)
   }
-  if (target.matches('#task-title') || target.matches('#task-desc')) {
-    editForm().createEditform(target)
-  }
-  if (target.matches('#td-up-main-task-container')) {
-    editForm().changeTitleDesc()
-    editForm().removeEditForm()
-  }
   console.log(target)
+  concat(target)
 })
+
+function concat(target) {
+  target.textContent = target.textContent + ' hello'
+}
 
 function removeTask(target) {
   let removeButtonParent = target.parentNode;
   let task = removeButtonParent.parentNode;
   tdUpMainContainer.removeChild(task)
 }
-
-// invokes when task-title or task-desc is pressed and sets display to none on title and desc
-
 
 addTaskbutton.addEventListener("click", () => {
   createFormUI(sbMainContainer);
