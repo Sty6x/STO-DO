@@ -24,6 +24,7 @@ dimBg.setAttribute(
 dimBg.setAttribute('id', 'dim-background-form')
 
 
+// creates the body of Today task
 function createTdTaskUI() {
   mainContentContainer.appendChild(tdMainContainer);
   tdMainContainer.setAttribute("id", "td-up-main-task-container");
@@ -34,6 +35,7 @@ function createTdTaskUI() {
   addTaskContainer.appendChild(addTaskbutton);
   addTaskbutton.textContent = "Add Task";
 }
+
 createTdTaskUI();
 
 // creates task from user input
@@ -77,6 +79,8 @@ function createTaskUI(msg, userTask) {
   titleAndDescContainer.append(taskTitle, taskDesc);
 }
 
+
+//Place holder for when user's first use of the application
 createTaskUI('hm', {
   titleInput: 'Title Here',
   descInput: 'Description Here',
@@ -84,6 +88,11 @@ createTaskUI('hm', {
   id: 'PH'
 })
 
+
+// form handler
+const popUpForm = document.getElementById('form-container')
+const formAddTaskButton = document.getElementById('form-add-button');
+const tdUpMainContainer = document.getElementById("td-up-main-task-container");
 
 function createFormUI(mainContainer) {
   body.setAttribute("style", "overflow:hidden;");
@@ -110,32 +119,36 @@ function createFormUI(mainContainer) {
 
 }
 
-
-// form handler
-const popUpForm = document.getElementById('form-container')
-const formAddTaskButton = document.getElementById('form-add-button');
-
 function removeForm(mainContainer) {
   body.setAttribute("style", "overflow:auto;");
   mainContainer.removeChild(dimBg)
   popUpForm.classList.remove('form-active')
   popUpForm.setAttribute('class', 'form-inactive')
 };
-
-const tdUpMainContainer = document.getElementById("td-up-main-task-container");
 tdUpMainContainer.addEventListener('click', e => {
-
   const target = e.target
   if (target.matches('#remove-button')) {
     console.log(target)
     removeTask(target)
   }
-  console.log(target)
-  concat(target)
+  EditTask(target)
 })
 
-function concat(target) {
-  target.textContent = target.textContent + ' hello'
+function EditTask(target) {
+  if (target.matches('#task-title')) {
+    console.log(target);
+    applyForm(target)
+  } else if (target.matches('#task-desc')) {
+    applyForm(target)
+  }
+
+  function applyForm(target) {
+    target.remove()
+    if (target.nodeName === 'H3') {
+      console.log('im an h3 type')
+    }
+  }
+
 }
 
 function removeTask(target) {
@@ -149,6 +162,8 @@ addTaskbutton.addEventListener("click", () => {
 });
 
 
+// creaTaskUi get its data from the getTaskData topic
+// and uses those data to create a new task UI only
 PubSub.subscribe('getTaskData', createTaskUI)
 formAddTaskButton.addEventListener('click', () => {
   removeForm(sbMainContainer)
