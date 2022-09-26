@@ -135,13 +135,32 @@ tdUpMainContainer.addEventListener('click', e => {
 
 function EditTask(target) {
   const titleDescContainer = target.parentNode;
+  let title = document.createElement('input');
+  let desc = document.createElement('textarea');
+  let titleInput = document.getElementById('edit-title-input');
+  let descInput = document.getElementById('edit-desc-input');
   if (target.matches('#task-title')) {
     console.log(target);
     applyForm(target)
   } else if (target.matches('#task-desc')) {
     applyForm(target)
   }
-
+  if (target.matches('#edit-button')) {
+    replaceTitleDesc();
+    console.log('edit buton clicked')
+  }
+  function replaceTitleDesc() {
+    let newTitle = document.createElement('h3');
+    let newDesc = document.createElement('p');
+    newTitle.setAttribute('id', 'task-title');
+    newDesc.setAttribute('id', 'task-desc');
+    newTitle.textContent = titleInput.value;
+    newDesc.textContent = descInput.value;
+    titleInput.remove()
+    descInput.remove()
+    console.log(titleInput.value, descInput.value);
+    titleDescContainer.append(newTitle, newDesc);
+  }
   function applyForm(target) {
     target.remove()
     if (target.nodeName === 'H3') {
@@ -153,7 +172,6 @@ function EditTask(target) {
     }
   }
   function createEditInput() {
-    let title = document.createElement('input');
     const titleAtt = {
       id: 'edit-title-input',
       type: 'text',
@@ -166,7 +184,6 @@ function EditTask(target) {
   }
 
   function createEditDesc() {
-    let desc = document.createElement('textarea');
     desc.setAttribute('id', 'edit-desc-input');
     titleDescContainer.appendChild(desc);
     desc.value = target.textContent;
