@@ -469,6 +469,7 @@ li>.tab-icon {
 	font-size: 2rem;
 	color: var(--text);
 	font-family: 'Montserrat-Med';
+  text-align: end;
 }
 
 
