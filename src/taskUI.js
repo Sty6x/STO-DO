@@ -60,17 +60,13 @@ function createTaskUI(msg, userTask) {
   editRmContainer.setAttribute("id", "edit-task-container");
   editRmContainer.setAttribute("class", "edit-container");
 
-  let editButton = document.createElement("div");
-  editButton.setAttribute("id", "edit-button");
-  editButton.setAttribute("class", "edit-task-buttons");
-  // editButton.textContent = "Edit Task";
 
   let removeButton = document.createElement("div");
   removeButton.setAttribute("id", "remove-button");
   removeButton.setAttribute("class", "edit-task-buttons");
   // removeButton.textContent = "Remove Task";
 
-  editRmContainer.append(editButton, removeButton);
+  editRmContainer.appendChild(removeButton);
   task.setAttribute('style', `border-left:solid 10px ${userTask.priority};`);
   task.setAttribute('id', `task-${userTask.id}`);
 
@@ -145,19 +141,23 @@ function EditTask(target) {
   } else if (target.matches('#task-desc')) {
     applyForm(target)
   }
-  if (target.matches('#edit-button')) {
-    replaceTitleDesc();
-    console.log('edit buton clicked')
-  }
+
+  // need to refer something inside the titleDescContainer
+  //
+  titleDescContainer.addEventListener('keypress', e => {
+    if (e.key === 'Enter') {
+      replaceTitleDesc()
+    }
+  })
   function replaceTitleDesc() {
     let newTitle = document.createElement('h3');
     let newDesc = document.createElement('p');
     newTitle.setAttribute('id', 'task-title');
     newDesc.setAttribute('id', 'task-desc');
-    newTitle.textContent = titleInput.value;
-    newDesc.textContent = descInput.value;
     titleInput.remove()
     descInput.remove()
+    newTitle.textContent = titleInput.value;
+    newDesc.textContent = descInput.value;
     console.log(titleInput.value, descInput.value);
     titleDescContainer.append(newTitle, newDesc);
   }
