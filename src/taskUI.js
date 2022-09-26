@@ -135,6 +135,10 @@ function EditTask(target) {
   let desc = document.createElement('textarea');
   let titleInput = document.getElementById('edit-title-input');
   let descInput = document.getElementById('edit-desc-input');
+  let newTitle = document.createElement('h3');
+  let newDesc = document.createElement('p');
+  newTitle.setAttribute('id', 'task-title');
+  newDesc.setAttribute('id', 'task-desc');
 
 
 
@@ -155,23 +159,22 @@ function EditTask(target) {
     // check if title or desc exists first
     // and if so remove that
     // then append the new title and desc
-    let newTitle = document.createElement('h3');
-    let newDesc = document.createElement('p');
-    newTitle.setAttribute('id', 'task-title');
-    newDesc.setAttribute('id', 'task-desc');
+    // throws an error that input values dont exist or titleinpput doesnt exist
     if (!titleInput.value || !descInput.value) {
       return;
     } else {
-      newTitle.textContent = titleInput.value;
-      newDesc.textContent = descInput.value;
+      titleDescContainer.children[1].textContent = titleInput.value;
+      titleDescContainer.children[2].textContent = descInput.value;
       titleInput.remove()
       descInput.remove()
     }
-    console.log(titleInput.value, descInput.value);
-    titleDescContainer.append(newTitle, newDesc);
+    titleDescContainer.children[0].setAttribute('style', 'display:inline')
+    titleDescContainer.children[1].setAttribute('style', 'display:inline')
+    // titleDescContainer.append(newTitle, newDesc);
+
   }
   function applyForm(target) {
-    target.remove()
+    target.setAttribute('style', 'display:none;')
     if (target.nodeName === 'H3') {
       console.log('im of type title')
       createEditInput()
@@ -188,15 +191,14 @@ function EditTask(target) {
     for (let key in titleAtt) {
       title.setAttribute(key, titleAtt[key]);
     };
-
     titleDescContainer.insertBefore(title, titleDescContainer.children[0]);
     title.value = target.textContent;
   }
 
   function createEditDesc() {
     desc.setAttribute('id', 'edit-desc-input');
-    titleDescContainer.appendChild(desc);
     desc.value = target.textContent;
+    titleDescContainer.appendChild(desc);
   }
 }
 
