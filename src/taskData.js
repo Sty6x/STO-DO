@@ -22,7 +22,7 @@ priorityButtonContainer.addEventListener('click', event => {
 function clearInput() {
   userDesc.value = '';
   userTitle.value = '';
-  // priority = '';
+  priority = '';
 };
 
 

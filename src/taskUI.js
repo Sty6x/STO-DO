@@ -50,11 +50,11 @@ function createTaskUI(msg, userTask) {
 
   let taskTitle = document.createElement("h3");
   taskTitle.setAttribute("id", "task-title");
-  taskTitle.textContent = userTask.titleInput; // From task data
+  taskTitle.textContent = userTask.titleInput;
 
   let taskDesc = document.createElement("p");
   taskDesc.setAttribute("id", "task-desc");
-  taskDesc.textContent = userTask.descInput; // From task data
+  taskDesc.textContent = userTask.descInput;
 
   let editRmContainer = document.createElement("div");
   editRmContainer.setAttribute("id", "edit-task-container");
@@ -64,7 +64,6 @@ function createTaskUI(msg, userTask) {
   let removeButton = document.createElement("div");
   removeButton.setAttribute("id", "remove-button");
   removeButton.setAttribute("class", "edit-task-buttons");
-  // removeButton.textContent = "Remove Task";
 
   editRmContainer.appendChild(removeButton);
   task.setAttribute('style', `border-left:solid 10px ${userTask.priority};`);
@@ -95,6 +94,16 @@ function createFormUI(mainContainer) {
   console.log("form created");
   const popUpForm = document.getElementById('form-container')
   const cancelButton = document.getElementById('form-cancel-button')
+  // refer id= " form-priority-buttons"
+  // for each radio buttons check if any of them are checked
+  // and if so uncheck all of them
+  const buttonFormContainer = document.getElementById('form-priority-buttons');
+  const priorityBtns = Array.from(buttonFormContainer.children);
+  console.log((priorityBtns))
+  priorityBtns.forEach(priorityBtn => {
+    priorityBtn.checked = false;
+  })
+
   if (!popUpForm.classList.contains('form-active')) {
     popUpForm.setAttribute('class', 'form-active')
     mainContainer.append(dimBg);
@@ -141,7 +150,6 @@ function EditTask(target) {
   newDesc.setAttribute('id', 'task-desc');
 
 
-
   if (target.matches('#task-title')) {
     console.log(target);
     applyForm(target)
@@ -155,11 +163,6 @@ function EditTask(target) {
     }
   })
   function replaceTitleDesc() {
-    // remove old title and input 
-    // check if title or desc exists first
-    // and if so remove that
-    // then append the new title and desc
-    // throws an error that input values dont exist or titleinpput doesnt exist
     if (!titleInput.value || !descInput.value) {
       return;
     } else {
@@ -170,9 +173,8 @@ function EditTask(target) {
     }
     titleDescContainer.children[0].setAttribute('style', 'display:inline')
     titleDescContainer.children[1].setAttribute('style', 'display:inline')
-    // titleDescContainer.append(newTitle, newDesc);
-
   }
+
   function applyForm(target) {
     target.setAttribute('style', 'display:none;')
     if (target.nodeName === 'H3') {
@@ -183,6 +185,7 @@ function EditTask(target) {
       console.log('im of type description')
     }
   }
+
   function createEditInput() {
     const titleAtt = {
       id: 'edit-title-input',
@@ -211,7 +214,6 @@ function removeTask(target) {
 addTaskbutton.addEventListener("click", () => {
   createFormUI(sbMainContainer);
 });
-
 
 // creaTaskUi get its data from the getTaskData topic
 // and uses those data to create a new task UI only
