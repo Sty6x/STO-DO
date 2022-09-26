@@ -116,7 +116,6 @@ function createFormUI(mainContainer) {
       }
     })
   }
-
 }
 
 function removeForm(mainContainer) {
@@ -155,12 +154,20 @@ function EditTask(target) {
   }
   function createEditInput() {
     let title = document.createElement('input');
+    const titleAtt = {
+      id: 'edit-title-input',
+      type: 'text',
+    };
+    for (let key in titleAtt) {
+      title.setAttribute(key, titleAtt[key]);
+    };
     titleDescContainer.insertBefore(title, titleDescContainer.children[0]);
     title.value = target.textContent;
   }
 
   function createEditDesc() {
     let desc = document.createElement('textarea');
+    desc.setAttribute('id', 'edit-desc-input');
     titleDescContainer.appendChild(desc);
     desc.value = target.textContent;
   }
