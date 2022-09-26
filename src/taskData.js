@@ -1,8 +1,9 @@
+import { format, subDays } from 'date-fns'
 const priorityButtonContainer = document.getElementById('form-priority-buttons');
 const userDesc = document.getElementById('desc')
 const userTitle = document.getElementById('title')
-const inputContainer = document.querySelectorAll('.input-container')
 const formAddTaskButton = document.getElementById('form-add-button');
+
 
 let priority;
 priorityButtonContainer.addEventListener('click', event => {
@@ -41,6 +42,7 @@ function getUserData() {
   let id;
   descInput = userDesc.value;
   titleInput = userTitle.value;
+  let taskDate = format(new Date(), 'MM-dd-yyyy');
   for (let i = 0; i < userTasks.length; i++) {
     id = `${i}`;
   }
@@ -51,7 +53,8 @@ function getUserData() {
     titleInput,
     descInput,
     priority,
-    id
+    id,
+    taskDate
   };
 };
 
