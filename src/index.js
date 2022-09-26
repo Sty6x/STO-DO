@@ -4,7 +4,7 @@ import { format } from 'date-fns'
 const menuButton = document.getElementById('hamburger-menu')
 const sideBarContainer = document.getElementById('sidebar-container')
 const sideBar = document.querySelector('.sidebar')
-let headerDate = format(new Date(), 'Et  MMM dd')
+let headerDate = format(new Date(), 'E MMM dd')
 const headerTextDateContainer = document.getElementById('header-text-date-container')
 const headerDateDisplay = document.createElement('small')
 headerDateDisplay.textContent = headerDate;
@@ -21,5 +21,4 @@ function changeSidebar() {
     sideBarContainer.removeChild(sideBar)
   }
 }
-
-menuButton.addEventListener('click', changeSidebar)
+menuButton.addEventListener('click', changeSidebar);
