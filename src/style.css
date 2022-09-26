@@ -709,8 +709,7 @@ input[type='text'],
 textarea {
 	font-family: 'Montserrat-Med';
 	color: var(--text);
-		line-height: 10px;
-
+	line-height: 10px;
 }
 
 input[type='text']:focus,
@@ -773,4 +772,15 @@ input[type='radio']#important:checked {
 }
 input[type='radio']#less-important:checked {
 	background-color: var(--priority-button3);
+}
+.title-desc-container> textarea {
+	background-color: var(--darkMain-Sb);
+	outline: none;
+  border:none;
+	resize: none;
+}
+.title-desc-container{
+  display:flex;
+  flex-direction: column;
+  gap:5px;
 }
