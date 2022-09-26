@@ -135,6 +135,7 @@ tdUpMainContainer.addEventListener('click', e => {
 })
 
 function EditTask(target) {
+  const titleDescContainer = target.parentNode;
   if (target.matches('#task-title')) {
     console.log(target);
     applyForm(target)
@@ -145,10 +146,24 @@ function EditTask(target) {
   function applyForm(target) {
     target.remove()
     if (target.nodeName === 'H3') {
-      console.log('im an h3 type')
+      console.log('im of type title')
+      createEditInput()
+    } else {
+      createEditDesc();
+      console.log('im of type description')
     }
   }
+  function createEditInput() {
+    let title = document.createElement('input');
+    titleDescContainer.insertBefore(title, titleDescContainer.children[0]);
+    title.value = target.textContent;
+  }
 
+  function createEditDesc() {
+    let desc = document.createElement('textarea');
+    titleDescContainer.appendChild(desc);
+    desc.value = target.textContent;
+  }
 }
 
 function removeTask(target) {
