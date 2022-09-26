@@ -135,6 +135,9 @@ function EditTask(target) {
   let desc = document.createElement('textarea');
   let titleInput = document.getElementById('edit-title-input');
   let descInput = document.getElementById('edit-desc-input');
+
+
+
   if (target.matches('#task-title')) {
     console.log(target);
     applyForm(target)
@@ -142,22 +145,28 @@ function EditTask(target) {
     applyForm(target)
   }
 
-  // need to refer something inside the titleDescContainer
-  //
   titleDescContainer.addEventListener('keypress', e => {
     if (e.key === 'Enter') {
       replaceTitleDesc()
     }
   })
   function replaceTitleDesc() {
+    // remove old title and input 
+    // check if title or desc exists first
+    // and if so remove that
+    // then append the new title and desc
     let newTitle = document.createElement('h3');
     let newDesc = document.createElement('p');
     newTitle.setAttribute('id', 'task-title');
     newDesc.setAttribute('id', 'task-desc');
-    titleInput.remove()
-    descInput.remove()
-    newTitle.textContent = titleInput.value;
-    newDesc.textContent = descInput.value;
+    if (!titleInput.value || !descInput.value) {
+      return;
+    } else {
+      newTitle.textContent = titleInput.value;
+      newDesc.textContent = descInput.value;
+      titleInput.remove()
+      descInput.remove()
+    }
     console.log(titleInput.value, descInput.value);
     titleDescContainer.append(newTitle, newDesc);
   }
@@ -179,14 +188,15 @@ function EditTask(target) {
     for (let key in titleAtt) {
       title.setAttribute(key, titleAtt[key]);
     };
+
     titleDescContainer.insertBefore(title, titleDescContainer.children[0]);
-    title.value = target.textContent;
+    titleInput.value = target.textContent;
   }
 
   function createEditDesc() {
     desc.setAttribute('id', 'edit-desc-input');
     titleDescContainer.appendChild(desc);
-    desc.value = target.textContent;
+    descInput.value = target.textContent;
   }
 }
 
