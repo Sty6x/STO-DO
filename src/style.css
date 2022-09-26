@@ -773,7 +773,7 @@ input[type='radio']#important:checked {
 input[type='radio']#less-important:checked {
 	background-color: var(--priority-button3);
 }
-.title-desc-container> textarea {
+#edit-desc-input {
 	background-color: var(--darkMain-Sb);
 	outline: none;
   border:none;
