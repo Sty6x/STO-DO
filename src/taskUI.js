@@ -69,7 +69,7 @@ function createTaskUI(msg, userTask) {
   task.setAttribute('style', `border-left:solid 10px ${userTask.priority};`);
   task.setAttribute('id', `task-${userTask.id}`);
 
-  tdMainContainer.appendChild(task);
+  tdMainContainer.insertBefore(task, addTaskContainer);
   task.append(titleAndDescContainer, editRmContainer);
   titleAndDescContainer.append(taskTitle, taskDesc);
 }
@@ -94,12 +94,9 @@ function createFormUI(mainContainer) {
   console.log("form created");
   const popUpForm = document.getElementById('form-container')
   const cancelButton = document.getElementById('form-cancel-button')
-  // refer id= " form-priority-buttons"
-  // for each radio buttons check if any of them are checked
-  // and if so uncheck all of them
   const buttonFormContainer = document.getElementById('form-priority-buttons');
   const priorityBtns = Array.from(buttonFormContainer.children);
-  console.log((priorityBtns))
+
   priorityBtns.forEach(priorityBtn => {
     priorityBtn.checked = false;
   })

@@ -495,7 +495,7 @@ li>.tab-icon {
 	/* padding: 2em; */
 	display: flex;
 	flex-direction: column;
-	gap: 2em;
+	gap: 1.2em;
 }
 
 #add-task-button {
