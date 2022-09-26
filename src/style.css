@@ -490,16 +490,17 @@ li>.tab-icon {
 /* PROJECTS tab */
 #td-up-main-task-container {
 	height: 100%;
-	/* width: 80%; */
 	margin: 2em 10em 2em 10em;
-	/* padding: 2em; */
 	display: flex;
 	flex-direction: column;
 	gap: 1.2em;
 }
 
+#add-task-container{
+  display:flex;
+  justify-content: center;
+}
 #add-task-button {
-	/* width: em; */
 	background-color: var(--frost-3);
 	border: none;
 	border-radius: 15px;
@@ -507,14 +508,16 @@ li>.tab-icon {
 	font-family: 'Montserrat-Med';
 	text-transform: uppercase;
 	padding: .5em 1.2em;
-	transition: all 150ms ease;
+  width: 10em;
+	transition: all 270ms ease-in;
 }
 
 #add-task-button:hover {
+  width:100%;
+  font-weight:bold;
 	background-color: var(--highlight-yellow);
 	box-shadow: 3px 3px 10px rgb(0, 0, 0, .3);
 	color: var(--darkMain-Sb);
-	/* padding:.5em 1.2em; */
 }
 
 .task,
@@ -565,9 +568,6 @@ li>.tab-icon {
 	--etask-btn-padding:.3em;
 	--etask-btn-bg-size:25px;
 	--etask-btn-HW:25px;
-	
-	
-	
 }
 .edit-task-buttons{
 	opacity: .8;
