@@ -190,13 +190,13 @@ function EditTask(target) {
     };
 
     titleDescContainer.insertBefore(title, titleDescContainer.children[0]);
-    titleInput.value = target.textContent;
+    title.value = target.textContent;
   }
 
   function createEditDesc() {
     desc.setAttribute('id', 'edit-desc-input');
     titleDescContainer.appendChild(desc);
-    descInput.value = target.textContent;
+    desc.value = target.textContent;
   }
 }
 
