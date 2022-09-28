@@ -36,7 +36,7 @@ function storeUserTaskList(obj) {
   console.log(userTasks)
 };
 
-function taskData() {
+function TaskData() {
   let descInput;
   let titleInput;
   let id = 0;
@@ -65,8 +65,8 @@ formAddTaskButton.addEventListener('click', e => {
     console.log('need title');
     return;
   } else {
-    PubSub.publish('getTaskData', taskData())
-    storeUserTaskList(taskData());
+    PubSub.publish('getTaskData', TaskData())
+    storeUserTaskList(TaskData());
     clearInput();
   }
 });
