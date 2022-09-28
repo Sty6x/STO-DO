@@ -39,8 +39,8 @@ function createTdTaskUI() {
 createTdTaskUI();
 
 // creates task from user input
-function createTaskUI(msg, userTask) {
-  console.log(msg)
+function createTaskUI(container, userTask) {
+  // console.log(msg)
   console.log(userTask)
   let task = document.createElement("div");
   task.setAttribute("class", "task");
@@ -69,19 +69,19 @@ function createTaskUI(msg, userTask) {
   task.setAttribute('style', `border-left:solid 10px ${userTask.priority};`);
   task.setAttribute('id', `task-${userTask.id}`);
 
-  tdMainContainer.insertBefore(task, addTaskContainer);
+  container.appendChild(task);
   task.append(titleAndDescContainer, editRmContainer);
   titleAndDescContainer.append(taskTitle, taskDesc);
 }
 
 
 //Place holder for when user's first use of the application
-createTaskUI('hm', {
-  titleInput: 'Title Here',
-  descInput: 'Description Here',
-  priority: 'PH',
-  id: 'PH'
-})
+// createTaskUI('hm', {
+//   titleInput: 'Title Here',
+//   descInput: 'Description Here',
+//   priority: 'PH',
+//   id: 'PH'
+// })
 
 
 // form handler
@@ -130,7 +130,7 @@ tdUpMainContainer.addEventListener('click', e => {
   const target = e.target
   if (target.matches('#remove-button')) {
     console.log(target)
-    removeTask(target)
+    removeTask(tdUpMainContainer, target)
   }
   EditTask(target)
 })
@@ -201,11 +201,12 @@ function EditTask(target) {
     titleDescContainer.appendChild(desc);
   }
 }
-
-function removeTask(target) {
+// or change when event is euqal to remove
+// button target then target.remove()
+function removeTask(container, target) {
   let removeButtonParent = target.parentNode;
   let task = removeButtonParent.parentNode;
-  tdUpMainContainer.removeChild(task)
+  container.removeChild(task)
 }
 
 addTaskbutton.addEventListener("click", () => {
@@ -214,7 +215,11 @@ addTaskbutton.addEventListener("click", () => {
 
 // creaTaskUi get its data from the getTaskData topic
 // and uses those data to create a new task UI only
-PubSub.subscribe('getTaskData', createTaskUI)
+PubSub.subscribe('getTaskData', (msg, userTask) => {
+  console.log(msg)
+  createTaskUI(tdUpMainContainer, userTask)
+})
+
 formAddTaskButton.addEventListener('click', () => {
   removeForm(sbMainContainer)
 });

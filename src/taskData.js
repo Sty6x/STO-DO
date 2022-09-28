@@ -31,12 +31,12 @@ function clearInput() {
 // I need that so i could save the information
 // the user input and parse it into a Json file
 const userTasks = [{}]
-function storeUserTask(obj) {
+function storeUserTaskList(obj) {
   userTasks.push(obj)
   console.log(userTasks)
 };
 
-function getUserData() {
+function taskData() {
   let descInput;
   let titleInput;
   let id;
@@ -65,8 +65,8 @@ formAddTaskButton.addEventListener('click', e => {
     console.log('need title');
     return;
   } else {
-    PubSub.publish('getTaskData', getUserData())
-    storeUserTask(getUserData());
+    PubSub.publish('getTaskData', taskData())
+    storeUserTaskList(taskData());
     clearInput();
   }
 });
