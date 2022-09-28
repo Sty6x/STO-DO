@@ -39,12 +39,11 @@ function storeUserTaskList(obj) {
 function taskData() {
   let descInput;
   let titleInput;
-  let id;
   descInput = userDesc.value;
   titleInput = userTitle.value;
   let taskDate = format(new Date(), 'MM-dd-yyyy');
   for (let i = 0; i < userTasks.length; i++) {
-    id = `${i}`;
+    var id = `${i}`;
   }
   if (priority == '') {
     priority = 'var(--dark)';
