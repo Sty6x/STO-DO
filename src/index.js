@@ -1,5 +1,6 @@
 import PubSub from "pubsub-js"
-import './style.css';
+import './todayStyles.css';
+import './projectStyles.css'
 import { format } from 'date-fns'
 const menuButton = document.getElementById('hamburger-menu')
 const sideBarContainer = document.getElementById('sidebar-container')

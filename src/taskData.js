@@ -30,7 +30,7 @@ function clearInput() {
 // why do i need this?
 // I need that so i could save the information
 // the user input and parse it into a Json file
-const userTasks = [{}]
+const userTasks = []
 function storeUserTaskList(obj) {
   userTasks.push(obj)
   console.log(userTasks)
