@@ -14,8 +14,8 @@ const headerDateDisplay = document.createElement('small')
 const tabButtons = document.querySelector('.sidebar');
 headerDateDisplay.textContent = headerDate;
 headerTextDateContainer.appendChild(headerDateDisplay)
-headerTextDateContainer.setAttribute('style', 'display:flex; gap:10px; margin-right:5em;')
-headerDateDisplay.setAttribute('style', 'white-space:nowrap;align-self:end; font-family:"Montserrat-Reg"; color: var(--text)')
+headerTextDateContainer.setAttribute('style', 'display:flex; flex-direction:column; gap:10px; margin-right:5em;')
+headerDateDisplay.setAttribute('style', 'white-space:nowrap; font-family:"Montserrat-Reg"; color: var(--text)')
 console.log(tabButtons)
 
 tabButtons.addEventListener('click', e => {
