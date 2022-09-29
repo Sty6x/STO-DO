@@ -14,7 +14,7 @@ class Project {
     // something
   }
   deleteProject() {
-    for (let i = 1; i < this.taskList.length; i++) {
+    for (let i = 0; i < this.taskList.length; i++) {
       this.taskList.pop(i)
     }
   }
