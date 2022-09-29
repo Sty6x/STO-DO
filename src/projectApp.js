@@ -1,3 +1,4 @@
+import * as Project from './projectUI'
 const todayHeader = document.getElementById("header-text"); //style
 const projectContainer = document.createElement('div');
 const mainContainer = document.getElementById('main-content-container');
@@ -14,3 +15,7 @@ export function createProjectAppUI() {
   todayHeader.textContent = 'PROJECTS'
 }
 createProjectAppUI()
+
+addProjectBtn.addEventListener('click', e => {
+  Project.createProjectUI(projectContainer);
+})
