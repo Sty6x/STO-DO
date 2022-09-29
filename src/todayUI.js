@@ -16,7 +16,7 @@ const addTaskbutton = document.createElement("button");
 const addTaskContainer = document.createElement("div");
 
 /// creates the body of Today task
-function createTdTaskUI() {
+export function createTdTaskUI() {
   mainContentContainer.appendChild(tdMainContainer);
   tdMainContainer.setAttribute("id", "td-up-main-task-container");
   todayHeader.textContent = "TODAY";
@@ -41,7 +41,7 @@ formAddTaskButton.addEventListener('click', () => {
 
 PubSub.subscribe('getTaskData', (msg, userTask) => {
   console.log(msg)
-  TaskUI.createTaskUI(tdUpMainContainer, userTask)
+  TaskUI.createTaskUI(tdUpMainContainer, userTask, addTaskContainer)
 })
 
 
