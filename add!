@@ -402,6 +402,7 @@ li>.tab-icon {
 	flex-direction: column;
 	padding: 2em 3em;
 	border-radius: 4px;
+	/* box-shadow: 5px 5px 12px rgb(0, 0,0,.3); */
 
 }
 
@@ -412,13 +413,15 @@ li>.tab-icon {
 }
 
 #header-container {
+}
+
+#header-container {
 	justify-content: space-between;
 	align-items: center;
-  margin-top:2em;
+  margin-bottom:10em;
 	width: 100%;
-	justify-content: space-between;
-	/* align-items: center; */
-  margin-bottom:2em;
+	padding: 0em 10em 0em 10em;
+	box-sizing: border-box;
 }
 
 #header-option-container {
@@ -489,7 +492,7 @@ li>.tab-icon {
 /* PROJECTS tab */
 #td-up-main-task-container {
 	height: 100%;
-	margin: 0em 10em 2em 10em;
+	margin: 2em 10em 2em 10em;
 	display: flex;
 	flex-direction: column;
 	gap: 1.2em;
@@ -512,7 +515,7 @@ li>.tab-icon {
 }
 
 #add-task-button:hover {
-  width:11em;
+  width:100%;
   font-weight:bold;
 	background-color: var(--highlight-yellow);
 	box-shadow: 3px 3px 10px rgb(0, 0, 0, .3);
@@ -563,7 +566,8 @@ li>.tab-icon {
 }
 
 
-:root{	--etask-btn-padding:.3em;
+:root{
+	--etask-btn-padding:.3em;
 	--etask-btn-bg-size:25px;
 	--etask-btn-HW:25px;
 }
