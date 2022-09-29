@@ -10,7 +10,8 @@ module.exports = {
     taskData: './src/taskData.js',
     todayUI: './src/todayUI.js',
     projectUI: './src/projectUI.js',
-    projectApp: './src/projectApp.js'
+    projectApp: './src/projectApp.js',
+    projectData: './src/projectData.js'
   },
   output: {
     filename: '[name].bundle.js',
