@@ -1,4 +1,3 @@
-
 const todayHeader = document.getElementById("header-text"); //style
 const projectContainer = document.createElement('div');
 const mainContainer = document.getElementById('main-content-container');
@@ -14,3 +13,4 @@ export function createProjectAppUI() {
   mainContainer.appendChild(projectContainer)
   todayHeader.textContent = 'PROJECTS'
 }
+createProjectAppUI()
