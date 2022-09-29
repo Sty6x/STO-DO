@@ -412,16 +412,13 @@ li>.tab-icon {
 	display: flex;
 }
 
-#header-container {
-	justify-content: space-between;
-	align-items: center;
-}
 
 #header-container {
 	width: 100%;
-	/* padding: 0em 10em 0em 10em; */
+	justify-content: space-between;
+	/* align-items: center; */
   margin-bottom:2em;
-	/* box-sizing: border-box; */
+
 }
 
 #header-option-container {
@@ -515,7 +512,7 @@ li>.tab-icon {
 }
 
 #add-task-button:hover {
-  width:20%;
+  width:11em;
   font-weight:bold;
 	background-color: var(--highlight-yellow);
 	box-shadow: 3px 3px 10px rgb(0, 0, 0, .3);

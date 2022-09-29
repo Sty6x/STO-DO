@@ -90,7 +90,7 @@
 
 }
 #add-project-btn:hover{
-  width:15%;
+  width:13em;
   font-weight:bold;
 	background-color: var(--highlight-yellow);
 	box-shadow: 3px 3px 10px rgb(0, 0, 0, .3);
