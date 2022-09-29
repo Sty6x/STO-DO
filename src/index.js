@@ -1,6 +1,6 @@
 import PubSub from "pubsub-js"
 import { createTdTaskUI } from './todayUI'
-import './todayStyles.css';
+import './styles.css';
 import './projectStyles.css'
 import { createProjectAppUI } from "./projectApp";
 import { format } from 'date-fns'
