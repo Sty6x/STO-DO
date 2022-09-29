@@ -1,24 +1,24 @@
 import * as Task from './taskUI'
 export function createProjectUI(container) {
   const projectContainer = document.createElement('div');
-  const projTitleCont = document.createElement('div')
+  const projectTitleCont = document.createElement('div')
   const projectTitle = document.createElement('h3');
   const projTaskCont = document.createElement('div')
   const projAddTaskBtn = document.createElement('button')
-  projectContainer.setAttribute('class', `project-container`)
-
+  projectContainer.setAttribute('class', `proj-container`)
+  projectTitleCont.setAttribute('class', 'proj-title-container')
   projTaskCont.setAttribute('class', `proj-task-cont`)
   projAddTaskBtn.setAttribute('class', `proj-add-task-btn`)
   projAddTaskBtn.textContent = 'ADD TASK'
   projectTitle.textContent = `Project`
-  projTitleCont.appendChild(projectTitle)
-  projectContainer.append(projTitleCont, projAddTaskBtn, projTaskCont)
+  projectTitleCont.appendChild(projectTitle)
+  projectContainer.append(projectTitleCont, projAddTaskBtn, projTaskCont)
   container.appendChild(projectContainer);
   setProjectElemID()
 }
 // add an eventlistener on the add taskbutton container
 function setProjectElemID() {
-  const projectUIList = document.querySelectorAll('.project-container')
+  const projectUIList = document.querySelectorAll('.proj-container')
   const projectTaskList = document.querySelectorAll('.proj-task-cont')
   const projectAddTaskBtnList = document.querySelectorAll('.proj-add-task-btn')
   const projectUIListArr = Array.from(projectUIList)
