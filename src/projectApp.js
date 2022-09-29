@@ -19,3 +19,4 @@ createProjectAppUI()
 addProjectBtn.addEventListener('click', e => {
   Project.createProjectUI(projectContainer);
 })
+
