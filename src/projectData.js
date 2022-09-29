@@ -1,5 +1,4 @@
 const addProjectBtn = document.getElementById('add-project-btn');
-console.log(addProjectBtn)
 
 class Project {
   constructor(title, id) {
@@ -22,3 +21,14 @@ class Project {
 }
 
 const projectList = []
+let incrementProjID = 0;
+function instantiateProject() {
+  incrementProjID++
+  // pass in a user title input on the first argumet
+  projectList.push(new Project('my First Project', `project-ID-${incrementProjID}`))
+  console.log(projectList)
+}
+
+addProjectBtn.addEventListener('click', e => {
+  instantiateProject()
+})
