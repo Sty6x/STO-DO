@@ -7,10 +7,11 @@ export function createProjectUI(container) {
   const projAddTaskBtn = document.createElement('button')
   projectContainer.setAttribute('class', `proj-container`)
   projectTitleCont.setAttribute('class', 'proj-title-container')
+  projectTitle.setAttribute('class', 'proj-title')
   projTaskCont.setAttribute('class', `proj-task-cont`)
   projAddTaskBtn.setAttribute('class', `proj-add-task-btn`)
   projAddTaskBtn.textContent = 'ADD TASK'
-  projectTitle.textContent = `Project`
+  projectTitle.textContent = `My First Project`
   projectTitleCont.appendChild(projectTitle)
   projectContainer.append(projectTitleCont, projAddTaskBtn, projTaskCont)
   container.appendChild(projectContainer);
