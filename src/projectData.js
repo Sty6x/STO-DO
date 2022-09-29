@@ -23,9 +23,9 @@ class Project {
 const projectList = []
 let incrementProjID = 0;
 function instantiateProject() {
-  incrementProjID++
+
   // pass in a user title input on the first argumet
-  projectList.push(new Project('my First Project', `project-ID-${incrementProjID}`))
+  projectList.push(new Project('my First Project', `project-ID-${incrementProjID++}`))
   console.log(projectList)
 }
 
