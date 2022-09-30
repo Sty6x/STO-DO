@@ -100,8 +100,7 @@
 .proj-title{
   color:var(--text);
   font-family: Montserrat-Bold;
-  font-size:1.3rem;
-  text-transform:uppercase;
+  font-size:1.2rem;
   /* font-weight:bold; */
 }
 #project-app-container .proj-container:not(:last-child){
@@ -113,9 +112,8 @@
   gap:25px;
 }
 .proj-container{
-  border-radius:10px;
+  
   background-color: var(--darkMain-Sb);
-  padding:1.3em;
 }
 .proj-add-task-btn{
   border:none;
@@ -154,32 +152,7 @@
   flex-direction: column;
   gap:1.2em;
 }
+.btn-inactive{
+  display:none;
+}
 
-#project-title-input{
-  width:50%;
-  font-size:1.2rem;
-  text-transform: uppercase;
-  font-family:Montserrat-Bold;
-  border-radius:5px;
-  padding: .2em .5em;
-  background-color: var(--dark);
-}
-#project-submit-input-btn{
-  appearance:none;
-  border:none;
-  font-size: 1rem;
-  border-radius:4px;
-  font-family:Montserrat-Reg;
-  text-transform: uppercase;
-  padding:5px;
-  margin-left: auto;
-  background-color: var(--highlight-yellow);
-  color: var(--dark);
-}
-#project-form{
-  align-items:center;
-  padding:10px 15px;
-  gap:10px;
-  background-color: var(--dark);
-  border-radius:10px;
-}

@@ -36,13 +36,13 @@ projectAppContainer.addEventListener('click', e => {
   }
 })
 function createForm(target) {
-  form.setAttribute('style', 'display:inline-block;')
+  form.setAttribute('style', 'display:flex;')
   target.parentNode.setAttribute('style', 'display:none;')
   titleInput.setAttribute('placeholder', 'Add Title')
   submitBtn.textContent = 'New Project'
   submitBtn.addEventListener('click', e => {
     form.setAttribute('style', 'display:none;')
-    target.parentNode.setAttribute('style', 'display:inline-block;')
+    target.parentNode.setAttribute('style', 'display:flex;')
     e.preventDefault()
   })
 }
