@@ -4,6 +4,18 @@ const projectAppContainer = document.createElement('div');
 const mainContainer = document.getElementById('main-content-container');
 const addProjectBtn = document.createElement('button');
 const addProjectBtnContainer = document.createElement('div');
+const addProjectBtnCont = document.getElementById('add-project-btn-container')
+const form = document.createElement('form')
+const titleInput = document.createElement('input')
+const submitBtn = document.createElement('button')
+submitBtn.setAttribute('id', 'project-submit-input-btn')
+titleInput.setAttribute('id', 'project-title-input')
+titleInput.setAttribute('type', 'text')
+form.setAttribute('id', 'project-form');
+form.append(titleInput, submitBtn)
+form.setAttribute('style', 'display:none;')
+projectAppContainer.insertBefore(form, addProjectBtnCont)
+
 export function createProjectAppUI() {
   addProjectBtnContainer.setAttribute('id', 'add-project-btn-container');
   addProjectBtn.setAttribute('id', 'add-project-btn');
@@ -15,29 +27,21 @@ export function createProjectAppUI() {
   todayHeader.textContent = 'PROJECTS'
 }
 createProjectAppUI()
-
+PubSub.subscribe('getProjectData', (msg, projectData) => {
+  console.log(msg)
+  Project.createProjectUI(projectAppContainer, projectData);
+})
+// creates projects
 projectAppContainer.addEventListener('click', e => {
   const target = e.target;
   if (target.matches('#add-project-btn')) {
-    Project.createProjectUI(projectAppContainer);
     createForm(target)
   }
 })
-const addProjectBtnCont = document.getElementById('add-project-btn-container')
-const form = document.createElement('form')
-const titleInput = document.createElement('input')
-const submitBtn = document.createElement('button')
-submitBtn.setAttribute('id', 'project-submit-input-btn')
-form.setAttribute('id', 'project-form');
-form.append(titleInput, submitBtn)
-form.setAttribute('style', 'display:none;')
-projectAppContainer.insertBefore(form, addProjectBtnCont)
 function createForm(target) {
 
   form.setAttribute('style', 'display:inline-block;')
   target.parentNode.setAttribute('style', 'display:none;')
-  titleInput.setAttribute('id', 'project-title-input')
-  titleInput.setAttribute('type', 'text')
   titleInput.setAttribute('placeholder', 'Add Title')
   submitBtn.textContent = 'New Project'
   submitBtn.addEventListener('click', e => {
