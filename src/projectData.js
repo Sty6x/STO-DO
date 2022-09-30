@@ -29,6 +29,6 @@ function instantiateProject() {
   console.log(projectList)
 }
 
-addProjectBtn.addEventListener('click', e => {
-  instantiateProject()
-})
+// addProjectBtn.addEventListener('click', e => {
+//   instantiateProject()
+// })
