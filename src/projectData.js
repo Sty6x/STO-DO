@@ -25,15 +25,12 @@ class Project {
 const projectList = []
 let incrementProjID = 0;
 function instantiateProject() {
-  const projectTitle = projectTitleInput.value
+  // const projectTitle = projectTitleInput.value
   // pass in a user title input on the first argumet
-  projectList.push(new Project(projectTitle, `project-ID-${incrementProjID++}`))
+  projectList.push(new Project('dwadaw', `project-ID-${incrementProjID++}`))
   console.log(projectList)
 }
-if (!submitInpBtn) {
-  return
-} else if (submitInpBtn) {
-  submitInpBtn.addEventListener('click', e => {
-    instantiateProject()
-  })
-}
+submitInpBtn.addEventListener('click', e => {
+  instantiateProject()
+  console.log(projectTitleInput.value)
+})
