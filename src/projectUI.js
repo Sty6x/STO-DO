@@ -41,5 +41,6 @@ mainContentContainer.addEventListener('click', e => {
     console.log(buttonId)
     const projectTaskCont = document.getElementById(`project-task-cont-ID-${buttonId}`)
     console.log(projectTaskCont)
+    Task.createTaskUI(projectTaskCont, { titleInput: 'something', descInput: 'ok' }, target)
   }
 })
