@@ -1,4 +1,5 @@
 const addProjectBtn = document.getElementById('add-project-btn');
+const projectTitleInput = document.getElementById('project-title-input')
 
 class Project {
   constructor(title, id) {
@@ -29,6 +30,6 @@ function instantiateProject() {
   console.log(projectList)
 }
 
-// addProjectBtn.addEventListener('click', e => {
-//   instantiateProject()
-// })
+addProjectBtn.addEventListener('click', e => {
+  instantiateProject()
+})

@@ -21,23 +21,18 @@ console.log(tabButtons)
 tabButtons.addEventListener('click', e => {
   const target = e.target;
   // console.log(target)
+  console.log(mainContentContainer.children[1])
   if (target.closest('.td-t')) {
-    console.log('todays section')
     if (mainContentContainer.children[1].id !== 'td-up-main-task-container') {
       mainContentContainer.removeChild(mainContentContainer.children[1])
       createTdTaskUI()
     }
   }
-  if (target.closest('.up-t')) {
-    console.log('upcoming section')
+  else if (target.closest('.up-t')) {
     if (mainContentContainer.children[1].id !== 'project-app-container') {
       mainContentContainer.removeChild(mainContentContainer.children[1])
       createProjectAppUI();
     }
-  }
-
-  if (target.closest('.prj')) {
-    console.log('project section')
   }
 })
 function changeSidebar() {
