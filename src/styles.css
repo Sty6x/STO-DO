@@ -468,6 +468,7 @@ li>.tab-icon {
 	color: var(--text);
 	font-family: 'Montserrat-Med';
   text-align: end;
+  font-weight:bold;
 }
 
 
@@ -500,7 +501,7 @@ li>.tab-icon {
   justify-content: center;
 }
 #add-task-button {
-	background-color: var(--frost-3);
+	background-color: var(--frost-3);2px 10px
 	border: none;
 	border-radius: 15px;
 	color: var(--text);
