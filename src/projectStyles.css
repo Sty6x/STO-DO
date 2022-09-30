@@ -141,5 +141,8 @@
   border-radius: 30px;
 }
 .proj-task-cont{
-  margin-top:25px
+  margin-top:25px;
+  display:flex;
+  flex-direction: column;
+  gap:1.2em;
 }

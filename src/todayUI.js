@@ -45,11 +45,11 @@ PubSub.subscribe('getTaskData', (msg, userTask) => {
 })
 
 
-// tdUpMainContainer.addEventListener('click', e => {
-//   const target = e.target
-//   if (target.matches('#remove-button')) {
-//     console.log(target)
-//     TaskUI.removeTask(tdUpMainContainer, target)
-//   }
-//   TaskUI.EditTask(target)
-// })
+tdUpMainContainer.addEventListener('click', e => {
+  const target = e.target
+  if (target.matches('#remove-button')) {
+    console.log(target)
+    TaskUI.removeTask(tdUpMainContainer, target)
+  }
+  TaskUI.EditTask(target)
+})

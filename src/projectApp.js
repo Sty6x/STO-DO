@@ -16,7 +16,23 @@ export function createProjectAppUI() {
 }
 createProjectAppUI()
 
-addProjectBtn.addEventListener('click', e => {
-  Project.createProjectUI(projectAppContainer);
+projectAppContainer.addEventListener('click', e => {
+  const target = e.target;
+  if (target.matches('#add-project-btn')) {
+    Project.createProjectUI(projectAppContainer);
+    createForm(target)
+  }
 })
 
+function createForm(target) {
+  target.setAttribute('style', 'display:none;')
+  const form = document.createElement('form')
+  const titleInput = document.createElement('input')
+  projectAppContainer.insertBefore(form, target.parentNode)
+  form.setAttribute('id', 'project-form');
+  titleInput.setAttribute('id', 'project-title-input')
+  form.appendChild(titleInput)
+
+
+
+}
