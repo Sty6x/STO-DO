@@ -101,3 +101,11 @@
   color:var(--text);
   font-family: Montserrat-Med;
 }
+#project-app-container .proj-container:not(:last-child){
+  margin-bottom:1.5em
+}
+#project-app-container{
+  display:flex;
+  flex-direction: column;
+  gap:25px;
+}
