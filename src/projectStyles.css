@@ -110,7 +110,9 @@
 #project-app-container{
   display:flex;
   flex-direction: column;
-  gap:25px;
+}
+#project-app-container .proj-container:nth-child(3){
+  margin-top: 1.5em;
 }
 .proj-container{
   border-radius:10px;
