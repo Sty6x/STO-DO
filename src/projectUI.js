@@ -1,4 +1,5 @@
 import * as Task from './taskUI'
+const mainContentContainer = document.getElementById('main-content-container')
 export function createProjectUI(container) {
   const projectContainer = document.createElement('div');
   const projectTitleCont = document.createElement('div')
@@ -31,3 +32,14 @@ function setProjectElemID() {
     projectAddTaskBtnListArr[i].setAttribute('id', `project-add-task-btn-ID-${i}`)
   }
 }
+console.log(mainContentContainer)
+mainContentContainer.addEventListener('click', e => {
+  const target = e.target;
+  if (target.matches('.proj-add-task-btn')) {
+    console.log(target)
+    const buttonId = target.id.slice(-1)
+    console.log(buttonId)
+    const projectTaskCont = document.getElementById(`project-task-cont-ID-${buttonId}`)
+    console.log(projectTaskCont)
+  }
+})
