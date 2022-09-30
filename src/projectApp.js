@@ -27,11 +27,8 @@ export function createProjectAppUI() {
   todayHeader.textContent = 'PROJECTS'
 }
 createProjectAppUI()
-PubSub.subscribe('getProjectData', (msg, projectData) => {
-  console.log(msg)
-  Project.createProjectUI(projectAppContainer, projectData);
-})
-// creates projects
+
+
 projectAppContainer.addEventListener('click', e => {
   const target = e.target;
   if (target.matches('#add-project-btn')) {
@@ -39,7 +36,6 @@ projectAppContainer.addEventListener('click', e => {
   }
 })
 function createForm(target) {
-
   form.setAttribute('style', 'display:inline-block;')
   target.parentNode.setAttribute('style', 'display:none;')
   titleInput.setAttribute('placeholder', 'Add Title')
@@ -50,3 +46,8 @@ function createForm(target) {
     e.preventDefault()
   })
 }
+
+PubSub.subscribe('getProjectData', (msg, projectData) => {
+  console.log(msg)
+  Project.createProjectUI(projectAppContainer, projectData);
+})
