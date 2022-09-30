@@ -35,34 +35,35 @@ function setProjectElemID() {
   }
 }
 
-
-sbMainContainer.addEventListener('click', e => {
-  const target = e.target;
+// the projectTaskCont and the createTaskUI's argument needs to meet somewhere without the eventlistener
+// the createTaskUI doesnt need an event listener it only needs the container which the 
+// event listener provides
+let target;
+mainContentContainer.addEventListener('click', e => {
+  target = e.target;
   if (target.matches('.proj-add-task-btn')) {
-    // Task.createFormUI(mainContentContainer)
-    addTaskToProject(target)
+    Task.createFormUI(mainContentContainer)
   }
   console.log(target)
 })
-function addTaskToProject(target) {
+function addTaskToProject() {
   const buttonId = target.id.slice(-1)
   const projectTaskCont = document.getElementById(`project-task-cont-ID-${buttonId}`)
-  // PubSub.subscribe('getTaskData', (msg, userTask) => {
-  //   console.log(msg)
-  //   Task.createTaskUI(projectTaskCont, userTask)
-  // })
-
-  Task.createTaskUI(projectTaskCont, { titleInput: 'title', descInput: 'desc' })
-
+  console.log(target)
+  return projectTaskCont
 }
+
 formAddTaskButton.addEventListener('click', (e) => {
   Task.removeForm(mainContentContainer)
-  const target = e.target
-  addTaskToProject(target)
 })
 
 mainContentContainer.addEventListener('click', e => {
   const target = e.target
   Task.removeTask(target)
   Task.EditTask(target)
+})
+
+PubSub.subscribe('getTaskData', (msg, userTask) => {
+  console.log(msg)
+  Task.createTaskUI(addTaskToProject(target), userTask)
 })

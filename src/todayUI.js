@@ -39,13 +39,13 @@ formAddTaskButton.addEventListener('click', () => {
   TaskUI.removeForm(sbMainContainer)
 });
 
-PubSub.subscribe('getTaskData', (msg, userTask) => {
-  console.log(msg)
-  TaskUI.createTaskUI(tdUpMainContainer, userTask)
-})
+// PubSub.subscribe('getTaskdata', (msg, usertask) => {
+//   console.log(msg)
+//   taskui.createtaskui(tdupmaincontainer, usertask)
+// })
 
-tdUpMainContainer.addEventListener('click', e => {
-  const target = e.target
-  TaskUI.removeTask(target)
-  TaskUI.EditTask(target)
-})
+// tdUpMainContainer.addEventListener('click', e => {
+//   const target = e.target
+//   TaskUI.removeTask(target)
+//   TaskUI.EditTask(target)
+// })
