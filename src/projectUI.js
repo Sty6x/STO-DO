@@ -1,6 +1,6 @@
 import * as Task from './taskUI'
 const mainContentContainer = document.getElementById('main-content-container')
-export function createProjectUI(container) {
+export function createProjectUI(container, projectData) {
   const projectContainer = document.createElement('div');
   const projectTitleCont = document.createElement('div')
   const projectTitle = document.createElement('h3');
@@ -12,7 +12,7 @@ export function createProjectUI(container) {
   projTaskCont.setAttribute('class', `proj-task-cont`)
   projAddTaskBtn.setAttribute('class', `proj-add-task-btn`)
   projAddTaskBtn.textContent = 'ADD TASK'
-  projectTitle.textContent = `My First Project`
+  projectTitle.textContent = `${projectData.title}`
   projectTitleCont.appendChild(projectTitle)
   projectContainer.append(projectTitleCont, projAddTaskBtn, projTaskCont)
   container.appendChild(projectContainer);
@@ -41,6 +41,6 @@ mainContentContainer.addEventListener('click', e => {
     console.log(buttonId)
     const projectTaskCont = document.getElementById(`project-task-cont-ID-${buttonId}`)
     console.log(projectTaskCont)
-    Task.createTaskUI(projectTaskCont, { titleInput: 'something', descInput: 'ok' }, target)
+    Task.createTaskUI(projectTaskCont, { titleInput: 'something', descInput: 'ok' })
   }
 })
