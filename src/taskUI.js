@@ -11,7 +11,7 @@ dimBg.setAttribute('id', 'dim-background-form')
 
 const popUpForm = document.getElementById('form-container')
 // creates task from user input
-export function createTaskUI(container, userTask, insert) {
+export function createTaskUI(container, userTask) {
   // console.log(msg)
   console.log(userTask)
   let task = document.createElement("div");
@@ -41,7 +41,7 @@ export function createTaskUI(container, userTask, insert) {
   task.setAttribute('style', `border-left:solid 10px ${userTask.priority};`);
   task.setAttribute('id', `task-${userTask.id}`);
 
-  container.insertBefore(task, insert);
+  container.appendChild(task);
   task.append(titleAndDescContainer, editRmContainer);
   titleAndDescContainer.append(taskTitle, taskDesc);
 }
