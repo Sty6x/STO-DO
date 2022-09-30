@@ -23,24 +23,26 @@ projectAppContainer.addEventListener('click', e => {
     createForm(target)
   }
 })
-
+const addProjectBtnCont = document.getElementById('add-project-btn-container')
+const form = document.createElement('form')
+const titleInput = document.createElement('input')
+const submitBtn = document.createElement('button')
+submitBtn.setAttribute('id', 'project-submit-input-btn')
+form.setAttribute('id', 'project-form');
+form.append(titleInput, submitBtn)
+form.setAttribute('style', 'display:none;')
+projectAppContainer.insertBefore(form, addProjectBtnCont)
 function createForm(target) {
+
+  form.setAttribute('style', 'display:inline-block;')
   target.parentNode.setAttribute('style', 'display:none;')
-  // target.classList.add('btn-inactive')
-  const form = document.createElement('form')
-  const titleInput = document.createElement('input')
-  const submitBtn = document.createElement('button')
-  projectAppContainer.insertBefore(form, target.parentNode)
-  form.setAttribute('id', 'project-form');
   titleInput.setAttribute('id', 'project-title-input')
   titleInput.setAttribute('type', 'text')
   titleInput.setAttribute('placeholder', 'Add Title')
-  submitBtn.setAttribute('id', 'project-submit-input-btn')
-  form.append(titleInput, submitBtn)
   submitBtn.textContent = 'New Project'
   submitBtn.addEventListener('click', e => {
+    form.setAttribute('style', 'display:none;')
     target.parentNode.setAttribute('style', 'display:inline-block;')
     e.preventDefault()
-    projectAppContainer.removeChild(form)
   })
 }
