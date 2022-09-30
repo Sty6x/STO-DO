@@ -46,8 +46,6 @@ PubSub.subscribe('getTaskData', (msg, userTask) => {
 
 tdUpMainContainer.addEventListener('click', e => {
   const target = e.target
-  if (target.matches('#remove-button')) {
-    TaskUI.removeTask(tdUpMainContainer, target)
-  }
+  TaskUI.removeTask(target)
   TaskUI.EditTask(target)
 })

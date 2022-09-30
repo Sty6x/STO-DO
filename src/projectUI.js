@@ -1,5 +1,7 @@
 import * as Task from './taskUI'
+const formAddTaskButton = document.getElementById('form-add-button');
 const mainContentContainer = document.getElementById('main-content-container')
+const sbMainContainer = document.getElementById('sb-main-container')
 export function createProjectUI(container, projectData) {
   const projectContainer = document.createElement('div');
   const projectTitleCont = document.createElement('div')
@@ -32,15 +34,35 @@ function setProjectElemID() {
     projectAddTaskBtnListArr[i].setAttribute('id', `project-add-task-btn-ID-${i}`)
   }
 }
-console.log(mainContentContainer)
-mainContentContainer.addEventListener('click', e => {
+
+
+sbMainContainer.addEventListener('click', e => {
   const target = e.target;
   if (target.matches('.proj-add-task-btn')) {
-    console.log(target)
-    const buttonId = target.id.slice(-1)
-    console.log(buttonId)
-    const projectTaskCont = document.getElementById(`project-task-cont-ID-${buttonId}`)
-    console.log(projectTaskCont)
-    Task.createTaskUI(projectTaskCont, { titleInput: 'something', descInput: 'ok' })
+    // Task.createFormUI(mainContentContainer)
+    addTaskToProject(target)
   }
+  console.log(target)
+})
+function addTaskToProject(target) {
+  const buttonId = target.id.slice(-1)
+  const projectTaskCont = document.getElementById(`project-task-cont-ID-${buttonId}`)
+  // PubSub.subscribe('getTaskData', (msg, userTask) => {
+  //   console.log(msg)
+  //   Task.createTaskUI(projectTaskCont, userTask)
+  // })
+
+  Task.createTaskUI(projectTaskCont, { titleInput: 'title', descInput: 'desc' })
+
+}
+formAddTaskButton.addEventListener('click', (e) => {
+  Task.removeForm(mainContentContainer)
+  const target = e.target
+  addTaskToProject(target)
+})
+
+mainContentContainer.addEventListener('click', e => {
+  const target = e.target
+  Task.removeTask(target)
+  Task.EditTask(target)
 })

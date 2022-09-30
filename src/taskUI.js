@@ -151,9 +151,11 @@ export function EditTask(target) {
 }
 // or change when event is euqal to remove
 // button target then target.remove()
-export function removeTask(container, target) {
+export function removeTask(target) {
   let removeButtonParent = target.parentNode;
   let task = removeButtonParent.parentNode;
-  container.removeChild(task)
+  if (target.matches('#remove-button')) {
+    task.remove()
+  }
 }
 
