@@ -1,5 +1,6 @@
 const addProjectBtn = document.getElementById('add-project-btn');
 const projectTitleInput = document.getElementById('project-title-input')
+const submitInpBtn = document.getElementById('project-submit-input-btn')
 
 class Project {
   constructor(title, id) {
@@ -24,12 +25,15 @@ class Project {
 const projectList = []
 let incrementProjID = 0;
 function instantiateProject() {
-
+  const projectTitle = projectTitleInput.value
   // pass in a user title input on the first argumet
-  projectList.push(new Project('my First Project', `project-ID-${incrementProjID++}`))
+  projectList.push(new Project(projectTitle, `project-ID-${incrementProjID++}`))
   console.log(projectList)
 }
-
-addProjectBtn.addEventListener('click', e => {
-  instantiateProject()
-})
+if (!submitInpBtn) {
+  return
+} else if (submitInpBtn) {
+  submitInpBtn.addEventListener('click', e => {
+    instantiateProject()
+  })
+}
