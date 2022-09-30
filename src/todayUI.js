@@ -41,14 +41,12 @@ formAddTaskButton.addEventListener('click', () => {
 
 PubSub.subscribe('getTaskData', (msg, userTask) => {
   console.log(msg)
-  TaskUI.createTaskUI(tdUpMainContainer, userTask, addTaskContainer)
+  TaskUI.createTaskUI(tdUpMainContainer, userTask)
 })
-
 
 tdUpMainContainer.addEventListener('click', e => {
   const target = e.target
   if (target.matches('#remove-button')) {
-    console.log(target)
     TaskUI.removeTask(tdUpMainContainer, target)
   }
   TaskUI.EditTask(target)
