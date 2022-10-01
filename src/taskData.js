@@ -33,7 +33,7 @@ function clearInput() {
 const userTasks = []
 function storeUserTaskList(obj) {
   userTasks.push(obj)
-  console.log(userTasks)
+  // console.log(userTasks)
 };
 
 function TaskData() {

@@ -44,12 +44,12 @@ mainContentContainer.addEventListener('click', e => {
   if (target.matches('.proj-add-task-btn')) {
     Task.createFormUI(mainContentContainer)
   }
-  console.log(target)
+  // console.log(target)
 })
 function addTaskToProject() {
   const buttonId = target.id.slice(-1)
   const projectTaskCont = document.getElementById(`project-task-cont-ID-${buttonId}`)
-  console.log(target)
+  // console.log(target)
   return projectTaskCont
 }
 
