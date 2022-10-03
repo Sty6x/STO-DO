@@ -39,10 +39,10 @@ formAddTaskButton.addEventListener('click', () => {
   TaskUI.removeForm(sbMainContainer)
 });
 
-// PubSub.subscribe('getTaskdata', (msg, usertask) => {
-//   console.log(msg)
-//   taskui.createtaskui(tdupmaincontainer, usertask)
-// })
+PubSub.subscribe('getTaskdata', (msg, usertask) => {
+  console.log(msg)
+  TaskUI.createTaskUI(tdUpMainContainer, usertask)
+})
 
 // tdUpMainContainer.addEventListener('click', e => {
 //   const target = e.target
