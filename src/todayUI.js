@@ -16,7 +16,7 @@ const addTaskbutton = document.createElement("button");
 const addTaskContainer = document.createElement("div");
 
 /// creates the body of Today task
-export function createTdTaskUI() {
+export function createTdTaskUI(display) {
   mainContentContainer.appendChild(tdMainContainer);
   tdMainContainer.setAttribute("id", "td-up-main-task-container");
   todayHeader.textContent = "TODAY";
@@ -25,9 +25,9 @@ export function createTdTaskUI() {
   addTaskContainer.setAttribute("id", "add-task-container");
   addTaskContainer.appendChild(addTaskbutton);
   addTaskbutton.textContent = "Add Task";
+  tdMainContainer.setAttribute('style', `${display}`)
 }
-
-createTdTaskUI();
+createTdTaskUI('display:flex;')
 const formAddTaskButton = document.getElementById('form-add-button');
 const tdUpMainContainer = document.getElementById("td-up-main-task-container");
 

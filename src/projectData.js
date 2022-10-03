@@ -37,14 +37,19 @@ function instantiateProject() {
   return projectList[projectList.length - 1]
 }
 
-submitInpBtn.addEventListener('click', e => {
+submitInpBtn.addEventListener('click', () => {
   PubSub.publish('getProjectData', instantiateProject())
 })
 
 let target;
-projectAppContainer.addEventListener('click', e => {
-  target = e.target
-})
+if (!projectAppContainer) {
+  return
+} else {
+  projectAppContainer.addEventListener('click', e => {
+    target = e.target
+  })
+
+}
 function addTaskToProjTaskList() {
   const buttonId = target.id.slice(-1)
   const project = projectList[buttonId]

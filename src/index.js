@@ -12,27 +12,29 @@ const headerDate = format(new Date(), 'E MMM dd')
 const headerTextDateContainer = document.getElementById('header-text-date-container')
 const headerDateDisplay = document.createElement('small')
 const tabButtons = document.querySelector('.sidebar');
+const header = document.getElementById("header-text"); //style
 headerDateDisplay.textContent = headerDate;
 headerTextDateContainer.appendChild(headerDateDisplay)
 headerTextDateContainer.setAttribute('style', 'display:flex; flex-direction:column; gap:10px; margin-right:5em;')
 headerDateDisplay.setAttribute('style', 'white-space:nowrap; font-family:"Montserrat-Reg"; color: var(--text)')
 console.log(tabButtons)
 
+createProjectAppUI('display:none;')
+createTdTaskUI('display:flex;')
 tabButtons.addEventListener('click', e => {
   const target = e.target;
   // console.log(target)
   console.log(mainContentContainer.children[1])
-  if (target.closest('.td-t')) {
-    if (mainContentContainer.children[1].id !== 'td-up-main-task-container') {
-      mainContentContainer.removeChild(mainContentContainer.children[1])
-      createTdTaskUI()
-    }
+  if (target.closest('.td-t') && mainContentContainer.children[1].id !== 'td-up-main-task-container') {
+    mainContentContainer.children[1].setAttribute('style', 'display:none;')
+    header.textContent = 'TODAY'
+    createTdTaskUI('display:flex;')
   }
-  if (target.closest('.up-t')) {
-    if (mainContentContainer.children[1].id !== 'project-app-container') {
-      mainContentContainer.removeChild(mainContentContainer.children[1])
-      createProjectAppUI();
-    }
+  if (target.closest('.up-t') && mainContentContainer.children[1].id !== 'project-app-container') {
+    // mainContentContainer.children[1].setAttribute('style', 'display:none;')
+    console.log('projects')
+    header.textContent = 'PROJECTS'
+    createProjectAppUI('display:flex;');
   }
 })
 function changeSidebar() {
