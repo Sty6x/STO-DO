@@ -27,7 +27,7 @@ export function createTdTaskUI() {
   addTaskbutton.textContent = "Add Task";
 }
 
-// createTdTaskUI();
+createTdTaskUI();
 const formAddTaskButton = document.getElementById('form-add-button');
 const tdUpMainContainer = document.getElementById("td-up-main-task-container");
 
@@ -39,13 +39,13 @@ formAddTaskButton.addEventListener('click', () => {
   TaskUI.removeForm(sbMainContainer)
 });
 
-PubSub.subscribe('getTaskdata', (msg, usertask) => {
+PubSub.subscribe('getTaskData', (msg, usertask) => {
   console.log(msg)
   TaskUI.createTaskUI(tdUpMainContainer, usertask)
 })
 
-// tdUpMainContainer.addEventListener('click', e => {
-//   const target = e.target
-//   TaskUI.removeTask(target)
-//   TaskUI.EditTask(target)
-// })
+tdUpMainContainer.addEventListener('click', e => {
+  const target = e.target
+  TaskUI.removeTask(target)
+  TaskUI.EditTask(target)
+})
