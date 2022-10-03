@@ -51,3 +51,8 @@ PubSub.subscribe('getProjectData', (msg, projectData) => {
   console.log(msg)
   Project.createProjectUI(projectAppContainer, projectData);
 })
+
+projectAppContainer.addEventListener('click', e => {
+  const target = e.target;
+  Project.EditTitle(target)
+})
