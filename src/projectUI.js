@@ -35,6 +35,54 @@ function setProjectElemID() {
   }
 }
 
+export function EditTitle(target) {
+  const titleProjectContainer = target.parentNode;
+  let title = document.createElement('input');
+  let titleInput = document.getElementById('edit-title-input');
+  let newTitle = document.createElement('h3');
+  newTitle.setAttribute('id', 'project-title');
+
+
+  if (target.matches('#proj-title')) {
+    console.log(target);
+    applyForm(target)
+  }
+
+  titleProjectContainer.addEventListener('keypress', e => {
+    if (e.key === 'Enter') {
+      replaceProjectTitle()
+    }
+  })
+  function replaceProjectTitle() {
+    if (!titleInput.value) {
+      return;
+    } else {
+      titleProjectContainer.children[0].textContent = titleInput.value;
+      titleInput.remove()
+    }
+    titleProjectContainer.children[0].setAttribute('style', 'display:inline')
+  }
+
+  function applyForm(target) {
+    target.setAttribute('style', 'display:none;')
+    if (target.nodeName === 'H3') {
+      console.log('im of type title')
+      createEditInput()
+    }
+  }
+
+  function createEditInput() {
+    const titleAtt = {
+      id: 'edit-project-title-input',
+      type: 'text',
+    };
+    for (let key in titleAtt) {
+      title.setAttribute(key, titleAtt[key]);
+    };
+    titleProjectContainer.appendChild(title);
+    title.value = target.textContent;
+  }
+}
 // the projectTaskCont and the createTaskUI's argument needs to meet somewhere without the eventlistener
 // the createTaskUI doesnt need an event listener it only needs the container which the 
 // event listener provides
