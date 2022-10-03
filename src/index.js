@@ -1,5 +1,5 @@
 import PubSub from "pubsub-js"
-// import { createTdTaskUI } from './todayUI'
+import { createTdTaskUI } from './todayUI'
 import './styles.css';
 import './projectStyles.css'
 import { createProjectAppUI } from "./projectApp";
@@ -28,7 +28,7 @@ tabButtons.addEventListener('click', e => {
       createTdTaskUI()
     }
   }
-  else if (target.closest('.up-t')) {
+  if (target.closest('.up-t')) {
     if (mainContentContainer.children[1].id !== 'project-app-container') {
       mainContentContainer.removeChild(mainContentContainer.children[1])
       createProjectAppUI();

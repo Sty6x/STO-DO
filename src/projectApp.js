@@ -26,9 +26,8 @@ export function createProjectAppUI() {
   mainContainer.appendChild(projectAppContainer)
   todayHeader.textContent = 'PROJECTS'
 }
-createProjectAppUI()
 
-
+// createProjectAppUI()
 projectAppContainer.addEventListener('click', e => {
   const target = e.target;
   if (target.matches('#add-project-btn')) {
