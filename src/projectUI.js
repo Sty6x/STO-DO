@@ -38,12 +38,13 @@ function setProjectElemID() {
 export function EditTitle(target) {
   const titleProjectContainer = target.parentNode;
   let title = document.createElement('input');
-  let titleInput = document.getElementById('edit-title-input');
+  let titleInput = document.getElementById('edit-project-title-input');
   let newTitle = document.createElement('h3');
   newTitle.setAttribute('id', 'project-title');
+  console.log('here')
 
 
-  if (target.matches('#proj-title')) {
+  if (target.matches('.proj-title')) {
     console.log(target);
     applyForm(target)
   }
