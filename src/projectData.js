@@ -1,5 +1,5 @@
 const addProjectBtn = document.getElementById('add-project-btn');
-const projectTitleInput = document.getElementById('project-title-input')
+let projectTitleInput = document.getElementById('project-title-input')
 const submitInpBtn = document.getElementById('project-submit-input-btn')
 
 class Project {
@@ -27,9 +27,10 @@ class Project {
 const projectList = []
 let incrementProjID = 0;
 function instantiateProject() {
-  const projectTitle = projectTitleInput.value
+  let projectTitle = projectTitleInput.value
   projectList.push(new Project(projectTitle, `project-ID-${incrementProjID++}`))
   console.log(projectList[projectList.length - 1])
+  projectTitleInput.value = '';
   return projectList[projectList.length - 1]
 }
 

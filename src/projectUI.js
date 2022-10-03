@@ -41,8 +41,6 @@ export function EditTitle(target) {
   let titleInput = document.getElementById('edit-project-title-input');
   let newTitle = document.createElement('h3');
   newTitle.setAttribute('id', 'project-title');
-  console.log('here')
-
 
   if (target.matches('.proj-title')) {
     console.log(target);
@@ -84,16 +82,13 @@ export function EditTitle(target) {
     title.value = target.textContent;
   }
 }
-// the projectTaskCont and the createTaskUI's argument needs to meet somewhere without the eventlistener
-// the createTaskUI doesnt need an event listener it only needs the container which the 
-// event listener provides
+
 let target;
 mainContentContainer.addEventListener('click', e => {
   target = e.target;
   if (target.matches('.proj-add-task-btn')) {
     Task.createFormUI(mainContentContainer)
   }
-  // console.log(target)
 })
 function addTaskToProject() {
   const buttonId = target.id.slice(-1)
