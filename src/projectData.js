@@ -1,7 +1,7 @@
 const addProjectBtn = document.getElementById('add-project-btn');
 let projectTitleInput = document.getElementById('project-title-input')
 const submitInpBtn = document.getElementById('project-submit-input-btn')
-
+const projectAppContainer = document.getElementById('project-app-container')
 class Project {
   constructor(title, id) {
     this.title = title;
@@ -11,7 +11,8 @@ class Project {
 
   addTask(msg, task) {
     console.log(msg)
-    return this.taskList.push(task)
+    this.taskList.push(task)
+    console.log(this.taskList)
   }
   removeTask() {
     // something
@@ -27,38 +28,29 @@ const projectList = []
 let incrementProjID = 0;
 
 
-// problem with this function that returns taskList to undefined
 function instantiateProject() {
   let projectTitle = projectTitleInput.value
   projectList.push(new Project(projectTitle, `project-ID-${incrementProjID++}`))
   console.log(projectList[projectList.length - 1])
   projectTitleInput.value = '';
+  console.log(projectList)
   return projectList[projectList.length - 1]
 }
 
 submitInpBtn.addEventListener('click', e => {
   PubSub.publish('getProjectData', instantiateProject())
-  // console.log(projectTitleInput.value)
 })
-PubSub.subscribe('getTaskData', instantiateProject().addTask)
 
-// this is a test
-let arr = []
-function pushSomething(msg, task) {
-  console.log(msg)
-  arr.push(task)
-  console.log(arr)
+let target;
+projectAppContainer.addEventListener('click', e => {
+  target = e.target
+})
+function addTaskToProjTaskList() {
+  const buttonId = target.id.slice(-1)
+  const project = projectList[buttonId]
+  return project
 }
-// cannot use the addTask method from project object
-// but does okay with normal function
-// suspicion is that the instantiateProject is instantiate NOOO
-// problem might be from taskList property from project object
-// PubSub.subscribe('getTaskData', (msg, task) => {
-//   console.log('from project')
-//   instantiateProject().addTask(msg, task)
-// })
+PubSub.subscribe('getTaskData', (msg, task) => {
+  addTaskToProjTaskList().addTask(msg, task)
+})
 
-const newProject = new Project('something', 'id')
-const ob = { title: 'title', desc: 'desc' }
-newProject.addTask('msg', ob)
-console.log(newProject)
