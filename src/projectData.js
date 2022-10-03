@@ -3,16 +3,15 @@ let projectTitleInput = document.getElementById('project-title-input')
 const submitInpBtn = document.getElementById('project-submit-input-btn')
 
 class Project {
-  taskList = [];
   constructor(title, id) {
     this.title = title;
     this.id = id;
+    this.taskList = [];
   }
 
   addTask(msg, task) {
     console.log(msg)
-    taskList.push(task)
-    console.log(taskList)
+    return this.taskList.push(task)
   }
   removeTask() {
     // something
@@ -26,6 +25,9 @@ class Project {
 
 const projectList = []
 let incrementProjID = 0;
+
+
+// problem with this function that returns taskList to undefined
 function instantiateProject() {
   let projectTitle = projectTitleInput.value
   projectList.push(new Project(projectTitle, `project-ID-${incrementProjID++}`))
@@ -38,14 +40,16 @@ submitInpBtn.addEventListener('click', e => {
   PubSub.publish('getProjectData', instantiateProject())
   // console.log(projectTitleInput.value)
 })
+PubSub.subscribe('getTaskData', instantiateProject().addTask)
 
+// this is a test
 let arr = []
 function pushSomething(msg, task) {
   console.log(msg)
   arr.push(task)
   console.log(arr)
 }
-// cannot use the addTask method from project object 
+// cannot use the addTask method from project object
 // but does okay with normal function
 // suspicion is that the instantiateProject is instantiate NOOO
 // problem might be from taskList property from project object
@@ -53,5 +57,8 @@ function pushSomething(msg, task) {
 //   console.log('from project')
 //   instantiateProject().addTask(msg, task)
 // })
-PubSub.subscribe('getTaskData', instantiateProject().addTask)
 
+const newProject = new Project('something', 'id')
+const ob = { title: 'title', desc: 'desc' }
+newProject.addTask('msg', ob)
+console.log(newProject)
