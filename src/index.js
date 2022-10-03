@@ -19,24 +19,8 @@ headerTextDateContainer.setAttribute('style', 'display:flex; flex-direction:colu
 headerDateDisplay.setAttribute('style', 'white-space:nowrap; font-family:"Montserrat-Reg"; color: var(--text)')
 console.log(tabButtons)
 
-createProjectAppUI('display:none;')
 createTdTaskUI('display:flex;')
-tabButtons.addEventListener('click', e => {
-  const target = e.target;
-  // console.log(target)
-  console.log(mainContentContainer.children[1])
-  if (target.closest('.td-t') && mainContentContainer.children[1].id !== 'td-up-main-task-container') {
-    mainContentContainer.children[1].setAttribute('style', 'display:none;')
-    header.textContent = 'TODAY'
-    createTdTaskUI('display:flex;')
-  }
-  if (target.closest('.up-t') && mainContentContainer.children[1].id !== 'project-app-container') {
-    // mainContentContainer.children[1].setAttribute('style', 'display:none;')
-    console.log('projects')
-    header.textContent = 'PROJECTS'
-    createProjectAppUI('display:flex;');
-  }
-})
+
 function changeSidebar() {
   if (!sideBarContainer.classList.contains('sidebar-active')) {
     console.log('has')
