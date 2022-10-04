@@ -31,7 +31,7 @@ function storeUserTaskList(obj) {
   if (sideBar.children[0].classList.contains('active')) {
     userTasks.push(obj)
   }
-  console.log(userTasks)
+  console.log({ Today: userTasks });
 };
 
 function TaskData() {

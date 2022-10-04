@@ -78,7 +78,12 @@ export function createFormUI(mainContainer) {
 
 export function removeForm(mainContainer) {
   body.setAttribute("style", "overflow:auto;");
-  mainContainer.removeChild(dimBg)
+  try {
+    mainContainer.removeChild(dimBg)
+
+  } catch (error) {
+    console.log('dim bg removed ')
+  }
   popUpForm.classList.remove('form-active')
   popUpForm.setAttribute('class', 'form-inactive')
 };
