@@ -1,10 +1,12 @@
 import PubSub from "pubsub-js"
 import { createTdTaskUI } from './todayUI'
+import { createProjectAppUI } from "./projectApp";
 import './styles.css';
 import './projectStyles.css'
-import { createProjectAppUI } from "./projectApp";
 import { format } from 'date-fns'
 const mainContentContainer = document.getElementById('main-content-container')
+const projectAppCont = document.getElementById('project-app-container')
+const todayAppcont = document.getElementById(('td-up-main-task-container'))
 const menuButton = document.getElementById('hamburger-menu')
 const sideBarContainer = document.getElementById('sidebar-container')
 const sideBar = document.querySelector('.sidebar')
@@ -19,8 +21,20 @@ headerTextDateContainer.setAttribute('style', 'display:flex; flex-direction:colu
 headerDateDisplay.setAttribute('style', 'white-space:nowrap; font-family:"Montserrat-Reg"; color: var(--text)')
 console.log(tabButtons)
 
-createTdTaskUI('display:flex;')
 
+tabButtons.addEventListener('click', e => {
+  const target = e.target;
+  if (target.closest('.td-t')) {
+    header.textContent = 'TODAY'
+    projectAppCont.setAttribute('style', 'display:none;')
+    todayAppcont.setAttribute('style', 'display:flex;')
+  }
+  else if (target.closest('.up-t')) {
+    header.textContent = 'PROJECTS'
+    projectAppCont.setAttribute('style', 'display:flex;')
+    todayAppcont.setAttribute('style', 'display:none;')
+  }
+})
 function changeSidebar() {
   if (!sideBarContainer.classList.contains('sidebar-active')) {
     console.log('has')

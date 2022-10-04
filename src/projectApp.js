@@ -22,9 +22,10 @@ export function createProjectAppUI(display) {
   addProjectBtnContainer.appendChild(addProjectBtn);
   projectAppContainer.setAttribute('id', 'project-app-container')
   projectAppContainer.appendChild(addProjectBtnContainer)
-  mainContainer.appendChild(projectAppContainer)
   projectAppContainer.setAttribute('style', `${display}`)
 }
+createProjectAppUI('display:none;')
+mainContainer.appendChild(projectAppContainer)
 
 
 projectAppContainer.addEventListener('click', e => {
