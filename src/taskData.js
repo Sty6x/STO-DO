@@ -3,7 +3,7 @@ const priorityButtonContainer = document.getElementById('form-priority-buttons')
 const userDesc = document.getElementById('desc')
 const userTitle = document.getElementById('title')
 const formAddTaskButton = document.getElementById('form-add-button');
-
+const sideBar = document.querySelector('.sidebar')
 
 let priority;
 priorityButtonContainer.addEventListener('click', event => {
@@ -67,8 +67,14 @@ formAddTaskButton.addEventListener('click', e => {
   } else {
     // add another topic that takes in the same data 
     // use different name getProjettaskData
-    PubSub.publish('getTaskData', TaskData())
-    storeUserTaskList(TaskData());
-    clearInput();
+    if (sideBar.children[0].classList.contains('active')) {
+      PubSub.publish('getTaskData', TaskData())
+      storeUserTaskList(TaskData());
+      clearInput();
+    } else if (sideBar.children[1].classList.contains('active')) {
+      PubSub.publish('getProjectTaskData', TaskData())
+      storeUserTaskList(TaskData());
+      clearInput();
+    }
   }
 });
