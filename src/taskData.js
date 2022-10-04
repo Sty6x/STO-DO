@@ -26,14 +26,12 @@ function clearInput() {
   priority = '';
 };
 
-
-// why do i need this?
-// I need that so i could save the information
-// the user input and parse it into a Json file
 const userTasks = []
 function storeUserTaskList(obj) {
-  userTasks.push(obj)
-  // console.log(userTasks)
+  if (sideBar.children[0].classList.contains('active')) {
+    userTasks.push(obj)
+  }
+  console.log(userTasks)
 };
 
 function TaskData() {
@@ -60,13 +58,10 @@ function TaskData() {
 
 formAddTaskButton.addEventListener('click', e => {
   e.preventDefault();
-  // use this logic to throw an error if input is empty
   if (userTitle.value == '') {
     console.log('need title');
     return;
   } else {
-    // add another topic that takes in the same data 
-    // use different name getProjettaskData
     if (sideBar.children[0].classList.contains('active')) {
       PubSub.publish('getTaskData', TaskData())
       storeUserTaskList(TaskData());
