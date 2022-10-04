@@ -65,6 +65,8 @@ formAddTaskButton.addEventListener('click', e => {
     console.log('need title');
     return;
   } else {
+    // add another topic that takes in the same data 
+    // use different name getProjettaskData
     PubSub.publish('getTaskData', TaskData())
     storeUserTaskList(TaskData());
     clearInput();

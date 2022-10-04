@@ -19,17 +19,21 @@ headerDateDisplay.textContent = headerDate;
 headerTextDateContainer.appendChild(headerDateDisplay)
 headerTextDateContainer.setAttribute('style', 'display:flex; flex-direction:column; gap:10px; margin-right:5em;')
 headerDateDisplay.setAttribute('style', 'white-space:nowrap; font-family:"Montserrat-Reg"; color: var(--text)')
+
 console.log(tabButtons)
-
-
 tabButtons.addEventListener('click', e => {
   const target = e.target;
+
   if (target.closest('.td-t')) {
     header.textContent = 'TODAY'
+    sideBar.children[0].classList.add('active')
+    sideBar.children[1].classList.remove('active')
     projectAppCont.setAttribute('style', 'display:none;')
     todayAppcont.setAttribute('style', 'display:flex;')
   }
   else if (target.closest('.up-t')) {
+    sideBar.children[0].classList.remove('active')
+    sideBar.children[1].classList.add('active')
     header.textContent = 'PROJECTS'
     projectAppCont.setAttribute('style', 'display:flex;')
     todayAppcont.setAttribute('style', 'display:none;')

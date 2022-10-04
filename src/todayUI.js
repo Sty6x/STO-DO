@@ -26,8 +26,8 @@ export function createTdTaskUI(display) {
   addTaskbutton.textContent = "Add Task";
   tdMainContainer.setAttribute('style', `${display}`)
 }
-createTdTaskUI('display:flex;')
 mainContentContainer.appendChild(tdMainContainer);
+createTdTaskUI('display:flex;')
 
 const formAddTaskButton = document.getElementById('form-add-button');
 const tdUpMainContainer = document.getElementById("td-up-main-task-container");

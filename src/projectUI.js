@@ -106,7 +106,7 @@ mainContentContainer.addEventListener('click', e => {
   Task.removeTask(target)
   Task.EditTask(target)
 })
-
+// change topic to getProjectTaskData
 PubSub.subscribe('getTaskData', (msg, userTask) => {
   console.log(msg)
   Task.createTaskUI(addTaskToProject(target), userTask)
