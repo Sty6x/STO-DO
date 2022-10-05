@@ -18,7 +18,6 @@ export function createProjectUI(container, projectData) {
   delProjButton.textContent = 'DELETE PROJECT'
   projectTitle.textContent = `${projectData.title}`
   projectTitleCont.append(projectTitle, delProjButton)
-  // projectTitleCont.children[0].insertAdjacentElement('afterend', delProjButton)
   projectContainer.append(projectTitleCont, projAddTaskBtn, projTaskCont)
   container.appendChild(projectContainer);
   setProjectElemID()
@@ -49,7 +48,6 @@ export function EditTitle(target) {
   newTitle.setAttribute('id', 'project-title');
 
   if (target.matches('.proj-title')) {
-    console.log(target);
     applyForm(target)
   }
 
@@ -71,7 +69,6 @@ export function EditTitle(target) {
   function applyForm(target) {
     target.setAttribute('style', 'display:none;')
     if (target.nodeName === 'H3') {
-      console.log('im of type title')
       createEditInput()
     }
   }
@@ -107,11 +104,10 @@ mainContentContainer.addEventListener('click', e => {
 function addTaskToProject() {
   const buttonId = target.id.slice(-1)
   const projectTaskCont = document.getElementById(`project-task-cont-ID-${buttonId}`)
-  // console.log(target)
   return projectTaskCont
 }
 
-formAddTaskButton.addEventListener('click', (e) => {
+formAddTaskButton.addEventListener('click', () => {
   Task.removeForm(mainContentContainer)
 })
 
@@ -120,7 +116,7 @@ mainContentContainer.addEventListener('click', e => {
   Task.removeTask(target)
   Task.EditTask(target)
 })
-// change topic to getProjectTaskData
+
 PubSub.subscribe('getProjectTaskData', (msg, userTask) => {
   console.log(msg)
   Task.createTaskUI(addTaskToProject(target), userTask)

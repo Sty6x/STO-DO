@@ -12,11 +12,9 @@ class Project {
   addTask(msg, task) {
     console.log(msg)
     this.taskList.push(task)
-    console.log(this.taskList)
   }
   removeTask(taskIndex) {
     this.taskList.pop(taskIndex)
-    console.log(this.taskList)
   }
   deleteProject() {
     for (let i = 0; i < this.taskList.length; i++) {
@@ -51,11 +49,9 @@ projectAppContainer.addEventListener('click', e => {
 
 function deleteProj(target) {
   if (target.matches('.proj-del-btn')) {
-    const delButtonID = target.id.slice(-1)
-    console.log(delButtonID)
-    projectList[delButtonID].deleteProject()
-    projectList.pop(delButtonID)
-    console.log(projectList[delButtonID].taskList)
+    const projectPosition = target.id.slice(-1)
+    projectList[projectPosition].deleteProject()
+    projectList.pop(projectPosition)
   }
 }
 
@@ -76,7 +72,6 @@ function addTaskToProjTaskList() {
   return project
 }
 PubSub.subscribe('getProjectTaskData', (msg, task) => {
-  console.log('data sent ')
   addTaskToProjTaskList().addTask(msg, task)
 })
 
