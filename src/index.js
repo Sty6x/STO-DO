@@ -20,10 +20,8 @@ headerTextDateContainer.appendChild(headerDateDisplay)
 headerTextDateContainer.setAttribute('style', 'display:flex; flex-direction:column; gap:10px; margin-right:5em;')
 headerDateDisplay.setAttribute('style', 'white-space:nowrap; font-family:"Montserrat-Reg"; color: var(--text)')
 
-console.log(tabButtons)
 tabButtons.addEventListener('click', e => {
   const target = e.target;
-
   if (target.closest('.td-t')) {
     header.textContent = 'TODAY'
     sideBar.children[0].classList.add('active')
@@ -41,7 +39,6 @@ tabButtons.addEventListener('click', e => {
 })
 function changeSidebar() {
   if (!sideBarContainer.classList.contains('sidebar-active')) {
-    console.log('has')
     sideBarContainer.setAttribute('class', 'sidebar-active')
     sideBarContainer.appendChild(sideBar)
   } else {

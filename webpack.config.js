@@ -11,7 +11,8 @@ module.exports = {
     todayUI: './src/todayUI.js',
     projectUI: './src/projectUI.js',
     projectApp: './src/projectApp.js',
-    projectData: './src/projectData.js'
+    projectData: './src/projectData.js',
+    ToDoLocalStorage: './src/ToDoLocalStorage.js'
   },
   output: {
     filename: '[name].bundle.js',
