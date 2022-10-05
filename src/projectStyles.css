@@ -78,7 +78,7 @@
 }
 
 #add-project-btn{
-  	background-color: var(--frost-3);
+ background-color: var(--frost-3);
 	border: none;
 	border-radius: 15px;
 	color: var(--text);
@@ -89,6 +89,24 @@
 	transition: all 270ms ease-in;
 
 }
+.proj-title-container{
+  display:flex;
+}
+
+.proj-del-btn{
+  margin-left: auto;
+  appearance:none;
+  border:none;
+  font-size: 1rem;
+  border-radius:4px;
+  font-family:Montserrat-Reg;
+  text-transform: uppercase;
+  padding:5px;
+  margin-left: auto;
+  background-color: var(--highlight-yellow);
+  color: var(--dark);
+}
+
 #add-project-btn:hover{
   width:13em;
   font-weight:bold;
@@ -132,7 +150,6 @@
   transition: all 150ms ease-in;
 }
 .proj-add-task-btn::before{
-  /* align-self:end; */
   content:'';
   padding: 0;
   display:inline-block;

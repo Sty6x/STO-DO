@@ -15,6 +15,7 @@ export function createProjectUI(container, projectData) {
   projAddTaskBtn.setAttribute('class', `proj-add-task-btn`)
   delProjButton.setAttribute('class', 'proj-del-btn')
   projAddTaskBtn.textContent = 'ADD TASK'
+  delProjButton.textContent = 'REMOVE PROJECT'
   projectTitle.textContent = `${projectData.title}`
   projectTitleCont.append(projectTitle, delProjButton)
   projectContainer.append(projectTitleCont, projAddTaskBtn, projTaskCont)
