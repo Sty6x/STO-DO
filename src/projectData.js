@@ -48,6 +48,7 @@ projectAppContainer.addEventListener('click', e => {
   deleteProj(target)
   removeTask(target)
 })
+
 function deleteProj(target) {
   if (target.matches('.proj-del-btn')) {
     const delButtonID = target.id.slice(-1)
@@ -57,19 +58,18 @@ function deleteProj(target) {
     console.log(projectList[delButtonID].taskList)
   }
 }
-let i = 0
+
 function removeTask(target) {
   if (target.matches('#remove-button')) {
     let removeTaskBtnParent = target.parentNode;
     let taskContainer = removeTaskBtnParent.parentNode
-    let projectContainer = taskContainer.parentNode.children
-    let task = Array.from(projectContainer).indexOf(taskContainer)
-    console.log(task)
-    projectList[0].removeTask(task)
-
+    let projectContainerChildren = taskContainer.parentNode.children
+    let projectContainer = taskContainer.parentNode.id.slice(-1)
+    let task = Array.from(projectContainerChildren).indexOf(taskContainer)
+    projectList[projectContainer].removeTask(task)
   }
-
 }
+
 function addTaskToProjTaskList() {
   const buttonId = target.id.slice(-1)
   const project = projectList[buttonId]
