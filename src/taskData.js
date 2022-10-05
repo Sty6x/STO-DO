@@ -9,13 +9,10 @@ let priority;
 priorityButtonContainer.addEventListener('click', event => {
   console.log(event.target)
   if (event.target.matches('#very-important')) {
-    console.log('very important')
     priority = '#bf616a';
   } else if (event.target.matches('#important')) {
-    console.log('important')
     priority = '#ebcb8b';
   } else if (event.target.matches('#less-important')) {
-    console.log('less important')
     priority = '#a3be8c';
   }
 })
@@ -59,7 +56,6 @@ function TaskData() {
 formAddTaskButton.addEventListener('click', e => {
   e.preventDefault();
   if (userTitle.value == '') {
-    console.log('need title');
     return;
   } else {
     if (sideBar.children[0].classList.contains('active')) {

@@ -42,20 +42,26 @@ submitInpBtn.addEventListener('click', () => {
 })
 
 let target;
-if (!projectAppContainer) {
-  return
-} else {
-  projectAppContainer.addEventListener('click', e => {
-    target = e.target
-  })
-
+projectAppContainer.addEventListener('click', e => {
+  target = e.target
+  deleteProj(target)
+})
+function deleteProj(target) {
+  if (target.matches('.proj-del-btn')) {
+    const delButtonID = target.id.slice(-1)
+    console.log(delButtonID)
+    console.log(projectList[delButtonID].taskList)
+    projectList[delButtonID].deleteProject()
+    console.log(projectList[delButtonID].taskList)
+  }
 }
 function addTaskToProjTaskList() {
   const buttonId = target.id.slice(-1)
   const project = projectList[buttonId]
   return project
 }
-PubSub.subscribe('getTaskData', (msg, task) => {
+PubSub.subscribe('getProjectTaskData', (msg, task) => {
+  console.log('data sent ')
   addTaskToProjTaskList().addTask(msg, task)
 })
 
