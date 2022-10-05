@@ -1,10 +1,10 @@
 import * as Task from './taskUI'
 const formAddTaskButton = document.getElementById('form-add-button');
 const mainContentContainer = document.getElementById('main-content-container')
-const sbMainContainer = document.getElementById('sb-main-container')
 export function createProjectUI(container, projectData) {
   const projectContainer = document.createElement('div');
   const projectTitleCont = document.createElement('div')
+  const delProjButton = document.createElement('button');
   const projectTitle = document.createElement('h3');
   const projTaskCont = document.createElement('div')
   const projAddTaskBtn = document.createElement('button')
@@ -13,9 +13,10 @@ export function createProjectUI(container, projectData) {
   projectTitle.setAttribute('class', 'proj-title')
   projTaskCont.setAttribute('class', `proj-task-cont`)
   projAddTaskBtn.setAttribute('class', `proj-add-task-btn`)
+  delProjButton.setAttribute('class', 'proj-del-btn')
   projAddTaskBtn.textContent = 'ADD TASK'
   projectTitle.textContent = `${projectData.title}`
-  projectTitleCont.appendChild(projectTitle)
+  projectTitleCont.append(projectTitle, delProjButton)
   projectContainer.append(projectTitleCont, projAddTaskBtn, projTaskCont)
   container.appendChild(projectContainer);
   setProjectElemID()
@@ -25,6 +26,8 @@ function setProjectElemID() {
   const projectUIList = document.querySelectorAll('.proj-container')
   const projectTaskList = document.querySelectorAll('.proj-task-cont')
   const projectAddTaskBtnList = document.querySelectorAll('.proj-add-task-btn')
+  const projectDeleteBtnList = document.querySelectorAll('.proj-del-btn');
+  const projectDeleteBtnListArr = Array.from(projectDeleteBtnList)
   const projectUIListArr = Array.from(projectUIList)
   const projectTaskListArr = Array.from(projectTaskList)
   const projectAddTaskBtnListArr = Array.from(projectAddTaskBtnList)
@@ -32,6 +35,7 @@ function setProjectElemID() {
     projectUIListArr[i].setAttribute('id', `project-ID-${i}`)
     projectTaskListArr[i].setAttribute('id', `project-task-cont-ID-${i}`)
     projectAddTaskBtnListArr[i].setAttribute('id', `project-add-task-btn-ID-${i}`)
+    projectDeleteBtnListArr[i].setAttribute('id', `project-delete-btn-ID-${i}`)
   }
 }
 
