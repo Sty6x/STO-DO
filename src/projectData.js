@@ -14,8 +14,9 @@ class Project {
     this.taskList.push(task)
     console.log(this.taskList)
   }
-  removeTask() {
-    // something
+  removeTask(taskIndex) {
+    this.taskList.pop(taskIndex)
+    console.log(this.taskList)
   }
   deleteProject() {
     for (let i = 0; i < this.taskList.length; i++) {
@@ -45,15 +46,29 @@ let target;
 projectAppContainer.addEventListener('click', e => {
   target = e.target
   deleteProj(target)
+  removeTask(target)
 })
 function deleteProj(target) {
   if (target.matches('.proj-del-btn')) {
     const delButtonID = target.id.slice(-1)
     console.log(delButtonID)
-    console.log(projectList[delButtonID].taskList)
     projectList[delButtonID].deleteProject()
+    projectList.pop(delButtonID)
     console.log(projectList[delButtonID].taskList)
   }
+}
+let i = 0
+function removeTask(target) {
+  if (target.matches('#remove-button')) {
+    let removeTaskBtnParent = target.parentNode;
+    let taskContainer = removeTaskBtnParent.parentNode
+    let projectContainer = taskContainer.parentNode.children
+    let task = Array.from(projectContainer).indexOf(taskContainer)
+    console.log(task)
+    projectList[0].removeTask(task)
+
+  }
+
 }
 function addTaskToProjTaskList() {
   const buttonId = target.id.slice(-1)
