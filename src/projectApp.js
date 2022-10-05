@@ -54,4 +54,6 @@ PubSub.subscribe('getProjectData', (msg, projectData) => {
 projectAppContainer.addEventListener('click', e => {
   const target = e.target;
   Project.EditTitle(target)
+  Project.deleteProject(target)
 })
+

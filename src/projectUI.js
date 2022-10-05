@@ -15,9 +15,10 @@ export function createProjectUI(container, projectData) {
   projAddTaskBtn.setAttribute('class', `proj-add-task-btn`)
   delProjButton.setAttribute('class', 'proj-del-btn')
   projAddTaskBtn.textContent = 'ADD TASK'
-  delProjButton.textContent = 'REMOVE PROJECT'
+  delProjButton.textContent = 'DELETE PROJECT'
   projectTitle.textContent = `${projectData.title}`
   projectTitleCont.append(projectTitle, delProjButton)
+  // projectTitleCont.children[0].insertAdjacentElement('afterend', delProjButton)
   projectContainer.append(projectTitleCont, projAddTaskBtn, projTaskCont)
   container.appendChild(projectContainer);
   setProjectElemID()
@@ -83,8 +84,16 @@ export function EditTitle(target) {
     for (let key in titleAtt) {
       title.setAttribute(key, titleAtt[key]);
     };
-    titleProjectContainer.appendChild(title);
+    titleProjectContainer.insertBefore(title, titleProjectContainer.children[0]);
     title.value = target.textContent;
+  }
+}
+
+export function deleteProject(target) {
+  let removeButtonParent = target.parentNode;
+  let project = removeButtonParent.parentNode;
+  if (target.matches('.proj-del-btn')) {
+    project.remove()
   }
 }
 
@@ -116,3 +125,4 @@ PubSub.subscribe('getProjectTaskData', (msg, userTask) => {
   console.log(msg)
   Task.createTaskUI(addTaskToProject(target), userTask)
 })
+
