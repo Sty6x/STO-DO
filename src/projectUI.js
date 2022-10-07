@@ -1,6 +1,7 @@
 import * as Task from './taskUI'
 const formAddTaskButton = document.getElementById('form-add-button');
 const mainContentContainer = document.getElementById('main-content-container')
+const sideBar = document.querySelector('.sidebar')
 export function createProjectUI(container, projectData) {
   const projectContainer = document.createElement('div');
   const projectTitleCont = document.createElement('div')
@@ -113,8 +114,11 @@ formAddTaskButton.addEventListener('click', () => {
 
 mainContentContainer.addEventListener('click', e => {
   const target = e.target
-  Task.removeTask(target)
-  Task.EditTask(target)
+  if (sideBar.children[1].classList.contains('active')) {
+    Task.removeTask(target)
+    Task.EditTask(target)
+
+  }
 })
 
 PubSub.subscribe('getProjectTaskData', (msg, userTask) => {
