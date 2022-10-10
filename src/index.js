@@ -3,6 +3,7 @@ import { createTdTaskUI } from './todayUI'
 import { createProjectAppUI } from "./projectApp";
 import './styles.css';
 import './projectStyles.css'
+import './upcomingStyles.css'
 import { differenceInCalendarDays, format } from 'date-fns'
 import { upContainer } from "./upcomingTaskData";
 const mainContentContainer = document.getElementById('main-content-container')
