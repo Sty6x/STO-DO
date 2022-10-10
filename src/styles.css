@@ -401,7 +401,7 @@ li>.tab-icon {
 	margin: 2em 6em 2em 6em;
 	flex-direction: column;
 	border-radius: 4px;
-  transition: padding 230ms ease;
+  transition: padding 200ms ease;
 }
 .no-sb-main-content-container{
  padding:0 15em;
