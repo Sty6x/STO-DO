@@ -4,7 +4,7 @@ const userDesc = document.getElementById('desc')
 const userTitle = document.getElementById('title')
 const formAddTaskButton = document.getElementById('form-add-button');
 const sideBar = document.querySelector('.sidebar')
-
+const dateInput = document.getElementById('date-input')
 let priority;
 priorityButtonContainer.addEventListener('click', event => {
   console.log(event.target)
@@ -21,6 +21,7 @@ function clearInput() {
   userDesc.value = '';
   userTitle.value = '';
   priority = '';
+  dateInput.value = '';
 };
 
 const userTasks = []
@@ -37,7 +38,7 @@ function TaskData() {
   let id = 0;
   descInput = userDesc.value;
   titleInput = userTitle.value;
-  let taskDate = format(new Date(), 'MM-dd-yyyy');
+  let taskDate = dateInput.value;
   for (let i = 0; i < userTasks.length; i++) {
     id = `${i}`;
   }
