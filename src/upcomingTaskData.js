@@ -1,2 +1,1 @@
-console.log('upcoming Task')
-console.log('heyho')
+export const upComing = 'upComing task'

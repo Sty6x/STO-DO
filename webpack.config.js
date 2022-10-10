@@ -12,6 +12,7 @@ module.exports = {
     projectApp: './src/projectApp.js',
     projectData: './src/projectData.js',
     ToDoLocalStorage: './src/ToDoLocalStorage.js'
+
   },
   output: {
     filename: '[name].bundle.js',

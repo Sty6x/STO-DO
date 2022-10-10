@@ -19,10 +19,8 @@ headerDateDisplay.textContent = headerDate;
 headerTextDateContainer.appendChild(headerDateDisplay)
 headerTextDateContainer.setAttribute('style', 'display:flex; flex-direction:column; gap:10px; margin-right:5em;')
 headerDateDisplay.setAttribute('style', 'white-space:nowrap; font-family:"Montserrat-Reg"; color: var(--text)')
-import img from './resources/menu-2.png'
-const myImage = new Image()
-myImage.src = img
-console.log(img)
+import { upComing } from './upcomingTaskData'
+console.log(upComing)
 tabButtons.addEventListener('click', e => {
   const target = e.target;
   if (target.closest('.td-t')) {
