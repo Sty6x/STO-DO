@@ -1,6 +1,7 @@
 export const upComing = 'upcoming task init'
 import * as Task from './taskUI'
 const mainContainer = document.getElementById('main-content-container')
+const sideBar = document.querySelector('sidebar')
 export const upContainer = document.createElement('div')
 upContainer.setAttribute('id', 'up-container')
 
@@ -11,9 +12,8 @@ const taskArr = []
 export function checkTaskDate(msg, userData) {
   console.log(msg)
   if (isFuture(parseISO(userData.taskDate))) {
+
     storeTaskData(userData)
-  } else {
-    console.log('nada')
   }
 }
 export function storeTaskData(data) {

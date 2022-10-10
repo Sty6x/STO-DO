@@ -65,7 +65,7 @@ formAddTaskButton.addEventListener('click', e => {
       PubSub.publish('getTaskData', TaskData())
       storeUserTaskList(TaskData());
       clearInput();
-    } else if (sideBar.children[2].classList.contains('active')) {
+    } else if (sideBar.children[1].classList.contains('active')) {
       PubSub.publish('getProjectTaskData', TaskData())
       storeUserTaskList(TaskData());
       clearInput();
