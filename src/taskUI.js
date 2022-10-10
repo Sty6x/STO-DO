@@ -33,16 +33,24 @@ export function createTaskUI(container, userTask) {
   editRmContainer.setAttribute("class", "edit-container");
 
 
+  let dueDateCont = document.createElement('div');
+  dueDateCont.setAttribute('class', 'due-date-container')
+  let dueDateText = document.createElement('p');
+  dueDateText.setAttribute('class', 'due-date-text')
+  dueDateText.textContent = ` ${userTask.taskDate}`;
+  dueDateCont.appendChild(dueDateText)
+
+
   let removeButton = document.createElement("div");
   removeButton.setAttribute("id", "remove-button");
-  removeButton.setAttribute("class", "edit-task-buttons");
+  removeButton.setAttribute("class", "remove-task-buttons");
 
   editRmContainer.appendChild(removeButton);
   task.setAttribute('style', `border-left:solid 10px ${userTask.priority};`);
   task.setAttribute('id', `task-${userTask.id}`);
 
   container.appendChild(task);
-  task.append(titleAndDescContainer, editRmContainer);
+  task.append(titleAndDescContainer, dueDateCont, editRmContainer);
   titleAndDescContainer.append(taskTitle, taskDesc);
 }
 

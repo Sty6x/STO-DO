@@ -471,23 +471,6 @@ li>.tab-icon {
   font-weight:bold;
 }
 
-
-
-
-/* change main task container to this one on PROJECTS tab */
-/* different layout only on PROJECT */
-/* 
-#projects-main-task-container {
-	height: 80%;
-	margin: 3em 4em 2em 4em;
-	outline: white solid 1px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-} */
-
-/* TODAY and UPCOMING TASK have the same layout except for */
-/* PROJECTS tab */
 #td-up-main-task-container {
 	height: 100%;
 	margin: 0em 10em 2em 10em;
@@ -527,32 +510,40 @@ li>.tab-icon {
 }
 
 .task {
-	/* dar2Main-Sb */
 	background-color: var(--dark);
-	justify-content: space-between;
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
 	padding: .7em 2em;
 	border-radius: 10px;
 	box-shadow: 6px 5px 10px rgb(0, 0, 0, .2);
 	height: 3em;
-	/* border-left: #5e81ac solid 10px; */
 }
 
 .title-desc-container {
-	color: var(--text);
 	line-height: 20px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 }
+.due-date-text, .title-desc-container{
+  color: var(--text);
+}
 
 #task-title {
 	font-weight: bold;
+  text-transform:uppercase;
 	font-size: 1.2rem;
 	font-family: 'Montserrat-Bold';
 }
 
 #task-desc {
 	font-size: .8rem;
+	font-family: 'Montserrat-Reg';
+	font-size: 1.2rem;
+}
+.due-date-container{
+  margin-left: auto;
 	font-family: 'Montserrat-Reg';
 }
 
@@ -568,14 +559,13 @@ li>.tab-icon {
 	--etask-btn-bg-size:25px;
 	--etask-btn-HW:25px;
 }
-.edit-task-buttons{
+.remove-task-buttons{
 	opacity: .8;
-	/* border-radius: 30px;s */
-	/* padding: 1.5em 1.5em; */
 	height: var(--etask-btn-HW);
 	width: var(--etask-btn-HW);
 	padding: var(--etask-btn-padding);
 	transition: all 150ms ease;
+  margin-left:1.2em;
 }
 
 #edit-button{
@@ -611,18 +601,11 @@ li>.tab-icon {
 }
 
 
-.edit-task-buttons,
+.remove-task-buttons,
 #task-desc,
 #task-title {
 	cursor: pointer;
-
 }
-
-/* disable border on focus for buttons */
-/* button:focus{
-	appearance: none;
-	border: none;
-} */
 
 ::-webkit-scrollbar {
 	width: 5px;
