@@ -67,7 +67,6 @@ formAddTaskButton.addEventListener('click', e => {
       clearInput();
     } else if (sideBar.children[1].classList.contains('active')) {
       PubSub.publish('getProjectTaskData', TaskData())
-      storeUserTaskList(TaskData());
       clearInput();
     }
   }

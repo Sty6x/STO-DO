@@ -9,17 +9,17 @@ mainContainer.appendChild(upContainer)
 import isFuture from 'date-fns/isFuture'
 import parseISO from 'date-fns/parseISO'
 const taskArr = []
-export function checkTaskDate(msg, userData) {
-  console.log(msg)
-  if (isFuture(parseISO(userData.taskDate))) {
+// export function checkTaskDate(msg, userData) {
+//   console.log(msg)
+//   if (isFuture(parseISO(userData.taskDate))) {
 
-    storeTaskData(userData)
-  }
-}
-export function storeTaskData(data) {
-  taskArr.push(data)
-  console.table(taskArr)
-  Task.createTaskUI(upContainer, data)
-}
-PubSub.subscribe('getTaskData', checkTaskDate)
+//     storeTaskData(userData)
+//   }
+// }
+// export function storeTaskData(data) {
+//   taskArr.push(data)
+//   console.table(taskArr)
+//   Task.createTaskUI(upContainer, data)
+// }
+// PubSub.subscribe('getTaskData', checkTaskDate)
 

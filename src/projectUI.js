@@ -114,7 +114,7 @@ formAddTaskButton.addEventListener('click', () => {
 
 mainContentContainer.addEventListener('click', e => {
   const target = e.target
-  if (sideBar.children[2].classList.contains('active')) {
+  if (sideBar.children[1].classList.contains('active')) {
     Task.removeTask(target)
     Task.EditTask(target)
 
