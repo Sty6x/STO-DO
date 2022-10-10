@@ -33,12 +33,13 @@ function storeUserTaskList(obj) {
 };
 
 function TaskData() {
+  let id = 0;
   let descInput;
   let titleInput;
-  let id = 0;
   descInput = userDesc.value;
   titleInput = userTitle.value;
   let taskDate = dateInput.value;
+  let testDate = format(new Date(), 'MMMM-d-yyyy')
   for (let i = 0; i < userTasks.length; i++) {
     id = `${i}`;
   }
@@ -50,7 +51,8 @@ function TaskData() {
     descInput,
     priority,
     id,
-    taskDate
+    taskDate,
+    testDate
   };
 };
 
