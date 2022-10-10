@@ -37,12 +37,13 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
-    static: './src',
+    static: './dist',
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Sto-Do',
-      template: '!!handlebars-loader!src/index.hbs'
+      // template: '!!handlebars-loader!src/index.hbs'
+      template: './src/index.html'
     }),
   ],
   optimization: {
