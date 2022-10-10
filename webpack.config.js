@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// var template = require("./file.handlebars");
 
 module.exports = {
   mode: 'development',
@@ -32,6 +31,14 @@ module.exports = {
       test: /\.(woff|woff2|eot|ttf|otf)$/i,
       type: 'asset/resource',
     },
+    {
+      test: /\.html$/i,
+      use: [
+        {
+          loader: 'html-loader'
+        }
+      ]
+    }
     ],
 
   },
@@ -42,7 +49,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Sto-Do',
-      // template: '!!handlebars-loader!src/index.hbs'
       template: './src/index.html'
     }),
   ],
