@@ -1,4 +1,8 @@
-export const upComing = 'upComing task'
+export const upComing = 'upcoming task init'
+const mainContainer = document.getElementById('main-content-container')
+export const upContainer = document.createElement('div')
+upContainer.setAttribute('id', 'up-container')
+mainContainer.appendChild(upContainer)
 import isFuture from 'date-fns/isFuture'
 import parseISO from 'date-fns/parseISO'
 const taskArr = []
