@@ -665,11 +665,10 @@ li>.tab-icon {
 }
 
 li>textarea,
-[type='text'] {
+[type='text'] ,li>input[type='date']{
 	border: none;
 	background-color: var(--darkMain-Sb);
 }
-
 
 #button-form-container {
 	display: flex;
@@ -698,14 +697,14 @@ li>textarea,
 }
 
 .input-container>#desc,
-#title {
+#title,li>input[type='date'] {
 	padding: .5em .9em;
 
 }
 
 
 input[type='text'],
-textarea {
+textarea,input[type='date']{
 	font-family: 'Montserrat-Med';
 	color: var(--text);
 	line-height: 10px;
@@ -714,9 +713,10 @@ textarea {
 input[type='text']:focus,
 textarea:focus,
 input[type='text'],
-textarea {
+textarea,input[type='date'] {
 	outline: none;
 	resize: none;
+  border:none;
 }
 
 #form-add-cancel-buttons {

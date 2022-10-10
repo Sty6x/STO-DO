@@ -1,10 +1,12 @@
 export const upComing = 'upcoming task init'
 import * as Task from './taskUI'
+import { format, subDays } from 'date-fns'
 const mainContainer = document.getElementById('main-content-container')
 const sideBar = document.querySelector('sidebar')
 export const upContainer = document.createElement('div')
 upContainer.setAttribute('id', 'up-container')
-
+const dateInput = document.getElementById('date-input')
+dateInput.setAttribute('min', `${format(new Date(), 'yyyy-d-MM')}`)
 mainContainer.appendChild(upContainer)
 import isFuture from 'date-fns/isFuture'
 import parseISO from 'date-fns/parseISO'
