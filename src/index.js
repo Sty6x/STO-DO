@@ -56,9 +56,11 @@ tabButtons.addEventListener('click', e => {
 function changeSidebar() {
   if (!sideBarContainer.classList.contains('sidebar-active')) {
     sideBarContainer.setAttribute('class', 'sidebar-active')
+    mainContentContainer.classList.remove('no-sb-main-content-container')
     sideBarContainer.appendChild(sideBar)
   } else {
     sideBarContainer.setAttribute('class', 'sidebar-inactive')
+    mainContentContainer.setAttribute('class', 'no-sb-main-content-container')
     sideBarContainer.removeChild(sideBar)
   }
 }

@@ -400,9 +400,11 @@ li>.tab-icon {
 	width: max(100%, 300px);
 	margin: 2em 6em 2em 6em;
 	flex-direction: column;
-	padding: 2em 3em;
 	border-radius: 4px;
-
+  transition: padding 200ms ease;
+}
+.no-sb-main-content-container{
+ padding:0 15em;
 }
 
 #header-option-container,
