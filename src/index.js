@@ -32,6 +32,7 @@ tabButtons.addEventListener('click', e => {
     sideBar.children[2].classList.remove('active')
     projectAppCont.setAttribute('style', 'display:none;')
     todayAppcont.setAttribute('style', 'display:flex;')
+    upContainer.setAttribute('style', 'display:none')
   }
   else if (target.closest('.prj')) {
     sideBar.children[0].classList.remove('active')
@@ -40,6 +41,7 @@ tabButtons.addEventListener('click', e => {
     header.textContent = 'PROJECTS'
     projectAppCont.setAttribute('style', 'display:flex;')
     todayAppcont.setAttribute('style', 'display:none;')
+    upContainer.setAttribute('style', 'display:none')
   }
   else if (target.closest('.up-t')) {
     sideBar.children[0].classList.remove('active')
