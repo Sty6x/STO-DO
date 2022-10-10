@@ -39,7 +39,9 @@ function TaskData() {
   descInput = userDesc.value;
   titleInput = userTitle.value;
   let taskDate = dateInput.value;
-  let testDate = format(new Date(), 'MMMM-d-yyyy')
+  let testDate = format(new Date(), 'd')
+  let dueDate = taskDate.slice(8) - testDate
+  // console.log(setDay)
   for (let i = 0; i < userTasks.length; i++) {
     id = `${i}`;
   }
@@ -52,7 +54,8 @@ function TaskData() {
     priority,
     id,
     taskDate,
-    testDate
+    testDate,
+    dueDate
   };
 };
 

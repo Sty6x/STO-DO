@@ -37,7 +37,14 @@ export function createTaskUI(container, userTask) {
   dueDateCont.setAttribute('class', 'due-date-container')
   let dueDateText = document.createElement('p');
   dueDateText.setAttribute('class', 'due-date-text')
-  dueDateText.textContent = ` ${userTask.taskDate}`;
+
+  if (userTask.dueDate == 0) {
+    dueDateText.textContent = `Task is due today`;
+  } else if (userTask.dueDate == 1) {
+    dueDateText.textContent = `Task is due tomorrow`;
+  } else {
+    dueDateText.textContent = `Task is due in ${userTask.dueDate} days`;
+  }
   dueDateCont.appendChild(dueDateText)
 
 

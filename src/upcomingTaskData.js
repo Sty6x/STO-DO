@@ -6,7 +6,7 @@ const sideBar = document.querySelector('sidebar')
 export const upContainer = document.createElement('div')
 upContainer.setAttribute('id', 'up-container')
 const dateInput = document.getElementById('date-input')
-dateInput.setAttribute('min', `${format(new Date(), 'yyyy-d-MM')}`)
+dateInput.setAttribute('min', `${format(new Date(), 'yyyy-MM-d')}`)
 mainContainer.appendChild(upContainer)
 import isFuture from 'date-fns/isFuture'
 import parseISO from 'date-fns/parseISO'
