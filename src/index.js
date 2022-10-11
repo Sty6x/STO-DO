@@ -19,11 +19,11 @@ const headerTextDateContainer = document.getElementById('header-text-date-contai
 const headerDateDisplay = document.createElement('small')
 const tabButtons = document.querySelector('.sidebar');
 const header = document.getElementById("header-text"); //style
+const tdUpMainContainer = document.getElementById("td-up-main-task-container");
 headerDateDisplay.textContent = headerDate;
 headerTextDateContainer.appendChild(headerDateDisplay)
 headerTextDateContainer.setAttribute('style', 'display:flex; flex-direction:column; gap:10px; margin-right:5em;')
 headerDateDisplay.setAttribute('style', 'white-space:nowrap; font-family:"Montserrat-Reg"; color: var(--text)')
-const tdUpMainContainer = document.getElementById("td-up-main-task-container");
 
 function changeSidebar() {
   if (!sideBarContainer.classList.contains('sidebar-active')) {
@@ -46,11 +46,17 @@ function defaultTasks(count) {
     }
   }
 }
-defaultTasks(3)
-
-function defaultProjects(count) {
-
+function defaultProjects() {
+  Project.createProjectUI(projectAppCont, { title: 'My Project' })
+  let projectTaskCont = document.getElementById(`project-task-cont-ID-0`)
+  Task.createTaskUI(projectTaskCont, { titleInput: `My Task-1`, dueDate: 0, descInput: `My Task Desription`, priority: '#a3be8c' })
 }
+
+if (localStorage.length === 0) {
+  defaultTasks(3)
+  defaultProjects()
+}
+
 tabButtons.addEventListener('click', e => {
   const target = e.target;
   if (target.closest('.td-t')) {
