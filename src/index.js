@@ -4,12 +4,13 @@ import { createProjectAppUI } from "./projectApp";
 import './styles.css';
 import './projectStyles.css'
 import './upcomingStyles.css'
-import { differenceInCalendarDays, format } from 'date-fns'
+import { format } from 'date-fns'
 import { upContainer } from "./upcomingTaskData";
+import * as Project from './projectUI'
+import * as Task from './taskUI'
 const mainContentContainer = document.getElementById('main-content-container')
 const projectAppCont = document.getElementById('project-app-container')
 const todayAppcont = document.getElementById(('td-up-main-task-container'))
-const upAppCont = document.getElementById('up-container')
 const menuButton = document.getElementById('hamburger-menu')
 const sideBarContainer = document.getElementById('sidebar-container')
 const sideBar = document.querySelector('.sidebar')
@@ -22,7 +23,34 @@ headerDateDisplay.textContent = headerDate;
 headerTextDateContainer.appendChild(headerDateDisplay)
 headerTextDateContainer.setAttribute('style', 'display:flex; flex-direction:column; gap:10px; margin-right:5em;')
 headerDateDisplay.setAttribute('style', 'white-space:nowrap; font-family:"Montserrat-Reg"; color: var(--text)')
+const tdUpMainContainer = document.getElementById("td-up-main-task-container");
 
+function changeSidebar() {
+  if (!sideBarContainer.classList.contains('sidebar-active')) {
+    sideBarContainer.setAttribute('class', 'sidebar-active')
+    mainContentContainer.classList.remove('no-sb-main-content-container')
+    sideBarContainer.appendChild(sideBar)
+  } else {
+    sideBarContainer.setAttribute('class', 'sidebar-inactive')
+    mainContentContainer.setAttribute('class', 'no-sb-main-content-container')
+    sideBarContainer.removeChild(sideBar)
+  }
+}
+
+function defaultTasks(count) {
+  for (let i = 0; i < count; i++) {
+    if (i > 0) {
+      Task.createTaskUI(upContainer, { titleInput: `My Task-${i}`, dueDate: i, descInput: `My Task Desription`, priority: '#a3be8c' })
+    } else {
+      Task.createTaskUI(tdUpMainContainer, { titleInput: `My Task-${i}`, dueDate: i, descInput: `My Task Desription`, priority: '#a3be8c' })
+    }
+  }
+}
+defaultTasks(3)
+
+function defaultProjects(count) {
+
+}
 tabButtons.addEventListener('click', e => {
   const target = e.target;
   if (target.closest('.td-t')) {
@@ -53,15 +81,4 @@ tabButtons.addEventListener('click', e => {
     todayAppcont.setAttribute('style', 'display:none;')
   }
 })
-function changeSidebar() {
-  if (!sideBarContainer.classList.contains('sidebar-active')) {
-    sideBarContainer.setAttribute('class', 'sidebar-active')
-    mainContentContainer.classList.remove('no-sb-main-content-container')
-    sideBarContainer.appendChild(sideBar)
-  } else {
-    sideBarContainer.setAttribute('class', 'sidebar-inactive')
-    mainContentContainer.setAttribute('class', 'no-sb-main-content-container')
-    sideBarContainer.removeChild(sideBar)
-  }
-}
 menuButton.addEventListener('click', changeSidebar);
