@@ -41,7 +41,6 @@ function TaskData() {
   let taskDate = dateInput.value;
   let testDate = format(new Date(), 'd')
   let dueDate = taskDate.slice(8) - testDate
-  // console.log(setDay)
   for (let i = 0; i < userTasks.length; i++) {
     id = `${i}`;
   }

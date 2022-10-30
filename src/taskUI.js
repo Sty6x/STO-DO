@@ -1,18 +1,13 @@
-console.log('taskUI initialized')
 const body = document.querySelector('body')
-
 const dimBg = document.createElement("div");
 dimBg.setAttribute(
   "style",
   "position:absolute;bottom:0%;left:0%;z-index:99;min-height:100vh;width:100vw;background-color:black;opacity:.5"
 );
 dimBg.setAttribute('id', 'dim-background-form')
-
-
 const popUpForm = document.getElementById('form-container')
-// creates task from user input
+
 export function createTaskUI(container, userTask) {
-  // console.log(msg)
   console.log(userTask)
   let task = document.createElement("div");
   task.setAttribute("class", "task");
@@ -169,8 +164,7 @@ export function EditTask(target) {
     titleDescContainer.appendChild(desc);
   }
 }
-// or change when event is euqal to remove
-// button target then target.remove()
+
 export function removeTask(target) {
   let removeButtonParent = target.parentNode;
   let task = removeButtonParent.parentNode;
