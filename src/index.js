@@ -88,3 +88,4 @@ tabButtons.addEventListener('click', e => {
   }
 })
 menuButton.addEventListener('click', changeSidebar);
+console.log('init')
