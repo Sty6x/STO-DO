@@ -41,7 +41,6 @@ formAddTaskButton.addEventListener('click', () => {
 });
 
 PubSub.subscribe('getTaskData', (msg, usertask) => {
-  console.log(msg)
   TaskUI.createTaskUI(tdUpMainContainer, usertask)
 })
 

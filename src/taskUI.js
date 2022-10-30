@@ -8,7 +8,6 @@ dimBg.setAttribute('id', 'dim-background-form')
 const popUpForm = document.getElementById('form-container')
 
 export function createTaskUI(container, userTask) {
-  console.log(userTask)
   let task = document.createElement("div");
   task.setAttribute("class", "task");
 
@@ -33,12 +32,12 @@ export function createTaskUI(container, userTask) {
   let dueDateText = document.createElement('p');
   dueDateText.setAttribute('class', 'due-date-text')
 
-  if (userTask.dueDate == 0) {
+  if (userTask.dueDate == 0 || userTask.dueDate ==1) {
     dueDateText.textContent = `Task is due today`;
-  } else if (userTask.dueDate == 1) {
-    dueDateText.textContent = `Task is due tomorrow`;
-  } else {
-    dueDateText.textContent = `Task is due in ${userTask.dueDate} days`;
+  } else if(userTask.dueDate == 2){
+    dueDateText.textContent = `Task is due in 2 days`;
+  } else{
+    dueDateText.textContent = `Task is due in ${userTask.dueDate}`
   }
   dueDateCont.appendChild(dueDateText)
 
@@ -58,7 +57,6 @@ export function createTaskUI(container, userTask) {
 
 export function createFormUI(mainContainer) {
   body.setAttribute("style", "overflow:hidden;");
-  console.log("form created");
   const cancelButton = document.getElementById('form-cancel-button')
   const buttonFormContainer = document.getElementById('form-priority-buttons');
   const priorityBtns = Array.from(buttonFormContainer.children);
@@ -92,7 +90,6 @@ export function removeForm(mainContainer) {
     mainContainer.removeChild(dimBg)
 
   } catch (error) {
-    console.log('dim bg removed ')
   }
   popUpForm.classList.remove('form-active')
   popUpForm.setAttribute('class', 'form-inactive')
@@ -111,7 +108,6 @@ export function EditTask(target) {
 
 
   if (target.matches('#task-title')) {
-    console.log(target);
     applyForm(target)
   } else if (target.matches('#task-desc')) {
     applyForm(target)
@@ -138,11 +134,9 @@ export function EditTask(target) {
   function applyForm(target) {
     target.setAttribute('style', 'display:none;')
     if (target.nodeName === 'H3') {
-      console.log('im of type title')
       createEditInput()
     } else {
       createEditDesc();
-      console.log('im of type description')
     }
   }
 

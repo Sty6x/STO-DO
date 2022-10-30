@@ -47,7 +47,6 @@ function createForm(target) {
 }
 
 PubSub.subscribe('getProjectData', (msg, projectData) => {
-  console.log(msg)
   Project.createProjectUI(projectAppContainer, projectData);
 })
 

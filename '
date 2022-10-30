@@ -1,4 +1,4 @@
-import { format, formatDistance } from 'date-fns'
+import { format, subDays } from 'date-fns'
 const priorityButtonContainer = document.getElementById('form-priority-buttons');
 const userDesc = document.getElementById('desc')
 const userTitle = document.getElementById('title')
@@ -36,10 +36,10 @@ function TaskData() {
   let titleInput;
   descInput = userDesc.value;
   titleInput = userTitle.value;
-  let taskDate = new Date(dateInput.value)
-  let todayDate = new Date()
-  let dueDate = formatDistance(todayDate, taskDate)
-  console.log(dueDate)
+  let taskDate = dateInput.value;
+  let newDate = format(new Date(), 'd')
+  console.log(newDate)
+  let dueDate = newDate - taskDate.slice(8)
 
   for (let i = 0; i < userTasks.length; i++) {
     id = `${i}`;
@@ -53,7 +53,7 @@ function TaskData() {
     priority,
     id,
     taskDate,
-    // testDate,
+    testDate,
     dueDate
   };
 };

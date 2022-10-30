@@ -11,7 +11,6 @@ module.exports = {
     projectUI: './src/projectUI.js',
     projectApp: './src/projectApp.js',
     projectData: './src/projectData.js',
-    ToDoLocalStorage: './src/ToDoLocalStorage.js'
 
   },
   output: {

@@ -30,9 +30,7 @@ let incrementProjID = 0;
 function instantiateProject() {
   let projectTitle = projectTitleInput.value
   projectList.push(new Project(projectTitle, `project-ID-${incrementProjID++}`))
-  console.log(projectList[projectList.length - 1])
   projectTitleInput.value = '';
-  console.log(projectList)
   return projectList[projectList.length - 1]
 }
 
